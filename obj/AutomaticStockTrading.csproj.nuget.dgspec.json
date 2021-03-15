@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading.csproj": {}
+    "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading.csproj": {}
   },
   "projects": {
-    "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading.csproj": {
+    "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
+        "projectUniqueName": "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading.csproj",
         "projectName": "AutomaticStockTrading",
-        "projectPath": "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
+        "projectPath": "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading.csproj",
         "packagesPath": "/Users/jesper/.nuget/packages/",
-        "outputPath": "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/obj/",
+        "outputPath": "/Users/jesper/Documents/Projekter/automaticstocktrading/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
