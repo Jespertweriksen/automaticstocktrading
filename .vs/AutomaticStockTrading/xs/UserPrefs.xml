@@ -1,10 +1,12 @@
-﻿<Properties StartupConfiguration="{DB111C66-0A0C-440E-9F39-09F2A25167A9}|Default">
+﻿<Properties StartupConfiguration="{3E10140E-8FA0-4DA6-BBF4-96164439C469}|Default">
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="AutomaticStockTrading" expanded="True" selected="True">
-            <Node name="AutomaticStockTrading" expanded="True" />
+          <Node name="AutomaticStockTrading" expanded="True">
+            <Node name="AutomaticStockTrading" expanded="True" selected="True">
+              <Node name="AutomaticStockTrading" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
