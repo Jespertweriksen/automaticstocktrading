@@ -32,4 +32,4 @@
 /Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.pdb
 /Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.genruntimeconfig.cache
 /Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csproj.CopyComplete
-/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
+/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Home/Profile.cshtml.g.cs
