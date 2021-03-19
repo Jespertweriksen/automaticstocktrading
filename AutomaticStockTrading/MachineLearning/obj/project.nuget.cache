@@ -1,8 +1,26 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "cZgtKZDs48NRrpc7xcmhYSbMhC7fl8d28O7q5Uc57ce2OHVd+1PrlOT61D2yC1jqNsJAJ7hFH6hydbJ6TXVEGw==",
+=======
+  "dgSpecHash": "GlWeS4v48Y3LJnwVwNLEf2kvX/f1FZaPomS8OkLNvbjN0KM+NUv7y1A/DxVxr/D0anV6REVEmnj2MHQfmM1Myw==",
+>>>>>>> abccf4a456618d85ab003fd0d36f582bb87bb882
   "success": true,
-  "projectFilePath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/MachineLearning.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/MachineLearning/MachineLearning.csproj",
+  "expectedPackageFiles": [
+    "/Users/niklashjort/.nuget/packages/dynamiclanguageruntime/1.3.0/dynamiclanguageruntime.1.3.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/ironpython/2.7.11/ironpython.2.7.11.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/system.codedom/4.7.0/system.codedom.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/system.drawing.common/4.7.0/system.drawing.common.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/system.security.cryptography.protecteddata/4.7.0/system.security.cryptography.protecteddata.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/system.security.permissions/4.7.0/system.security.permissions.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

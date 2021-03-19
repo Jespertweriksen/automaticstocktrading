@@ -136,6 +136,7 @@ C:/Users/45535/Desktop/Informatik 3 semester/project/automaticstocktrading/Autom
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.pdb
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.genruntimeconfig.cache
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csproj.CopyComplete
+<<<<<<< HEAD
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Home/Apitest.cshtml.g.cs
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.dll.config
@@ -167,3 +168,6 @@ C:/Users/45535/Desktop/Informatik 3 semester/project/automaticstocktrading/Autom
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+=======
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Shared/profile.cshtml.g.cs
+>>>>>>> abccf4a456618d85ab003fd0d36f582bb87bb882
