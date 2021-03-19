@@ -136,3 +136,4 @@ C:/Users/45535/Desktop/Informatik 3 semester/project/automaticstocktrading/Autom
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.pdb
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.genruntimeconfig.cache
 /Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csproj.CopyComplete
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Shared/profile.cshtml.g.cs

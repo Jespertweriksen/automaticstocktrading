@@ -1,14 +1,21 @@
-﻿<Properties StartupConfiguration="{F7F1E9FD-ACB9-473C-8977-97796F8006E7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleApp/Program.cs">
+﻿<Properties StartupConfiguration="{656392E6-45FA-4B89-AA37-4675CA744F5C}|Default">
+  <MonoDevelop.Ide.ItemProperties.MachineLearning PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="ConsoleApp/Program.cs" Line="1" Column="1" />
+      <File FileName="MachineLearning/Program.cs" Line="38" Column="1" />
+      <File FileName="MachineLearning/Script/EmptyTextFile.txt" Line="14" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="AutomaticStockTrading" expanded="True" selected="True">
+          <Node name="AutomaticStockTrading" expanded="True">
             <Node name="AutomaticStockTrading" expanded="True" />
-            <Node name="ConsoleApp" expanded="True" />
+            <Node name="MachineLearning" expanded="True">
+              <Node name="Script" expanded="True">
+                <Node name="venv" expanded="True" />
+              </Node>
+              <Node name="Program.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -17,6 +24,7 @@
   <MonoDevelop.Ide.ItemProperties.AutomaticStockTrading PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.ML PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
