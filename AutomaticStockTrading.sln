@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticStockTrading", "AutomaticStockTrading.csproj", "{3E10140E-8FA0-4DA6-BBF4-96164439C469}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticStockTrading", "AutomaticStockTrading.csproj", "{49F734DF-35BA-4C16-AD43-1BA84B18ACC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +9,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3E10140E-8FA0-4DA6-BBF4-96164439C469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E10140E-8FA0-4DA6-BBF4-96164439C469}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E10140E-8FA0-4DA6-BBF4-96164439C469}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E10140E-8FA0-4DA6-BBF4-96164439C469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F734DF-35BA-4C16-AD43-1BA84B18ACC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F734DF-35BA-4C16-AD43-1BA84B18ACC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F734DF-35BA-4C16-AD43-1BA84B18ACC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F734DF-35BA-4C16-AD43-1BA84B18ACC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

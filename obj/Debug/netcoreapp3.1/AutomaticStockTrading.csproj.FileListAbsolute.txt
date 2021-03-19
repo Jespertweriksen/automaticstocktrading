@@ -1,6 +1,5 @@
 /Users/jesper/Documents/Projekter/automaticstocktrading/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /Users/jesper/Documents/Projekter/automaticstocktrading/bin/Debug/netcoreapp3.1/appsettings.json
-/Users/jesper/Documents/Projekter/automaticstocktrading/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
 /Users/jesper/Documents/Projekter/automaticstocktrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.deps.json
 /Users/jesper/Documents/Projekter/automaticstocktrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.runtimeconfig.json
 /Users/jesper/Documents/Projekter/automaticstocktrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.runtimeconfig.dev.json
@@ -34,3 +33,4 @@
 /Users/jesper/Documents/Projekter/automaticstocktrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.pdb
 /Users/jesper/Documents/Projekter/automaticstocktrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.genruntimeconfig.cache
 /Users/jesper/Documents/Projekter/automaticstocktrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csproj.CopyComplete
+/Users/jesper/Documents/Projekter/automaticstocktrading/obj/Debug/netcoreapp3.1/scopedcss/bundle/AutomaticStockTrading.styles.css

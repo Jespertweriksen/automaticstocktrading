@@ -1,19 +1,17 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{49F734DF-35BA-4C16-AD43-1BA84B18ACC9}|Default">
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AutomaticStockTrading" expanded="True">
-            <Node name="AutomaticStockTrading" selected="True" />
+            <Node name="AutomaticStockTrading" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.AutomaticStockTrading PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <DisabledProjects>
-    <String>AutomaticStockTrading.csproj</String>
-  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
