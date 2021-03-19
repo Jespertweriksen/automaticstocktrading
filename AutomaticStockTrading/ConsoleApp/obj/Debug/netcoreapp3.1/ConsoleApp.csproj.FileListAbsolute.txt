@@ -10,3 +10,15 @@
 /Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.dll
 /Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.pdb
 /Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.genruntimeconfig.cache
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.deps.json
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.runtimeconfig.json
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.runtimeconfig.dev.json
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.dll
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.pdb
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.csprojAssemblyReference.cache
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.AssemblyInfoInputs.cache
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.AssemblyInfo.cs
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.csproj.CoreCompileInputs.cache
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.dll
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.pdb
+/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.genruntimeconfig.cache
