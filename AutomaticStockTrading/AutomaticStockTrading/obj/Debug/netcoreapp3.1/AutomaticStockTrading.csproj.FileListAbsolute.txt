@@ -67,3 +67,38 @@
 /Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.pdb
 /Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.genruntimeconfig.cache
 /Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csproj.CopyComplete
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\AutomaticStockTrading.exe
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\AutomaticStockTrading.deps.json
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\AutomaticStockTrading.runtimeconfig.json
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\AutomaticStockTrading.runtimeconfig.dev.json
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\AutomaticStockTrading.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\AutomaticStockTrading.pdb
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\AutomaticStockTrading.Views.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\bin\Debug\netcoreapp3.1\AutomaticStockTrading.Views.pdb
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.csprojAssemblyReference.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.AssemblyInfoInputs.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.AssemblyInfo.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.csproj.CoreCompileInputs.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.RazorAssemblyInfo.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.RazorAssemblyInfo.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\staticwebassets\AutomaticStockTrading.StaticWebAssets.Manifest.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\staticwebassets\AutomaticStockTrading.StaticWebAssets.xml
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\scopedcss\bundle\AutomaticStockTrading.styles.css
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.TagHelpers.input.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.TagHelpers.output.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.RazorCoreGenerate.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.RazorTargetAssemblyInfo.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.RazorTargetAssemblyInfo.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.Views.pdb
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.pdb
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.genruntimeconfig.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\AutomaticStockTrading\obj\Debug\netcoreapp3.1\AutomaticStockTrading.csproj.CopyComplete

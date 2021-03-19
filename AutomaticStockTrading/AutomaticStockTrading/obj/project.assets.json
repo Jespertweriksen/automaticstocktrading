@@ -8,24 +8,26 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "/Users/niklashjort/.nuget/packages/": {}
+    "C:\\Users\\45535\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
+      "projectUniqueName": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\AutomaticStockTrading.csproj",
       "projectName": "AutomaticStockTrading",
-      "projectPath": "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
-      "packagesPath": "/Users/niklashjort/.nuget/packages/",
-      "outputPath": "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/",
+      "projectPath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\AutomaticStockTrading.csproj",
+      "packagesPath": "C:\\Users\\45535\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/niklashjort/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\45535\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -53,12 +55,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.8, 3.1.8]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -67,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
