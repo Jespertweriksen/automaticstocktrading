@@ -1,10 +1,10 @@
-﻿<Properties StartupConfiguration="{49F734DF-35BA-4C16-AD43-1BA84B18ACC9}|Default">
+﻿<Properties StartupConfiguration="{C1F8BDE9-CB39-4069-B682-D7E275CC54D1}|Default">
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AutomaticStockTrading" expanded="True">
-            <Node name="AutomaticStockTrading" expanded="True" selected="True" />
+            <Node name="ConsoleApp" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -17,4 +17,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ConsoleApp FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
