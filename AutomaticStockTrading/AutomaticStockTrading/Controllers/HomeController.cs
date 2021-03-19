@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AutomaticStockTrading.Models;
+using System.Net;
 
 namespace AutomaticStockTrading.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -21,6 +24,13 @@ namespace AutomaticStockTrading.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Apitest()
+        {
+            
+           return View();
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
