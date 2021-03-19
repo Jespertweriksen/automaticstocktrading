@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\45535\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\45535\AppData\local\JetBrains\Rider2020.2\resharper-host\local\Transient\Rider\v202\SolutionCaches\_AutomaticStockTrading.312187949.00" t="ExcludeRecursive" />
-    <e p="C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\automaticstocktrading" t="IncludeFlat">
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="automaticstocktrading" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
@@ -2164,7 +2162,7 @@
         <e p="MachineLearning.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="net472" t="Include">
+            <e p="net5.0" t="Include">
               <e p="MachineLearning.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -2173,5 +2171,7 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_AutomaticStockTrading.1743895309.00" t="ExcludeRecursive" />
   </component>
 </project>

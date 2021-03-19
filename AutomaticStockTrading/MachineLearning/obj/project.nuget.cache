@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x7NGJLj6C0MEH0ZeT73z8fTvg3FbDmPNfkKcddBebcyV83Szyhfr/mmMIsOvXXIYhNoOifeBAuUnAN/lDj94UQ==",
+  "dgSpecHash": "WGEgkVqjRCPwuF7VCRikKUgYVtjsEOlxyufTbOqzGazDwa9VZBnkcq5+F0rvnqY/Q/GJbELTKAPAJIw7W6NIvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\MachineLearning.csproj",
+  "projectFilePath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/MachineLearning.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

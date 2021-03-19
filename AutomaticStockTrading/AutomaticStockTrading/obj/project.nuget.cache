@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ny0qtyHYY6UQF8MoE5pvWkhejYjpUqxJcCfT6599KKnSC0Yk8C4/o79y4/Bxl4PvW5avtSaMy3EAqTDVd9INtQ==",
+  "dgSpecHash": "3P9YmVDY5zeFv4lSjbn5n8Qn48HutKTLA3vqY0jT73shn34carRbu9+SFFIeze30GXxq75NyI/SzQ3+xKdeLPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\AutomaticStockTrading.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
+  "expectedPackageFiles": [
+    "/Users/jesper/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
   "logs": []
 }

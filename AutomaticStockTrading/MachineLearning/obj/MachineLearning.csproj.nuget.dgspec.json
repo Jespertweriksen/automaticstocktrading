@@ -1,32 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\MachineLearning.csproj": {}
+    "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/MachineLearning.csproj": {}
   },
   "projects": {
-    "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\MachineLearning.csproj": {
+    "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/MachineLearning.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\MachineLearning.csproj",
+        "projectUniqueName": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/MachineLearning.csproj",
         "projectName": "MachineLearning",
-        "projectPath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\MachineLearning.csproj",
-        "packagesPath": "C:\\Users\\45535\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\obj\\",
+        "projectPath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/MachineLearning.csproj",
+        "packagesPath": "/Users/jesper/.nuget/packages/",
+        "outputPath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\45535\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/jesper/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net472"
+          "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net472": {
-            "targetAlias": "net472",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -37,14 +38,24 @@
         }
       },
       "frameworks": {
-        "net472": {
-          "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win7-x86": {
-          "#import": []
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }
