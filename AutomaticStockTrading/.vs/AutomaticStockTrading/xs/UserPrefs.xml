@@ -1,17 +1,13 @@
-﻿<Properties StartupConfiguration="{49F734DF-35BA-4C16-AD43-1BA84B18ACC9}|Default">
+﻿<Properties StartupConfiguration="{F7F1E9FD-ACB9-473C-8977-97796F8006E7}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleApp/Program.cs">
     <Files>
-      <File FileName="Views/Home/Index.cshtml" Line="60" Column="1" />
-      <File FileName="Startup.cs" Line="25" Column="10" />
       <File FileName="ConsoleApp/Program.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="AutomaticStockTrading" expanded="True">
-            <Node name="AutomaticStockTrading" expanded="True">
-              <Node name="ConsoleApp" selected="True" />
-            </Node>
+          <Node name="AutomaticStockTrading" expanded="True" selected="True">
+            <Node name="AutomaticStockTrading" expanded="True" />
             <Node name="ConsoleApp" expanded="True" />
           </Node>
         </State>

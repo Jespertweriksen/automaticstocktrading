@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "eFt63e/+MhcMRqVcjd2RuZKK7rqspYFHV3wEkSfTqjbiIOrdVSMfFl8F928McDdgOYaLEgKAMLUDQzPWc4aNrw==",
+  "success": true,
+  "projectFilePath": "/Users/jesper/Documents/Projekter/automaticstocktrading/AutomaticStockTrading/ConsoleApp/ConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "/Users/jesper/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
