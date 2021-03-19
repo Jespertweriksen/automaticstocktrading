@@ -28,6 +28,28 @@
   },
   "frameworks": {
     "netcoreapp3.1": {
+      "dependencies": {
+        "Microsoft.Extensions.Caching.Abstractions": {
+          "target": "Package",
+          "version": "[5.0.0, )"
+        },
+        "Newtonsoft.Json": {
+          "target": "Package",
+          "version": "[12.0.3, )"
+        },
+        "System.Runtime.Caching": {
+          "target": "Package",
+          "version": "[5.0.0, )"
+        },
+        "TwelveDataSharp": {
+          "target": "Package",
+          "version": "[1.1.0, )"
+        },
+        "Unirest-API": {
+          "target": "Package",
+          "version": "[1.0.7.6, )"
+        }
+      },
       "imports": [
         "net461",
         "net462",

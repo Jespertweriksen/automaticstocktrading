@@ -11,10 +11,10 @@ namespace MachineLearning
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
+
             Console.WriteLine("Hello World!");
             Console.WriteLine("Hello Test!");
-=======
+
             var engine = Python.CreateEngine();
 
             // 2) Provide script and arguments
@@ -50,7 +50,7 @@ namespace MachineLearning
             Console.WriteLine("Results:");
             Console.WriteLine(str(results.ToArray()));
 
->>>>>>> abccf4a456618d85ab003fd0d36f582bb87bb882
+
         }
     }
 }

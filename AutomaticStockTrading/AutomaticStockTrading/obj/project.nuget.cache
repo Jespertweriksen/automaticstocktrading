@@ -1,14 +1,9 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "RwoEpkb2m3En0F+OXe54szd98n5sM5HpJ74KqhHtGZwT3rQC07xA7OppH2ItFUBU6S9x85vW0h2dXPTguNmWCA==",
-=======
-  "dgSpecHash": "mTYPb8RjuyjOVjuCy7fSeQITpwYymZ9S6PkqSxeu/UAC6roCK7jeexMIZZ9vEbTnCg60QAnTdiOK82LMGIRWJw==",
->>>>>>> abccf4a456618d85ab003fd0d36f582bb87bb882
+  "dgSpecHash": "rvl8+JFXPxcAiChlKYAPU6X/DvT8d7Wl5XtLMoidPHBgN6O9xSf1r4kRk1CO+EA1Iq4L7cALvdq1URB1RfecLA==",
   "success": true,
-  "projectFilePath": "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
+  "projectFilePath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
   "expectedPackageFiles": [
-<<<<<<< HEAD
     "/Users/jesper/.nuget/packages/microsoft.bcl/1.1.10/microsoft.bcl.1.1.10.nupkg.sha512",
     "/Users/jesper/.nuget/packages/microsoft.bcl.async/1.0.168/microsoft.bcl.async.1.0.168.nupkg.sha512",
     "/Users/jesper/.nuget/packages/microsoft.bcl.build/1.0.21/microsoft.bcl.build.1.0.21.nupkg.sha512",
@@ -29,9 +24,6 @@
     "/Users/jesper/.nuget/packages/twelvedatasharp/1.1.0/twelvedatasharp.1.1.0.nupkg.sha512",
     "/Users/jesper/.nuget/packages/unirest-api/1.0.7.6/unirest-api.1.0.7.6.nupkg.sha512",
     "/Users/jesper/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
-=======
-    "/Users/niklashjort/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
->>>>>>> abccf4a456618d85ab003fd0d36f582bb87bb882
   ],
   "logs": [
     {

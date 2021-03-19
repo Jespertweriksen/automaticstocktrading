@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj": {}
+    "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj": {}
   },
   "projects": {
-    "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj": {
+    "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
+        "projectUniqueName": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
         "projectName": "AutomaticStockTrading",
-        "projectPath": "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
-        "packagesPath": "/Users/niklashjort/.nuget/packages/",
-        "outputPath": "/Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/obj/",
+        "projectPath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
+        "packagesPath": "/Users/jesper/.nuget/packages/",
+        "outputPath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "/Users/jesper/.config/NuGet/NuGet.Config"
-=======
-          "/Users/niklashjort/.config/NuGet/NuGet.Config"
->>>>>>> abccf4a456618d85ab003fd0d36f582bb87bb882
+          "/Users/jesper/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -76,7 +75,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.8, 3.1.8]"
+              "version": "[3.1.10, 3.1.10]"
             }
           ],
           "frameworkReferences": {
@@ -87,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }

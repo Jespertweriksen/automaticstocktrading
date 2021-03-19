@@ -3,10 +3,16 @@
     ViewData["Title"] = "Profile Page";
 }
 
+
+
 <p>TEST</p>
 
 @{
+    
     var apilist = Tools.GetStocks("GME");
+    var currStock = Tools.GetStock("GME");
+
+    <p>@currStock.First().close</p>
 
     <table style="width:100%">
         <tr>
@@ -30,5 +36,5 @@
             }
         }
     </table>
-   
+
 }
