@@ -1,0 +1,34 @@
+﻿<changelist name="Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]" date="1616198445729" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 20-03-2021 01:00 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.assets.cache" />
+    <option name="AFTER_PATH" value="AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/AutomaticStockTrading.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="MachineLearning/obj/Debug/net5.0/MachineLearning.assets.cache" />
+    <option name="AFTER_PATH" value="MachineLearning/obj/Debug/net5.0/MachineLearning.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/MachineLearning.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="MachineLearning/obj/Debug/net5.0/MachineLearning.csprojAssemblyReference.cache" />
+    <option name="AFTER_PATH" value="MachineLearning/obj/Debug/net5.0/MachineLearning.csprojAssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/MachineLearning.csprojAssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="MachineLearning/obj/project.nuget.cache" />
+    <option name="AFTER_PATH" value="MachineLearning/obj/project.nuget.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/project.nuget.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="AutomaticStockTrading/obj/project.nuget.cache" />
+    <option name="AFTER_PATH" value="AutomaticStockTrading/obj/project.nuget.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/project.nuget1.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csprojAssemblyReference.cache" />
+    <option name="AFTER_PATH" value="AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csprojAssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/AutomaticStockTrading.csprojAssemblyReference.cache" />
+  </binary>
+</changelist>

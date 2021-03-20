@@ -30,8 +30,51 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd339d8e-1dce-4f56-afb4-9be63ac841cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csprojAssemblyReference.cache" afterDir="false" />
+    <list default="true" id="dd339d8e-1dce-4f56-afb4-9be63ac841cb" name="Default Changelist" comment="ddadadaad">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Checkout_at_20-03-2021_01_00_[Default_Changelist]/MachineLearning.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Checkout_at_20-03-2021_01_00_[Default_Changelist]/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Checkout_at_20-03-2021_01_00_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_19-03-2021_22_36_[Default_Changelist]/AutomaticStockTrading.Views.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_19-03-2021_22_36_[Default_Changelist]/MachineLearning.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_19-03-2021_22_36_[Default_Changelist]/MachineLearning.genruntimeconfig.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_19-03-2021_22_36_[Default_Changelist]/MachineLearning1.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_19-03-2021_22_36_[Default_Changelist]/project.nuget1.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/AutomaticStockTrading.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/MachineLearning.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00_[Default_Changelist]/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutomaticStockTrading/.idea/shelf/Uncommitted_changes_before_Update_at_20-03-2021_01_00__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/AutomaticStockTrading/config/applicationhost.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/AutomaticStockTrading/v16/.suo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutomaticStockTrading.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/Input.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/IronPython.SQLite.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/IronPython.Wpf.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/IronPython.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/MachineLearning.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/MachineLearning.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/MachineLearning.runtimeconfig.dev.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/Microsoft.Scripting.Metadata.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/System.Configuration.ConfigurationManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/System.Security.Cryptography.ProtectedData.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/Release/net5.0/System.Security.Permissions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/System.Configuration.ConfigurationManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/System.Drawing.Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/System.Security.Cryptography.ProtectedData.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/System.Security.Permissions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/System.Windows.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/ref/MachineLearning.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/bin/x86/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csproj.CopyComplete" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/obj/Release/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/obj/Release/net5.0/MachineLearning.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/obj/Release/net5.0/MachineLearning.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/obj/Release/net5.0/MachineLearning.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/obj/Release/net5.0/MachineLearning.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/output.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +90,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/MachineLearning/obj/Release/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MachineLearning/obj/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -75,6 +119,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -202,6 +247,14 @@
       <workItem from="1616198555378" duration="785000" />
       <workItem from="1616205794452" duration="74000" />
     </task>
+    <task id="LOCAL-00001" summary="dda">
+      <created>1616210606953</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616210606953</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,36 +277,53 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="ffa" />
-    <option name="LAST_COMMIT_MESSAGE" value="ffa" />
+    <MESSAGE value="dda" />
+    <option name="LAST_COMMIT_MESSAGE" value="dda" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="181" key="GridCell.Tab.0.bottom" timestamp="1616199345864">
+    <state width="938" height="181" key="GridCell.Tab.0.bottom" timestamp="1616210708863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616199345864" />
+    <state width="938" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616210708863" />
     <state width="1750" height="281" key="GridCell.Tab.0.bottom/0.25.1792.1036@0.25.1792.1036" timestamp="1616168553325" />
-    <state width="1877" height="181" key="GridCell.Tab.0.center" timestamp="1616199345864">
+    <state width="938" height="181" key="GridCell.Tab.0.center" timestamp="1616210708863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="181" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616199345864" />
+    <state width="938" height="181" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616210708863" />
     <state width="1750" height="281" key="GridCell.Tab.0.center/0.25.1792.1036@0.25.1792.1036" timestamp="1616168553324" />
-    <state width="1877" height="181" key="GridCell.Tab.0.left" timestamp="1616199345864">
+    <state width="938" height="181" key="GridCell.Tab.0.left" timestamp="1616210708863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="181" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616199345864" />
+    <state width="938" height="181" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616210708863" />
     <state width="1750" height="281" key="GridCell.Tab.0.left/0.25.1792.1036@0.25.1792.1036" timestamp="1616168553324" />
-    <state width="1877" height="181" key="GridCell.Tab.0.right" timestamp="1616199345864">
+    <state width="938" height="181" key="GridCell.Tab.0.right" timestamp="1616210708863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="181" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616199345864" />
+    <state width="938" height="181" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616210708863" />
     <state width="1750" height="281" key="GridCell.Tab.0.right/0.25.1792.1036@0.25.1792.1036" timestamp="1616168553324" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1616198629820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1616198629820" />
+    <state x="807" y="433" key="VCS.ChangelistChooser" timestamp="1616210692953">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="807" y="433" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1616210692953" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1616210608294">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1616210608294" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616210615615">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1616210615615" />
     <state x="539" y="298" width="714" height="490" key="find.popup" timestamp="1616168762970">
       <screen x="0" y="25" width="1792" height="1036" />
     </state>
     <state x="539" y="298" width="714" height="490" key="find.popup/0.25.1792.1036@0.25.1792.1036" timestamp="1616168762970" />
+    <state x="533" y="234" key="git4idea.branch.GitSmartOperationDialog" timestamp="1616210539807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="533" y="234" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616210539807" />
   </component>
 </project>

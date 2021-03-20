@@ -2177,9 +2177,6 @@
         </e>
         <e p="output.cs" t="Include" />
         <e p="Program.cs" t="Include" />
-        <e p="Script" t="Include">
-          <e p="LiniarRegression.py" t="Include" />
-        </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
