@@ -25,7 +25,7 @@ namespace AutomaticStockTrading.Services
 
         public static List<StockModel> Stocks(string stockAlias)
         {
-            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Europe/Copenhagen");
+            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
             Console.WriteLine(offset);
@@ -46,7 +46,7 @@ namespace AutomaticStockTrading.Services
         public static List<StockModel> GetStocks(string stockAlias)
         {
             
-            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Europe/Copenhagen");
+            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
             
             var cache = MemoryCache.Default;
@@ -61,7 +61,7 @@ namespace AutomaticStockTrading.Services
 
         public static List<StockModel> Stock(string stockAlias)
         {
-            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Europe/Copenhagen");
+            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
             Console.WriteLine(offset);
@@ -88,7 +88,7 @@ namespace AutomaticStockTrading.Services
         public static List<StockModel> GetStock(string stockAlias)
         {
 
-            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Europe/Copenhagen");
+            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
             var cache = MemoryCache.Default;

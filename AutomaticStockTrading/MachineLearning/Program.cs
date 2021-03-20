@@ -1,9 +1,9 @@
-﻿using IronPython.Hosting;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
+using Microsoft.ML;
+using Microsoft.ML.Data;
+
 
 namespace MachineLearning
 {
@@ -11,44 +11,40 @@ namespace MachineLearning
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Hello Test!");
-
-            var engine = Python.CreateEngine();
+            // 1) Create Process Info
+            var psi = new ProcessStartInfo();
+            psi.FileName = @"C:\Users\45535\Desktop\Python\pythonProject3\env\bin\python.exe\Scripts\python.exe";
 
             // 2) Provide script and arguments
-            var script = @"C:\AllTech\Code\DaysBetweenDates.py";
-            var source = engine.CreateScriptSourceFromFile(script);
+            var script = @"C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\Script\LiniarRegression.py";
+            var start = "2019-1-1";
+            var end = "2019-1-22";
 
-            var argv = new List<string>();
-            argv.Add("");
-            argv.Add("2019-1-1");
-            argv.Add("2019-1-22");
+            psi.Arguments = $"\"{script}\" \"{start}\" \"{end}\"";
 
-            engine.GetSysModule().SetVariable("argv", argv);
+            // 3) Process configuration
+            psi.UseShellExecute = false;
+            psi.CreateNoWindow = true;
+            psi.RedirectStandardOutput = true;
+            psi.RedirectStandardError = true;
 
-            // 3) Output redirect
-            var eIO = engine.Runtime.IO;
+            // 4) Execute process and get output
+            var errors = "";
+            var results = "";
 
-            var errors = new MemoryStream();
-            eIO.SetErrorOutput(errors, Encoding.Default);
-
-            var results = new MemoryStream();
-            eIO.SetOutput(results, Encoding.Default);
-
-            // 4) Execute script
-            var scope = engine.CreateScope();
-            source.Execute(scope);
+            using(var process = Process.Start(psi))
+            {
+                errors = process.StandardError.ReadToEnd();
+                results = process.StandardOutput.ReadToEnd();
+            }
 
             // 5) Display output
-            string str(byte[] x) => Encoding.Default.GetString(x);
-
             Console.WriteLine("ERRORS:");
-            Console.WriteLine(str(errors.ToArray()));
+            Console.WriteLine(errors);
             Console.WriteLine();
             Console.WriteLine("Results:");
-            Console.WriteLine(str(results.ToArray()));
+            Console.WriteLine(results);
+
 
 
         }

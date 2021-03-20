@@ -48,3 +48,35 @@
 /Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/MachineLearning/obj/Debug/net5.0/ref/MachineLearning.dll
 /Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/MachineLearning/obj/Debug/net5.0/MachineLearning.pdb
 /Users/niklashjort/Desktop/Projects/automaticstocktrading/AutomaticStockTrading/MachineLearning/obj/Debug/net5.0/MachineLearning.genruntimeconfig.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.csprojAssemblyReference.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.AssemblyInfoInputs.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.AssemblyInfo.cs
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.csproj.CoreCompileInputs.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\ref\MachineLearning.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.pdb
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\MachineLearning.exe
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\MachineLearning.deps.json
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\MachineLearning.runtimeconfig.json
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\MachineLearning.runtimeconfig.dev.json
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\MachineLearning.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\ref\MachineLearning.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\MachineLearning.pdb
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\System.CodeDom.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.csproj.CopyComplete
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\obj\Debug\net5.0\MachineLearning.genruntimeconfig.cache
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.Core.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.Data.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.KMeansClustering.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.PCA.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.StandardTrainers.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.Transforms.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.CpuMath.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Microsoft.ML.DataView.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\runtimes\linux-x64\native\libLdaNative.so
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\runtimes\osx-x64\native\libLdaNative.dylib
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\runtimes\win-x64\native\LdaNative.dll
+C:\Users\45535\Desktop\Informatik 3 semester\project\automaticstocktrading\AutomaticStockTrading\MachineLearning\bin\Debug\net5.0\runtimes\win-x86\native\LdaNative.dll

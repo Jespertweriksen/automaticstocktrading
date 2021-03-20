@@ -1,18 +1,16 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/MachineLearning.csproj",
+    "projectUniqueName": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\MachineLearning.csproj",
     "projectName": "MachineLearning",
-    "projectPath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/MachineLearning.csproj",
-    "outputPath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/MachineLearning/obj/",
+    "projectPath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\MachineLearning.csproj",
+    "outputPath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\MachineLearning\\obj\\",
     "projectStyle": "PackageReference",
-    "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-    ],
     "originalTargetFrameworks": [
       "net50"
     ],
     "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {
@@ -29,9 +27,9 @@
   "frameworks": {
     "netcoreapp5.0": {
       "dependencies": {
-        "IronPython": {
+        "Microsoft.ML": {
           "target": "Package",
-          "version": "[2.7.11, )"
+          "version": "[1.5.5, )"
         }
       },
       "imports": [
@@ -49,7 +47,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
     }
   }
 }
