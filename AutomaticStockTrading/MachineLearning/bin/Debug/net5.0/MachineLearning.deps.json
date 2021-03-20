@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v5.0": {
       "MachineLearning/1.0.0": {
         "dependencies": {
-          "IronPython": "2.7.11"
+          "IronPython": "2.7.11",
+          "Keras.NET": "3.8.5",
+          "Keras.NET.OSX": "3.8.5"
         },
         "runtime": {
           "MachineLearning.dll": {}
@@ -58,6 +60,23 @@
           }
         }
       },
+      "Keras.NET/3.8.5": {
+        "dependencies": {
+          "Numpy.Bare": "3.8.1.25"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Keras.dll": {
+            "assemblyVersion": "3.8.5.0",
+            "fileVersion": "3.8.5.0"
+          }
+        }
+      },
+      "Keras.NET.OSX/3.8.5": {
+        "dependencies": {
+          "Numpy.Bare.OSX": "3.8.1.25"
+        }
+      },
+      "Microsoft.CSharp/4.5.0": {},
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.Win32.Registry/4.7.0": {
         "dependencies": {
@@ -84,6 +103,33 @@
           }
         }
       },
+      "Numpy.Bare/3.8.1.25": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "pythonnet_netstandard_py38_win": "2.5.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Numpy.Bare.dll": {
+            "assemblyVersion": "3.7.1.4",
+            "fileVersion": "3.7.1.4"
+          }
+        }
+      },
+      "Numpy.Bare.OSX/3.8.1.25": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "pythonnet_netstandard_py38_osx": "2.5.1"
+        }
+      },
+      "pythonnet_netstandard_py38_osx/2.5.1": {
+        "runtime": {
+          "lib/netstandard2.0/Python.Runtime.dll": {
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
+          }
+        }
+      },
+      "pythonnet_netstandard_py38_win/2.5.1": {},
       "System.CodeDom/4.7.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -206,6 +252,27 @@
       "path": "ironpython/2.7.11",
       "hashPath": "ironpython.2.7.11.nupkg.sha512"
     },
+    "Keras.NET/3.8.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NFUV194GVq87ZBrUNMrFXy/pMPchh0clyShr4HHoKY+NYaCOIr9kvcRS1hE0rs8S9Adbvt2+gIG9HfNCWikIAg==",
+      "path": "keras.net/3.8.5",
+      "hashPath": "keras.net.3.8.5.nupkg.sha512"
+    },
+    "Keras.NET.OSX/3.8.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-38AOZNSCcJ8b2T5YXxOyjZ4dmuHvI4Z9Bmud80bfOW8KmBkvlq9O3pTMd12VdjUf+iucVav/lRQb2DG2aLkZ4Q==",
+      "path": "keras.net.osx/3.8.5",
+      "hashPath": "keras.net.osx.3.8.5.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+      "path": "microsoft.csharp/4.5.0",
+      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
       "serviceable": true,
@@ -226,6 +293,34 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "Numpy.Bare/3.8.1.25": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YqbpafFbck+JI0/guhaiJqAqTOKJXGbCfre6PZH+eeQbg27rllyTNPCdw36oLSNzagBIzJjmsGDE61lfSvairg==",
+      "path": "numpy.bare/3.8.1.25",
+      "hashPath": "numpy.bare.3.8.1.25.nupkg.sha512"
+    },
+    "Numpy.Bare.OSX/3.8.1.25": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tMuT/se//dhi2J22xTtKFT1b9BLcYe8G+7k9I0nA17P8ewKrc5nEUemTjxTSDfeVql/AlAFO2SWzPZJ+vpnfiw==",
+      "path": "numpy.bare.osx/3.8.1.25",
+      "hashPath": "numpy.bare.osx.3.8.1.25.nupkg.sha512"
+    },
+    "pythonnet_netstandard_py38_osx/2.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OrHS5k+WvSdGF8N3e2dbop9s1wS3PQT1FDd0/T0YEHGpn8+jc46WSXIXc/ETvvjb+JaLhV6UgnLBef7HM0aA0w==",
+      "path": "pythonnet_netstandard_py38_osx/2.5.1",
+      "hashPath": "pythonnet_netstandard_py38_osx.2.5.1.nupkg.sha512"
+    },
+    "pythonnet_netstandard_py38_win/2.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y8D5KG5Z5pFUzxBINwaN6LuM50LpkRV3TD8Lrn9jz1spbT1mBSCeYAzyA8MSo9+Jb3R/evXq0m3+d1KiDGGYUg==",
+      "path": "pythonnet_netstandard_py38_win/2.5.1",
+      "hashPath": "pythonnet_netstandard_py38_win.2.5.1.nupkg.sha512"
     },
     "System.CodeDom/4.7.0": {
       "type": "package",
