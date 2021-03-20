@@ -12,4 +12,8 @@
       <PackageReference Include="Numpy.Bare.OSX" Version="3.8.1.25" />
       <PackageReference Include="Keras.NET.Mono" Version="3.8.5" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Script\Python" />
+    </ItemGroup>
 </Project>
