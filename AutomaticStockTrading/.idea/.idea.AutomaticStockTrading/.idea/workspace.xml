@@ -36,39 +36,23 @@
       <change beforePath="$PROJECT_DIR$/.vs/AutomaticStockTrading/xs/UserPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AutomaticStockTrading/xs/UserPrefs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/AutomaticStockTrading/xs/project-cache/AutomaticStockTrading-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AutomaticStockTrading/xs/project-cache/AutomaticStockTrading-Debug.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/AutomaticStockTrading/xs/project-cache/MachineLearning-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/AutomaticStockTrading/xs/project-cache/MachineLearning-Debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/AutomaticStockTrading.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/AutomaticStockTrading.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/Services/YahooFinanceAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/Services/YahooFinanceAPI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/Views/Home/Apitest.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/Views/Home/Apitest.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/bin/Debug/netcoreapp3.1/AutomaticStockTrading.runtimeconfig.dev.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/AutomaticStockTrading.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/AutomaticStockTrading.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/AutomaticStockTrading.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/AutomaticStockTrading.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/AutomaticStockTrading.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Home/Apitest.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Home/Apitest.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomaticStockTrading/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/AutomaticStockTrading/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MachineLearning/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/MachineLearning.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/MachineLearning.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/bin/Debug/net5.0/MachineLearning.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/bin/Debug/net5.0/MachineLearning.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/bin/Debug/net5.0/MachineLearning.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/bin/Debug/net5.0/MachineLearning.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/bin/Debug/net5.0/MachineLearning.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/bin/Debug/net5.0/MachineLearning.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/kerasnet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/kerasnet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/Debug/net5.0/MachineLearning.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MachineLearning/obj/MachineLearning.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/MachineLearning.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MachineLearning/obj/MachineLearning.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/MachineLearning.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MachineLearning/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/MachineLearning/obj/project.assets.json" afterDir="false" />
@@ -229,6 +213,7 @@
       <workItem from="1616166828026" duration="1674000" />
       <workItem from="1616176941518" duration="545000" />
       <workItem from="1616192391427" duration="48000" />
+      <workItem from="1616210321044" duration="187000" />
     </task>
     <servers />
   </component>
@@ -253,22 +238,26 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1750" height="281" key="GridCell.Tab.0.bottom" timestamp="1616177533320">
-      <screen x="0" y="25" width="1792" height="1036" />
+    <state width="1750" height="281" key="GridCell.Tab.0.bottom" timestamp="1616210518655">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
     <state width="1750" height="281" key="GridCell.Tab.0.bottom/0.25.1792.1036@0.25.1792.1036" timestamp="1616177533320" />
-    <state width="1750" height="281" key="GridCell.Tab.0.center" timestamp="1616177533320">
-      <screen x="0" y="25" width="1792" height="1036" />
+    <state width="1750" height="281" key="GridCell.Tab.0.bottom/0.25.1792.1038@0.25.1792.1038" timestamp="1616210518655" />
+    <state width="1750" height="281" key="GridCell.Tab.0.center" timestamp="1616210518654">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
     <state width="1750" height="281" key="GridCell.Tab.0.center/0.25.1792.1036@0.25.1792.1036" timestamp="1616177533319" />
-    <state width="1750" height="281" key="GridCell.Tab.0.left" timestamp="1616177533319">
-      <screen x="0" y="25" width="1792" height="1036" />
+    <state width="1750" height="281" key="GridCell.Tab.0.center/0.25.1792.1038@0.25.1792.1038" timestamp="1616210518654" />
+    <state width="1750" height="281" key="GridCell.Tab.0.left" timestamp="1616210518654">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
     <state width="1750" height="281" key="GridCell.Tab.0.left/0.25.1792.1036@0.25.1792.1036" timestamp="1616177533319" />
-    <state width="1750" height="281" key="GridCell.Tab.0.right" timestamp="1616177533320">
-      <screen x="0" y="25" width="1792" height="1036" />
+    <state width="1750" height="281" key="GridCell.Tab.0.left/0.25.1792.1038@0.25.1792.1038" timestamp="1616210518654" />
+    <state width="1750" height="281" key="GridCell.Tab.0.right" timestamp="1616210518655">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
     <state width="1750" height="281" key="GridCell.Tab.0.right/0.25.1792.1036@0.25.1792.1036" timestamp="1616177533320" />
+    <state width="1750" height="281" key="GridCell.Tab.0.right/0.25.1792.1038@0.25.1792.1038" timestamp="1616210518655" />
     <state x="496" y="279" key="Rider.ProjectTemplateDialog.Size" timestamp="1616177194461">
       <screen x="0" y="25" width="1792" height="1036" />
     </state>

@@ -8,6 +8,8 @@
     <ItemGroup>
       <PackageReference Include="IronPython" Version="2.7.11" />
       <PackageReference Include="Keras.NET.OSX" Version="3.8.5" />
-      <PackageReference Include="Keras.NET" Version="3.8.5" />
+      <PackageReference Include="Python.Runtime.AllPlatforms" Version="3.7.2.4" />
+      <PackageReference Include="Numpy.Bare.OSX" Version="3.8.1.25" />
+      <PackageReference Include="Keras.NET.Mono" Version="3.8.5" />
     </ItemGroup>
 </Project>

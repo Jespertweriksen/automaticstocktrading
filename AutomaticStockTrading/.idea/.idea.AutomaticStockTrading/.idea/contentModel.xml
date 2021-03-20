@@ -25,6 +25,9 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="AutomaticStockTrading - Web Deploy.pubxml" t="Include" />
+          </e>
         </e>
         <e p="Services" t="Include">
           <e p="YahooFinanceAPI.cs" t="Include" />
@@ -34,6 +37,7 @@
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Home" t="Include">
+            <e p="Apitest.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
@@ -2163,6 +2167,7 @@
       <e p="AutomaticStockTrading.sln" t="IncludeFlat" />
       <e p="MachineLearning" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="kerasnet.cs" t="Include" />
         <e p="MachineLearning.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

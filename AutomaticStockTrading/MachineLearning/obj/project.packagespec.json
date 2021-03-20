@@ -32,6 +32,18 @@
         "IronPython": {
           "target": "Package",
           "version": "[2.7.11, )"
+        },
+        "Keras.NET": {
+          "target": "Package",
+          "version": "[3.8.5, )"
+        },
+        "Keras.NET.OSX": {
+          "target": "Package",
+          "version": "[3.8.5, )"
+        },
+        "Python.Runtime.AllPlatforms": {
+          "target": "Package",
+          "version": "[3.7.2.4, )"
         }
       },
       "imports": [

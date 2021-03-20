@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rvl8+JFXPxcAiChlKYAPU6X/DvT8d7Wl5XtLMoidPHBgN6O9xSf1r4kRk1CO+EA1Iq4L7cALvdq1URB1RfecLA==",
+  "dgSpecHash": "qMMiWuD00StxOlukEKDXHs1cjuFNI+RyTSbi3okwhpxu5SfTqWxVpxW47G3cGI/LSumzfZVjHg2aXSw+a6nJiw==",
   "success": true,
   "projectFilePath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
   "expectedPackageFiles": [
@@ -22,8 +22,7 @@
     "/Users/jesper/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
     "/Users/jesper/.nuget/packages/system.windows.extensions/5.0.0/system.windows.extensions.5.0.0.nupkg.sha512",
     "/Users/jesper/.nuget/packages/twelvedatasharp/1.1.0/twelvedatasharp.1.1.0.nupkg.sha512",
-    "/Users/jesper/.nuget/packages/unirest-api/1.0.7.6/unirest-api.1.0.7.6.nupkg.sha512",
-    "/Users/jesper/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+    "/Users/jesper/.nuget/packages/unirest-api/1.0.7.6/unirest-api.1.0.7.6.nupkg.sha512"
   ],
   "logs": [
     {
