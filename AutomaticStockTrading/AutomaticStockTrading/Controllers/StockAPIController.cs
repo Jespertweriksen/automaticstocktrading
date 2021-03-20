@@ -25,8 +25,8 @@ namespace AutomaticStockTrading.Controllers
         }
 
         // POST api/values
-        
-        public string PostStocks()
+        [HttpPost]
+        public ActionResult<IList<Models.StockModel>> PostStocks(string id)
         {
             Console.WriteLine("CLICKED!");
             HttpClient client = new HttpClient();
