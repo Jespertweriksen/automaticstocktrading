@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.809.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticStockTrading", "AutomaticStockTrading\AutomaticStockTrading.csproj", "{F7F1E9FD-ACB9-473C-8977-97796F8006E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearning", "MachineLearning\MachineLearning.csproj", "{656392E6-45FA-4B89-AA37-4675CA744F5C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{F7F1E9FD-ACB9-473C-8977-97796F8006E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7F1E9FD-ACB9-473C-8977-97796F8006E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7F1E9FD-ACB9-473C-8977-97796F8006E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{656392E6-45FA-4B89-AA37-4675CA744F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{656392E6-45FA-4B89-AA37-4675CA744F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{656392E6-45FA-4B89-AA37-4675CA744F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{656392E6-45FA-4B89-AA37-4675CA744F5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
