@@ -10,4 +10,8 @@
       <PackageReference Include="Keras.NET.OSX" Version="3.8.5" />
       <PackageReference Include="Keras.NET" Version="3.8.5" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Script\Python" />
+    </ItemGroup>
 </Project>
