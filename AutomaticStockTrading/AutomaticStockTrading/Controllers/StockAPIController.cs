@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using AutomaticStockTrading.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +15,7 @@ namespace AutomaticStockTrading.Controllers
     public class ValuesController : Controller
     {
         // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        
 
         // GET api/values/5
         [HttpGet("{id}")]
@@ -27,11 +25,21 @@ namespace AutomaticStockTrading.Controllers
         }
 
         // POST api/values
-        [HttpPost]
-        public ActionResult<IList<Models.StockModel>> PostStocks(string id)
+        
+        public string PostStocks()
         {
-            var list = Tools.GetStocks(id);
-            return Ok(list);
+            Console.WriteLine("CLICKED!");
+            HttpClient client = new HttpClient();
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "http://127.0.0.1:5000/api/modelOne");
+            string hej = "{'surname':'niklas'}";
+            //requestMessage.Headers.Add("Authorization", "key=AAAAG...:APA91bH7U...");
+            requestMessage.Content = new StringContent(hej, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
+            Console.WriteLine(response);
+
+           //var list = Tools.GetStocks(id);
+            return "Ok(response)";
         }
 
         // PUT api/values/5

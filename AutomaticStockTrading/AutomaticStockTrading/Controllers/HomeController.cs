@@ -28,6 +28,7 @@ namespace AutomaticStockTrading.Controllers
 
         public IActionResult Apitest()
         {
+            
             return View();
             
         }
