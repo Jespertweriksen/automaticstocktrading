@@ -34,6 +34,8 @@ namespace AutomaticStockTrading
             
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            
+            
 
             app.UseRouting();
 

@@ -1,9 +1,6 @@
 ﻿@using AutomaticStockTrading.Controllers
-@{
-    StockController stockController = new StockController();
-    ViewData["Title"] = "Home Page";
-}
 
+@tagHelperPrefix th:
 <body>
 
         <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
@@ -41,13 +38,26 @@
     
 <main class="content">
     
+    <button type="button" onclick="commandclick()">Logout</button>
+    
+    <script>
+        function commandclick(){
+            fetch('http://localhost:5001/api/stock/liniarModel')
+              .then((response) => {
+                return response.json();
+              })
+              .then((data) => {
+                console.log(data);
+              });
+        }
+    </script>
+    
+   
+  
 
-        <input id="Button" type="button" onclick="@stockController.PostStocks("AAPL")"/>
 
 
-
-
-        <div class="theme-settings card pt-2 collapse" id="theme-settings">
+    <div class="theme-settings card pt-2 collapse" id="theme-settings">
         <div class="card-body pt-4">
             <button type="button" class="btn-close theme-settings-close" aria-label="Close" data-bs-toggle="collapse"
                     href="#theme-settings" role="button" aria-expanded="false" aria-controls="theme-settings"></button>
