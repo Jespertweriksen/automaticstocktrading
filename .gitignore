@@ -393,3 +393,8 @@ FodyWeavers.xsd
 
 # Ignore the Models Builder models out of date flag
 **/Models/ood.flag
+AutomaticStockTrading/.idea/.idea.AutomaticStockTrading/.idea/riderModule.iml
+AutomaticStockTrading/AutomaticStockTrading/obj/project.nuget.cache
+AutomaticStockTrading/AutomaticStockTrading/obj/project.nuget.cache
+AutomaticStockTrading/.vscode/tasks.json
+.gitignore

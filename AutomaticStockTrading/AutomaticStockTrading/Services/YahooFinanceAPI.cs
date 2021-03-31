@@ -38,6 +38,8 @@ namespace AutomaticStockTrading.Services
 
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
+                //Jesper
+                
                 var result = streamReader.ReadToEnd();
                 JObject json = JObject.Parse(result);
                 var list = JsonParseStocks(json.ToString());
