@@ -245,6 +245,15 @@
           }
         }
       },
+      "TimeZoneConverter/3.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/TimeZoneConverter.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/TimeZoneConverter.dll": {}
+        }
+      },
       "TwelveDataSharp/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -931,6 +940,33 @@
         "version.txt"
       ]
     },
+    "TimeZoneConverter/3.4.0": {
+      "sha512": "4rqXd06uLqaLPGpO+whrZnSTJyG3SG5DEbeldMTvaGit0+gI6XLVb9YMnfM+5wtV0DDM1QPd/QhbE6j5vJCWDw==",
+      "type": "package",
+      "path": "timezoneconverter/3.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/TimeZoneConverter.dll",
+        "lib/net35/TimeZoneConverter.xml",
+        "lib/net40/TimeZoneConverter.dll",
+        "lib/net40/TimeZoneConverter.xml",
+        "lib/net45/TimeZoneConverter.dll",
+        "lib/net45/TimeZoneConverter.xml",
+        "lib/net461/TimeZoneConverter.dll",
+        "lib/net461/TimeZoneConverter.xml",
+        "lib/net471/TimeZoneConverter.dll",
+        "lib/net471/TimeZoneConverter.xml",
+        "lib/netstandard1.1/TimeZoneConverter.dll",
+        "lib/netstandard1.1/TimeZoneConverter.xml",
+        "lib/netstandard1.3/TimeZoneConverter.dll",
+        "lib/netstandard1.3/TimeZoneConverter.xml",
+        "lib/netstandard2.0/TimeZoneConverter.dll",
+        "lib/netstandard2.0/TimeZoneConverter.xml",
+        "timezoneconverter.3.4.0.nupkg.sha512",
+        "timezoneconverter.nuspec"
+      ]
+    },
     "TwelveDataSharp/1.1.0": {
       "sha512": "l13loXOEWre8YQ+/qw3t2hMKmK7U9KhnMMXRc7Hh/GS9Rna50jR1DmQQcImxJ4xVZH58iY7yBMtNnQiLBMnzJg==",
       "type": "package",
@@ -962,31 +998,34 @@
       "Microsoft.Extensions.Caching.Abstractions >= 5.0.0",
       "Newtonsoft.Json >= 12.0.3",
       "System.Runtime.Caching >= 5.0.0",
+      "TimeZoneConverter >= 3.4.0",
       "TwelveDataSharp >= 1.1.0",
       "Unirest-API >= 1.0.7.6"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\45535\\.nuget\\packages\\": {}
+    "/Users/jesper/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\AutomaticStockTrading.csproj",
+      "projectUniqueName": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
       "projectName": "AutomaticStockTrading",
-      "projectPath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\AutomaticStockTrading.csproj",
-      "packagesPath": "C:\\Users\\45535\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\project\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\obj\\",
+      "projectPath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
+      "packagesPath": "/Users/jesper/.nuget/packages/",
+      "outputPath": "/Users/jesper/Documents/Projekter/AutoStock/AutomaticStockTrading/AutomaticStockTrading/obj/",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\45535\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/jesper/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1017,6 +1056,10 @@
             "target": "Package",
             "version": "[5.0.0, )"
           },
+          "TimeZoneConverter": {
+            "target": "Package",
+            "version": "[3.4.0, )"
+          },
           "TwelveDataSharp": {
             "target": "Package",
             "version": "[1.1.0, )"
@@ -1044,7 +1087,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -14,5 +14,6 @@
     <PackageReference Include="TwelveDataSharp" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="5.0.0" />
     <PackageReference Include="System.Runtime.Caching" Version="5.0.0" />
+    <PackageReference Include="TimeZoneConverter" Version="3.4.0" />
   </ItemGroup>
 </Project>
