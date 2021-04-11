@@ -20,13 +20,19 @@
 
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item ">
+                    <a asp-controller="Home" asp-action="Forside" class="nav-link">
+                        <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
+                        <span class="sidebar-text">Forside</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a asp-controller="Home" asp-action="Apitest" class="nav-link">
                         <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
                         <span class="sidebar-text">Aktiedata</span>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a asp-controller="User" asp-action="UserView" class="nav-link">
+                    <a asp-controller="Home" asp-action="TestView" class="nav-link">
                         <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
                         <span class="sidebar-text">testview</span>
                     </a>
