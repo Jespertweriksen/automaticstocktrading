@@ -76,15 +76,10 @@ namespace AutomaticStockTrading.Controllers
             string result = response.Content.ReadAsStringAsync().Result;
             
             Console.WriteLine(result);
-
-            
-
-
-
         }
-
-       
     }
+
+
     public class Person
     {
         public string myname;
