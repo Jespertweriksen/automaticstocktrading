@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutomaticStockTrading.DataContext;
+using AutomaticStockTrading.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,8 @@ namespace AutomaticStockTrading
         {
             services.AddControllersWithViews();
 
+
+            services.AddScoped<UserDataService>();
             services.AddDbContext<Context>(options => options.UseNpgsql(
                 Configuration.GetConnectionString("Myconnection")
                 )

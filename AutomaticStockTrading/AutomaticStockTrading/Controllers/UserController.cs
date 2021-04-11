@@ -1,6 +1,7 @@
 ﻿using AutomaticStockTrading.DataContext;
 using AutomaticStockTrading.ModelConfiguration;
 using AutomaticStockTrading.Models;
+using AutomaticStockTrading.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,39 +10,35 @@ using System.Threading.Tasks;
 
 namespace AutomaticStockTrading.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiController]
+    [Route("api/")]
     public class UserController : Controller
     {
         readonly Context Context;
+        readonly UserDataService UserDataService;
 
-        public UserController(Context context)
-            => Context = context;
 
-        [HttpGet]
-        public IActionResult GetUsers()
+        public UserController(Context context, UserDataService userDataService)
+        { 
+            Context = context;
+            UserDataService = userDataService;
+
+        }
+
+        [HttpGet("user/{id}")]
+        public IActionResult GetUsers(int id)
         {
-            var user = Context.users.ToList();
+            var user = UserDataService.GetUser(id);
             return Ok(user);
         }
 
-        [HttpPost]
-        public IActionResult CreateUser()
+        //CREATE NEW USER
+        [HttpPost("user")]
+        public IActionResult createUser(UserModel userDto)
         {
-            var user = new UserModel()
-            {
-                username = "Newuser",
-                password = "1234",
-                salt = "qwer123",
-                surname = "testuser",
-                last_name = "testuserlastname",
-                age = 2,
-                email = "newuseremail@email.dk"
-            };
-
-            Context.Add(user);
-            Context.SaveChanges();
-
-            return Ok("Succesfully created user");
+            //string surname, string lastname, int age, string email
+            var user = UserDataService.CreateUser(userDto.username, userDto.password, userDto.surname, userDto.last_name, userDto.age, userDto.email);
+            return Created(" ", user);
         }
     }
 }
