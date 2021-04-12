@@ -43,6 +43,7 @@
         <e p="Services" t="Include">
           <e p="DatabaseTest.cs" t="Include" />
           <e p="Hashing.cs" t="Include" />
+          <e p="UserDataService.cs" t="Include" />
           <e p="UserValidation.cs" t="Include" />
           <e p="YahooFinanceAPI.cs" t="Include" />
         </e>
