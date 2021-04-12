@@ -18,6 +18,17 @@ namespace AutomaticStockTrading.Services
             this.context = context;
         }
 
+        public bool Login(string password, string email)
+        {
+            var getUser = context.users.FirstOrDefault(x => x.email.ToLower() == email.ToLower());
+            if (getUser.email.ToLower() == email.ToLower() && _userValidation.VerifyPassword(password, getUser.password, getUser.salt))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public UserModel GetUser(int id)
         {
             return context.users.Find(id);
@@ -57,6 +68,14 @@ namespace AutomaticStockTrading.Services
             context.SaveChanges();
             return context.users.Find(maxId + 1);
         }
+
+        //GET USER PROFILE
+        public int GetUserIDByUsername(string username)
+        {
+            var query = context.users.Where(x => x.username == username).FirstOrDefault().id;
+            return query;
+        }
+
 
         public bool DeleteUser(int id)
         {
