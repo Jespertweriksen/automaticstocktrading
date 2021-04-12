@@ -47,6 +47,8 @@ namespace AutomaticStockTrading
 
             services.AddMvc();
             services.AddControllers();
+            services.AddControllersWithViews(x => x.SuppressAsyncSuffixInActionNames = false)
+            .AddRazorRuntimeCompilation();
             services.AddScoped<UserDataService>();
             services.AddDbContext<Context>(options => options.UseNpgsql(
                 Configuration.GetConnectionString("Myconnection")
@@ -71,7 +73,7 @@ namespace AutomaticStockTrading
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Login}/{id?}");
             });
         }
     }
