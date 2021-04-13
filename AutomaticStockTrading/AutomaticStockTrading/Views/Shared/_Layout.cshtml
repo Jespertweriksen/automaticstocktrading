@@ -51,204 +51,229 @@
 
 </head>
 <body>
-       <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-    <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
-        <a class="navbar-brand me-lg-5" href="../../index.html">
-            <img class="navbar-brand-dark" src="../../assets/img/brand/light.svg" alt="Volt logo" /> <img class="navbar-brand-light" src="../../assets/img/brand/dark.svg" alt="Volt logo" />
-        </a>
-        <div class="d-flex align-items-center">
-            <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
 
-<nav id="sidebarMenu" class="sidebar d-md-block bg-dark text-white collapse" data-simplebar>
-    <div class="sidebar-inner px-4 pt-3">
-
-        <ul class="nav flex-column pt-3 pt-md-0">
-            <li class="nav-item ">
-                <a asp-controller="Home" asp-action="Forside" class="nav-link">
-                    <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
-                    <span class="sidebar-text">Forside</span>
+    @{
+        if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("username")))
+        {
+        }
+        else
+        {
+            <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
+                <a class="navbar-brand me-lg-5" href="../../index.html">
+                    <img class="navbar-brand-dark" src="../../assets/img/brand/light.svg" alt="Volt logo" /> <img class="navbar-brand-light" src="../../assets/img/brand/dark.svg" alt="Volt logo" />
                 </a>
-            </li>
-            <li class="nav-item ">
-                <a asp-controller="Home" asp-action="Apitest" class="nav-link">
-                    <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
-                    <span class="sidebar-text">Aktiedata</span>
-                </a>
-            </li>
-           
-            <!-- YOUR PAGES DROPDOWN -->
-            <li class="nav-item">
-                <span class="nav-link d-flex justify-content-between align-items-center COLLAPSED" data-bs-toggle="collapse" data-bs-target="#submenu-app">
-                    <span>
-                        <span class="sidebar-icon">
-                            <span class="fas fa-table"></span>
-                        </span> <span class="sidebar-text">Dine sider</span>
-                    </span>
-                    <span class="link-arrow">
-                        <span class="fas fa-chevron-right">
-                        </span>
-                    </span>
-                </span>
-                <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
-                    <ul class="flex-column nav">
-                        <li class="nav-item">
-                            <a asp-controller="YourPages" asp-action="Portfolio" class="nav-link">
-                                <span class="sidebar-text">Portfølje</span>
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+
+            <nav id="sidebarMenu" class="sidebar d-md-block bg-dark text-white collapse" data-simplebar>
+                <div class="sidebar-inner px-4 pt-3">
+
+                    <ul class="nav flex-column pt-3 pt-md-0">
+                        <li class="nav-item ">
+                            <a asp-controller="Home" asp-action="Forside" class="nav-link">
+                                <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
+                                <span class="sidebar-text">Forside</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a asp-controller="YourPages" asp-action="Orders" class="nav-link">
-                                <span class="sidebar-text">Ordre</span>
+                        <li class="nav-item ">
+                            <a asp-controller="Home" asp-action="Apitest" class="nav-link">
+                                <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
+                                <span class="sidebar-text">Aktiedata</span>
                             </a>
                         </li>
+
+                        <!-- YOUR PAGES DROPDOWN -->
+                        <li class="nav-item dropdown open">
+                            <span class="nav-link d-flex justify-content-between align-items-center COLLAPSED" data-bs-toggle="collapse" data-bs-target="#submenu-app">
+                                <span>
+                                    <span class="sidebar-icon">
+                                        <span class="fas fa-table"></span>
+                                    </span> <span class="sidebar-text">Dine sider</span>
+                                </span>
+                                <span class="link-arrow">
+                                    <span class="fas fa-chevron-right">
+                                    </span>
+                                </span>
+                            </span>
+                            <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
+                                <ul class="flex-column nav">
+                                    <li class="nav-item">
+                                        <a asp-controller="YourPages" asp-action="Portfolio" class="nav-link">
+                                            <span class="sidebar-text">Portfølje</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="YourPages" asp-action="Orders" class="nav-link">
+                                            <span class="sidebar-text">Ordre</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="YourPages" asp-action="Settings" class="nav-link">
+                                            <span class="sidebar-text">Indstillinger</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item ">
+                            <a asp-controller="Home" asp-action="Apitest" class="nav-link">
+                                <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
+                                <span class="sidebar-text">Log ud</span>
+                            </a>
+                        </li>
+
                         <li class="nav-item">
-                            <a asp-controller="YourPages" asp-action="Settings" class="nav-link">
-                                <span class="sidebar-text">Indstillinger</span>
+                            <a href="../../pages/upgrade-to-pro.html"
+                               class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
+                                <span class="sidebar-icon"><span class="fas fa-rocket me-2"></span></span> <span>Kontakt</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-            </li>
-            
-            <li class="nav-item">
-                <a href="../../pages/upgrade-to-pro.html"
-                   class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
-                    <span class="sidebar-icon"><span class="fas fa-rocket me-2"></span></span> <span>Kontakt</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-@RenderBody()
+            </nav>
 
- 
+        }
+    }
 
-<footer class="footer py-6 bg-dark text-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img class="navbar-brand-dark mb-4" height="35" src="~/assets/img/brand/light.svg" alt="Logo light">
-                <p>Volt is a Premium Bootstrap 5 Admin Dashboard bringing together beautiful UI/UX design and functional elements.</p>
-                <ul class="social-buttons mb-5 mb-lg-0">
-                    <li>
-                        <a href="https://twitter.com/themesberg" aria-label="twitter social link" class="icon-white me-2">
-                            <span class="fab fa-twitter"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/themesberg/" class="icon-white me-2" aria-label="facebook social link">
-                            <span class="fab fa-facebook"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/themesberg" aria-label="github social link" class="icon-white me-2">
-                            <span class="fab fa-github"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://dribbble.com/themesberg" class="icon-white" aria-label="dribbble social link" >
-                            <span class="fab fa-dribbble"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6 col-md-2 mb-5 mb-lg-0">
-                <span class="h5">Themesberg</span>
-                <ul class="links-vertical mt-2">
-                    <li><a target="_blank" href="https://themesberg.com/blog">Blog</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/products">Products</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/about">About Us</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md-2 mb-5 mb-lg-0">
-                <span class="h5">Other</span>
-                <ul class="links-vertical mt-2">
-                    <li><a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/getting-started/quick-start/" target="_blank">Docs
-                            <span class="badge badge-sm bg-secondary text-dark ms-2">v1.3</span></a></li>
-                    <li><a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/getting-started/changelog/" target="_blank">Changelog</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/licensing">License</a>
-                    </li>
-                    <li><a target="_blank" href="https://themesberg.com/contact">Support</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-4 mb-5 mb-lg-0">
-                <span class="h5 mb-3 d-block">Subscribe</span>
-                <form action="#">
-                    <div class="form-row mb-2">
-                        <div class="col-12">
-                            <input type="email" class="form-control mb-2" placeholder="example@company.com" name="email" aria-label="Subscribe form" required>
+
+
+
+    @RenderBody()
+
+
+
+    <footer class="footer py-6 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="navbar-brand-dark mb-4" height="35" src="~/assets/img/brand/light.svg" alt="Logo light">
+                    <p>Volt is a Premium Bootstrap 5 Admin Dashboard bringing together beautiful UI/UX design and functional elements.</p>
+                    <ul class="social-buttons mb-5 mb-lg-0">
+                        <li>
+                            <a href="https://twitter.com/themesberg" aria-label="twitter social link" class="icon-white me-2">
+                                <span class="fab fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/themesberg/" class="icon-white me-2" aria-label="facebook social link">
+                                <span class="fab fa-facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/themesberg" aria-label="github social link" class="icon-white me-2">
+                                <span class="fab fa-github"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://dribbble.com/themesberg" class="icon-white" aria-label="dribbble social link">
+                                <span class="fab fa-dribbble"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                    <span class="h5">Themesberg</span>
+                    <ul class="links-vertical mt-2">
+                        <li><a target="_blank" href="https://themesberg.com/blog">Blog</a></li>
+                        <li><a target="_blank" href="https://themesberg.com/products">Products</a></li>
+                        <li><a target="_blank" href="https://themesberg.com/about">About Us</a></li>
+                        <li><a target="_blank" href="https://themesberg.com/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                    <span class="h5">Other</span>
+                    <ul class="links-vertical mt-2">
+                        <li>
+                            <a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/getting-started/quick-start/" target="_blank">
+                                Docs
+                                <span class="badge badge-sm bg-secondary text-dark ms-2">v1.3</span>
+                            </a>
+                        </li>
+                        <li><a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/getting-started/changelog/" target="_blank">Changelog</a></li>
+                        <li>
+                            <a target="_blank" href="https://themesberg.com/licensing">License</a>
+                        </li>
+                        <li><a target="_blank" href="https://themesberg.com/contact">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 mb-5 mb-lg-0">
+                    <span class="h5 mb-3 d-block">Subscribe</span>
+                    <form action="#">
+                        <div class="form-row mb-2">
+                            <div class="col-12">
+                                <input type="email" class="form-control mb-2" placeholder="example@company.com" name="email" aria-label="Subscribe form" required>
+                            </div>
+                            <div class="col-12 d-grid">
+                                <button type="submit" class="btn btn-secondary" data-loading-text="Sending">
+                                    <span>Subscribe</span>
+                                </button>
+                            </div>
                         </div>
-                        <div class="col-12 d-grid">
-                            <button type="submit" class="btn btn-secondary" data-loading-text="Sending">
-                                <span>Subscribe</span>
-                            </button>
-                        </div>
+                    </form>
+                    <p class="text-muted font-small m-0">We’ll never share your details. See our <a class="text-white" href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+            <hr class="bg-gray-700 my-5">
+            <div class="row">
+                <div class="col mb-md-0">
+                    <a href="https://themesberg.com" target="_blank" class="d-flex justify-content-center">
+                        <img src="~/assets/img/themesberg-logo-alt.svg" height="35" class="mb-4" alt="Themesberg Logo">
+                    </a>
+                    <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                        <p class="fw-normal font-small mb-0">Copyright © Themesberg 2019-<span class="current-year">2021</span>. All rights reserved.</p>
                     </div>
-                </form>
-                <p class="text-muted font-small m-0">We’ll never share your details. See our <a class="text-white" href="#">Privacy Policy</a></p>
-            </div>
-        </div>
-        <hr class="bg-gray-700 my-5">
-        <div class="row">
-            <div class="col mb-md-0">
-                <a href="https://themesberg.com" target="_blank" class="d-flex justify-content-center">
-                    <img src="~/assets/img/themesberg-logo-alt.svg" height="35" class="mb-4" alt="Themesberg Logo">
-                </a>
-            <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
-                <p class="fw-normal font-small mb-0">Copyright © Themesberg 2019-<span class="current-year">2021</span>. All rights reserved.</p>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
-<!-- Core -->
-<script src="~/vendor/popperjs/core/dist/umd/popper.min.js"></script>
-<script src="~/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Core -->
+    <script src="~/vendor/popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="~/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<!-- Vendor JS -->
-<script src="~/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+    <!-- Vendor JS -->
+    <script src="~/vendor/onscreen/dist/on-screen.umd.min.js"></script>
 
-<!-- Slider -->
-<script src="~/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <!-- Slider -->
+    <script src="~/vendor/nouislider/distribute/nouislider.min.js"></script>
 
-<!-- Smooth scroll -->
-<script src="~/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Smooth scroll -->
+    <script src="~/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 
-<!-- Charts -->
-<script src="~/vendor/chartist/dist/chartist.min.js"></script>
-<script src="~/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Charts -->
+    <script src="~/vendor/chartist/dist/chartist.min.js"></script>
+    <script src="~/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
 
-<!-- Datepicker -->
-<script src="~/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+    <!-- Datepicker -->
+    <script src="~/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
 
-<!-- Sweet Alerts 2 -->
-<script src="~/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- Sweet Alerts 2 -->
+    <script src="~/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-<!-- Moment JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <!-- Moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 
-<!-- Vanilla JS Datepicker -->
-<script src="~/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+    <!-- Vanilla JS Datepicker -->
+    <script src="~/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
 
-<!-- Notyf -->
-<script src="~/vendor/notyf/notyf.min.js"></script>
+    <!-- Notyf -->
+    <script src="~/vendor/notyf/notyf.min.js"></script>
 
-<!-- Simplebar -->
-<script src="~/vendor/simplebar/dist/simplebar.min.js"></script>
+    <!-- Simplebar -->
+    <script src="~/vendor/simplebar/dist/simplebar.min.js"></script>
 
-<!-- Github buttons -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-<!-- Volt JS -->
-<script src="~/assets/js/volt.js"></script>
+    <!-- Volt JS -->
+    <script src="~/assets/js/volt.js"></script>
 
 </body>
 </html>
