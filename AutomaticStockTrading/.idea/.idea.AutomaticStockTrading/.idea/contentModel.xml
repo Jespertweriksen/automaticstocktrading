@@ -19,6 +19,9 @@
         <e p="DataContext" t="Include">
           <e p="Context.cs" t="Include" />
         </e>
+        <e p="Helpers" t="Include">
+          <e p="SessionHelper.cs" t="Include" />
+        </e>
         <e p="ModelConfiguration" t="Include">
           <e p="DBConfig.cs" t="Include" />
         </e>
@@ -57,10 +60,12 @@
             <e p="Apitest.cshtml" t="Include" />
             <e p="Forside.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
-            <e p="TestView.cshtml" t="Include" />
           </e>
           <e p="Login" t="Include">
+            <e p="CreateAccount.cshtml" t="Include" />
+            <e p="ForgotPassword.cshtml" t="Include" />
             <e p="Login.cshtml" t="Include" />
+            <e p="ResetPassword.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
