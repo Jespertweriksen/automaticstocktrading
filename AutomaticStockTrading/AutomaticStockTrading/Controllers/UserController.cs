@@ -16,14 +16,14 @@ using System.Threading.Tasks;
 
 namespace AutomaticStockTrading.Controllers
 {
-    [ApiController]
-    [Route("api/")]
     public class UserController : Controller
     {
         readonly Context Context;
         readonly UserDataService UserDataService;
         private IConfiguration _config;
+        
 
+        /*
         [Authorize]
         [HttpPost("post")]
         public string Post()
@@ -57,7 +57,7 @@ namespace AutomaticStockTrading.Controllers
             var encodetoken = new JwtSecurityTokenHandler().WriteToken(token);
             return encodetoken;
         }
-
+        */
 
         public UserController(Context context, UserDataService userDataService)
         { 
@@ -67,25 +67,37 @@ namespace AutomaticStockTrading.Controllers
         }
 
         //GETUSER
-        [HttpGet("user/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetUsers(int id)
         {
             var user = UserDataService.GetUser(id);
             return Ok(user);
         }
 
+        
         //CREATE NEW USER
-        [HttpPost("user")]
+        [HttpPost]
+        [ActionName("Create")]
         public IActionResult createUser(UserModel userDto)
         {
             //string surname, string lastname, int age, string email
             var user = UserDataService.CreateUser(userDto.username, userDto.password, userDto.surname, userDto.last_name, userDto.age, userDto.email);
-            return Created(" ", user);
+
+            if (user)
+            {
+                return View("/Views/Home/Login.cshtml");
+            }
+            else
+            {
+                return BadRequest("User creation failed");
+            }
         }
+        
 
         //LOGIN
-        [HttpPost("user/login/")]
-        public IActionResult Login(UserModel userDto)
+        [HttpPost]
+        [ActionName("Login")]
+        public IActionResult Login([FromForm] UserModel userDto)
         {
             var user = UserDataService.Login(userDto.email.ToLower(), userDto.password);
 
@@ -98,15 +110,34 @@ namespace AutomaticStockTrading.Controllers
             IActionResult response = Unauthorized();
             if (user)
             {
-                var tokenStr = GenerateJSONWebToken(userDto);
-                response = Ok(new { id = UserDataService.GetUserIDByUsername(userDto.username), email = userDto.email, tokenStr });
+                //var tokenStr = GenerateJSONWebToken(userDto);
+                response = Ok(new { id = UserDataService.GetUserIDByUsername(userDto.email), email = userDto.email, /*tokenStr*/ });
             }
             else
             {
                 return BadRequest("User not authorized");
+                
+                
             }
-            return response;
+            return View("/Views/Home/Forside.cshtml");
         }
+
+        public IActionResult CreateUserPage()
+        {
+            return View("/Views/Login/CreateAccount.cshtml");
+        }
+
+
+        public IActionResult ForgotPassword()
+        {
+            return View("/Views/Login/ForgotPassword.cshtml");
+        }
+
+        public IActionResult LoginPage()
+        {
+            return View("/Views/Login/Login.cshtml");
+        }
+
 
     }
 }
