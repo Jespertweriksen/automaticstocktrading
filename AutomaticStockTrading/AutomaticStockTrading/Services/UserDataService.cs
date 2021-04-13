@@ -109,11 +109,53 @@ namespace AutomaticStockTrading.Services
         }
 
         //GET USER PROFILE
-        public int GetUserIDByUsername(string email)
+        public int GetUserIDByEmail(string email)
         {
             var query = context.users.Where(x => x.email == email).FirstOrDefault().id;
             return query;
         }
+
+        public string GetUsernameByEmail(string email)
+        {
+            var query = context.users.Where(x => x.email == email).FirstOrDefault().username;
+            return query;
+        }
+
+        public int GetAgeByEmail(string email)
+        {
+            var query = context.users.Where(x => x.email == email).FirstOrDefault().age;
+            return query;
+        }
+
+        public string GetSurnameByEmail(string email)
+        {
+            var query = context.users.Where(x => x.email == email).FirstOrDefault().surname;
+            return query;
+        }
+
+        public string GetLastnameByEmail(string email)
+        {
+            var query = context.users.Where(x => x.email == email).FirstOrDefault().last_name;
+            return query;
+        }
+
+        public UserModel GetUserModelByEmail(string email)
+        {
+            UserModel model = new UserModel();
+            var username = context.users.Where(x => x.email == email).FirstOrDefault().username;
+            var surname = context.users.Where(x => x.email == email).FirstOrDefault().surname;
+            var lastname = context.users.Where(x => x.email == email).FirstOrDefault().last_name;
+            var age = context.users.Where(x => x.email == email).FirstOrDefault().age;
+            var id = context.users.Where(x => x.email == email).FirstOrDefault().id;
+            model.id = id;
+            model.username = username;
+            model.surname = surname;
+            model.last_name = lastname;
+            model.age = age;
+            model.email = email;
+            return model;
+        }
+
 
 
         public bool DeleteUser(int id)

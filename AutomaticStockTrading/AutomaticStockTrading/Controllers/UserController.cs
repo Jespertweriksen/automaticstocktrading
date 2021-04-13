@@ -5,14 +5,8 @@ using AutomaticStockTrading.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
 
 namespace AutomaticStockTrading.Controllers
 {
@@ -21,7 +15,8 @@ namespace AutomaticStockTrading.Controllers
         readonly Context Context;
         readonly UserDataService UserDataService;
         private IConfiguration _config;
-        
+        private readonly ISession session;
+
 
         /*
         [Authorize]
@@ -59,10 +54,11 @@ namespace AutomaticStockTrading.Controllers
         }
         */
 
-        public UserController(Context context, UserDataService userDataService)
+        public UserController(Context context, UserDataService userDataService, IHttpContextAccessor httpContextAccessor)
         { 
             Context = context;
             UserDataService = userDataService;
+            this.session = httpContextAccessor.HttpContext.Session;
 
         }
 
@@ -85,7 +81,7 @@ namespace AutomaticStockTrading.Controllers
 
             if (user)
             {
-                return View("/Views/Home/Login.cshtml");
+                return View("/Views/Login/Login.cshtml");
             }
             else
             {
@@ -110,8 +106,17 @@ namespace AutomaticStockTrading.Controllers
             IActionResult response = Unauthorized();
             if (user)
             {
+                var userModel = UserDataService.GetUserModelByEmail(userDto.email);
+                session.SetString("username", userModel.username);
+                session.SetInt32("userID", userModel.id);
+                session.SetInt32("age", userModel.age);
+                session.SetString("surname", userModel.surname);
+                session.SetString("lastname", userModel.last_name);
+                session.SetString("email", userModel.email);
+
                 //var tokenStr = GenerateJSONWebToken(userDto);
-                response = Ok(new { id = UserDataService.GetUserIDByUsername(userDto.email), email = userDto.email, /*tokenStr*/ });
+
+                response = Ok(new { id = UserDataService.GetUserIDByEmail(userDto.email), email = userDto.email, /*tokenStr*/ });
             }
             else
             {

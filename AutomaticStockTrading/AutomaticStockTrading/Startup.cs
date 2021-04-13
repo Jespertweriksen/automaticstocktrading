@@ -14,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Session;
+
 
 namespace AutomaticStockTrading
 {
@@ -50,6 +52,9 @@ namespace AutomaticStockTrading
             services.AddControllersWithViews(x => x.SuppressAsyncSuffixInActionNames = false)
             .AddRazorRuntimeCompilation();
             services.AddScoped<UserDataService>();
+            services.AddHttpContextAccessor();
+            services.AddDistributedMemoryCache();
+            services.AddSession(s => s.IdleTimeout = TimeSpan.FromMinutes(30)); 
             services.AddDbContext<Context>(options => options.UseNpgsql(
                 Configuration.GetConnectionString("Myconnection")
                 )
@@ -68,6 +73,8 @@ namespace AutomaticStockTrading
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

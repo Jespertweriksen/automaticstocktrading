@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pcZPaI/77Num+eXRiJVF78YPFrTrSlsZrSAZzPnne/9nbUHjcz37NA6vicgQsge+54S0ThIYZfjz0dv1+R5AWA==",
+  "dgSpecHash": "/TTNn4k0peizJHOy46L+gRgBEMgJ5LwexD1wmsq4OtHZZgmXwjpR8S5aefTrwAC8tZQumYUB8T8loJcUK7Le0A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jesper\\Documents\\Projekter\\AutomaticStockTrading\\AutomaticStockTrading\\AutomaticStockTrading\\AutomaticStockTrading.csproj",
   "expectedPackageFiles": [
@@ -158,6 +158,7 @@
     "C:\\Users\\Jesper\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Jesper\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
     "C:\\Users\\Jesper\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Jesper\\.nuget\\packages\\system.web.http.common\\4.0.20126.16343\\system.web.http.common.4.0.20126.16343.nupkg.sha512",
     "C:\\Users\\Jesper\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
     "C:\\Users\\Jesper\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Jesper\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
@@ -192,6 +193,16 @@
       "warningLevel": 1,
       "message": "Package 'Microsoft.Net.Http 2.2.29' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.Net.Http",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Web.Http.Common 4.0.20126.16343' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "System.Web.Http.Common",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]
