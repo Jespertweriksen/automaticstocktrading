@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AutomaticStockTrading.Services
@@ -18,14 +19,20 @@ namespace AutomaticStockTrading.Services
             this.context = context;
         }
 
-        public bool Login(string password, string email)
+        public bool Login(string email, string password)
         {
             var getUser = context.users.FirstOrDefault(x => x.email.ToLower() == email.ToLower());
-            if (getUser.email.ToLower() == email.ToLower() && _userValidation.VerifyPassword(password, getUser.password, getUser.salt))
+            if(getUser is null)
             {
-                return true;
+                return false;
             }
-
+            else
+            {
+                if (getUser.email.ToLower() == email.ToLower() && _userValidation.VerifyPassword(password, getUser.password, getUser.salt))
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -58,21 +65,53 @@ namespace AutomaticStockTrading.Services
         }
 
         //CREATE NEW USER
-        public UserModel CreateUser(string username, string password, string surname, string lastname, int age, string email)
+        public bool CreateUser(string username, string password, string surname, string lastname, int age, string email)
         {
             Hashing.HashSalt hashSalt = hashing.PasswordHash(16, password);
-            var maxId = context.users.Max(x => x.id);
 
+            var maxId = context.users.Max(x => x.id);
+            var usernameQuery = context.users.Where(x => x.username == username).ToList();
+            if (usernameQuery.Count > 0) return false;
+            var emailQuery = context.users.Where(x => x.email == email).ToList();
+            if (emailQuery.Count > 0) return false;
+
+            // TODO: Add username & password check 
+            if (!Regex.IsMatch(surname, @"^[a-zA-Z]+$"))
+            {
+                Console.WriteLine(surname + "is not correct");
+                return false;
+            }
+            if (!Regex.IsMatch(lastname, @"^[a-zA-Z]+$"))
+            {
+                Console.WriteLine(lastname + "is not correct");
+                return false;
+            }
+            if (!IsValidEmail(email))
+            {
+                Console.WriteLine(email + "is not correct");
+                return false;
+            }
+            if (age == 0)
+            {
+                Console.WriteLine(age + " is 0");
+                return false;
+            }
+            if (password == null)
+            {
+                Console.WriteLine(password + "is null");
+                return false;
+            }
             context.users.Add(new UserModel
             { username = username, password = hashSalt.Hash, salt = hashSalt.Salt, age = age, surname = surname, last_name = lastname, email = email });
             context.SaveChanges();
-            return context.users.Find(maxId + 1);
+            return true;
+            //return ctx.users.Find(maxId + 1);
         }
 
         //GET USER PROFILE
-        public int GetUserIDByUsername(string username)
+        public int GetUserIDByUsername(string email)
         {
-            var query = context.users.Where(x => x.username == username).FirstOrDefault().id;
+            var query = context.users.Where(x => x.email == email).FirstOrDefault().id;
             return query;
         }
 

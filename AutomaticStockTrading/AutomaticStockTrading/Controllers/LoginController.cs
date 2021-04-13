@@ -12,5 +12,7 @@ namespace AutomaticStockTrading.Controllers
         {
             return View();
         }
+
+        
     }
 }
