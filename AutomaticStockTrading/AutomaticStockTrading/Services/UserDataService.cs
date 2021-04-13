@@ -115,30 +115,6 @@ namespace AutomaticStockTrading.Services
             return query;
         }
 
-        public string GetUsernameByEmail(string email)
-        {
-            var query = context.users.Where(x => x.email == email).FirstOrDefault().username;
-            return query;
-        }
-
-        public int GetAgeByEmail(string email)
-        {
-            var query = context.users.Where(x => x.email == email).FirstOrDefault().age;
-            return query;
-        }
-
-        public string GetSurnameByEmail(string email)
-        {
-            var query = context.users.Where(x => x.email == email).FirstOrDefault().surname;
-            return query;
-        }
-
-        public string GetLastnameByEmail(string email)
-        {
-            var query = context.users.Where(x => x.email == email).FirstOrDefault().last_name;
-            return query;
-        }
-
         public UserModel GetUserModelByEmail(string email)
         {
             UserModel model = new UserModel();
