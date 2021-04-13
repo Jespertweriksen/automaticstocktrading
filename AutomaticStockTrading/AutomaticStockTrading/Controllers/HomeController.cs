@@ -28,11 +28,6 @@ namespace AutomaticStockTrading.Controllers
         {
             return View();
         }
-
-        public IActionResult Testview()
-        {
-            return View();
-        }
         
         public IActionResult Forside()
         {

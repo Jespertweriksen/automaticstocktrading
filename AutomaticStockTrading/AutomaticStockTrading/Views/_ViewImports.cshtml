@@ -1,4 +1,7 @@
 ﻿@using AutomaticStockTrading
 @using AutomaticStockTrading.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+@using AutomaticStockTrading.Services;
+@model AutomaticStockTrading.Models.UserModel;
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor

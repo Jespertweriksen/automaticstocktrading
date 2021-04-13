@@ -1,12 +1,4 @@
-﻿@using AutomaticStockTrading.Services;
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<<<<<<< HEAD
-@model AutomaticStockTrading.Models.UserModel;
-@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
-=======
->>>>>>> 85c6c9bdf7c995f1d9312d1c253d824ff0cd0986
-@{
+﻿@{
     ViewData["Title"] = "Din Side";
 
 }
@@ -14,366 +6,137 @@
 @{
     if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("username")))
     {
-        
-            <main>
-                <section class="vh-100 d-flex align-items-center justify-content-center">
-                    <div class="container">
-                        <div class="row align-items-center ">
-                            <div class="col-12 col-lg-5 order-2 order-lg-1 text-center text-lg-left">
-                                <h1 class="mt-5">Something has gone <span class="text-primary">seriously</span> wrong</h1>
-                                <p class="lead my-4">It's always time for a coffee break. We should be back by the time you finish your coffee.</p>
-                                <a class="btn btn-dark animate-hover" href="../dashboard/dashboard.html"><i class="fas fa-chevron-left me-3 ps-2 animate-left-3"></i>Go back home</a>
-                            </div>
-                            <div class="col-12 col-lg-7 order-1 order-lg-2 text-center d-flex align-items-center justify-content-center">
-                                <img class="img-fluid w-75" src="../../assets/img/illustrations/500.svg" alt="500 Server Error">
-                            </div>
+       
+        <main>
+            <section class="vh-100 d-flex align-items-center justify-content-center">
+                <div class="container">
+                    <div class="row align-items-center ">
+                        <div class="col-12 col-lg-5 order-2 order-lg-1 text-center text-lg-left">
+                            <h1 class="mt-5">Something has gone <span class="text-primary">seriously</span> wrong</h1>
+                            <p class="lead my-4">It's always time for a coffee break. We should be back by the time you finish your coffee.</p>
+                            <a class="btn btn-dark animate-hover" href="../dashboard/dashboard.html"><i class="fas fa-chevron-left me-3 ps-2 animate-left-3"></i>Go back home</a>
+                        </div>
+                        <div class="col-12 col-lg-7 order-1 order-lg-2 text-center d-flex align-items-center justify-content-center">
+                            <img class="img-fluid w-75" src="../../assets/img/illustrations/500.svg" alt="500 Server Error">
                         </div>
                     </div>
-                </section>
-            </main>
-        
-
+                </div>
+            </section>
+        </main>
     }
     else
     {
-        <body>
+<body>
 
-            <main class="content">
-                <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    <main class="content">
+        <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-                    <div>
-                        <button class="btn btn-secondary text-dark me-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="fas fa-plus me-2"></span>New
-                        </button>
-                        <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-0">
-                            <a class="dropdown-item fw-normal rounded-top" href="#"><span class="far fa-file-alt me-2"></span>Document</a>
-                            <a class="dropdown-item fw-normal" href="#"><span class="far fa-comment-dots me-2"></span>Message</a>
-                            <a class="dropdown-item fw-normal" href="#"><span class="fas fa-box-open me-2"></span>Product</a>
-                            <div role="separator" class="dropdown-divider my-0"></div>
-                            <a class="dropdown-item fw-normal rounded-bottom" href="#"><span class="fas fa-rocket text-danger me-2"></span>My Plan</a>
-                        </div>
-                    </div>
-
-<<<<<<< HEAD
-                    <div>
-                        <button type="button" class="btn btn-dark me-2"><span class="fas fa-calendar-alt"></span></button>
-                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="fas fa-clipboard me-2"></span>
-                            Reports
-                            <span class="icon icon-small ms-1"><span class="fas fa-chevron-down"></span></span>
-                        </button>
-                        <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-0">
-                            <a class="dropdown-item fw-normal rounded-top" href="#"><span class="fas fa-box-open"></span>Products</a>
-                            <a class="dropdown-item fw-normal" href="#"><span class="fas fa-store"></span>Customers</a>
-                            <a class="dropdown-item fw-normal" href="#"><span class="fas fa-cart-arrow-down"></span>Orders</a>
-                            <a class="dropdown-item fw-normal" href="#"><span class="fas fa-chart-pie"></span>Console</a>
-                            <div role="separator" class="dropdown-divider my-0"></div>
-                            <a class="dropdown-item fw-normal rounded-bottom" href="#"><span class="fas fa-rocket text-success"></span>All Reports</a>
-                        </div>
-                    </div>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+            <div class="col col-md-6 col-lg-3 col-xl-4">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon2">
+                        <span class="fas fa-search"></span>
+                    </span>
+                    <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
                 </div>
-                <div class="row">
-                    <div class="col-12 col-xl-8">
-                        <div class="card card-body shadow-sm mb-4">
-                            <h2 class="h5 mb-4">General information</h2>
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <div>
-                                            <label for="first_name">First Name</label>
-                                            <input class="form-control" id="first_name" type="text" placeholder="Enter your first name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div>
-                                            <label for="last_name">Last Name</label>
-                                            <input class="form-control" id="last_name" type="text" placeholder="Also your last name" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="birthday">Birthday</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                                            <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="gender">Gender</label>
-                                        <select class="form-select mb-0" id="gender" aria-label="Gender select example">
-                                            <option selected>Gender</option>
-                                            <option value="1">Female</option>
-                                            <option value="2">Male</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input class="form-control" id="email" type="email" placeholder="name@company.com" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="phone">Phone</label>
-                                            <input class="form-control" id="phone" type="number" placeholder="+12-345 678 910" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h2 class="h5 my-4">Location</h2>
-                                <div class="row">
-                                    <div class="col-sm-9 mb-3">
-                                        <div class="form-group">
-                                            <label for="address">Address</label>
-                                            <input class="form-control" id="address" type="text" placeholder="Enter your home address" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3 mb-3">
-                                        <div class="form-group">
-                                            <label for="number">Number</label>
-                                            <input class="form-control" id="number" type="number" placeholder="No." required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4 mb-3">
-                                        <div class="form-group">
-                                            <label for="city">City</label>
-                                            <input class="form-control" id="city" type="text" placeholder="City" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label for="zip">ZIP</label>
-                                            <input class="form-control" id="zip" type="tel" placeholder="ZIP" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <button type="submit" class="btn btn-dark">Save All</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="card card-body shadow-sm mb-4 mb-lg-0">
-                            <h2 class="h5 mb-4">Alerts & Notifications</h2>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-                                    <div>
-                                        <h3 class="h6 mb-1">Company News</h3>
-                                        <p class="small pe-4">Get Rocket news, announcements, and product updates</p>
-                                    </div>
-                                    <div>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="user-notification-1">
-                                            <label class="form-check-label" for="user-notification-1"></label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-                                    <div>
-                                        <h3 class="h6 mb-1">Account Activity</h3>
-                                        <p class="small pe-4">Get important notifications about you or activity you've missed</p>
-                                    </div>
-                                    <div>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="user-notification-2" checked>
-                                            <label class="form-check-label" for="user-notification-2"></label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex align-items-center justify-content-between px-0">
-                                    <div>
-                                        <h3 class="h6 mb-1">Meetups Near You</h3>
-                                        <p class="small pe-4">Get an email when a Dribbble Meetup is posted close to my location</p>
-                                    </div>
-                                    <div>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="user-notification-3" checked>
-                                            <label class="form-check-label" for="user-notification-3"></label>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xl-4">
-                        <div class="row">
-                            <div class="col-12 mb-4">
-                                <div class="card shadow-sm text-center p-0">
-                                    <div class="profile-cover rounded-top" data-background="../assets/img/profile-cover.jpg"></div>
-                                    <div class="card-body pb-5">
-                                        <img src="../assets/img/team/profile-picture-1.jpg" class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
-                                        <h4 class="h3">@HttpContextAccessor.HttpContext.Session.GetString("surname") @HttpContextAccessor.HttpContext.Session.GetString("lastname")</h4>
-                                        <h5 class="fw-normal">Brugernavn: @HttpContextAccessor.HttpContext.Session.GetString("username")</h5>
-                                        <p class="text-gray mb-4">Alder: @HttpContextAccessor.HttpContext.Session.GetInt32("age")</p>
-                                        <a class="btn btn-sm btn-dark me-2" href="#"><span class="fas fa-user-plus me-1"></span> Connect</a>
-                                        <a class="btn btn-sm btn-secondary" href="#">Send Message</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="card card-body shadow-sm mb-4">
-                                    <h2 class="h5 mb-4">Select profile photo</h2>
-                                    <div class="d-flex align-items-center">
-                                        <div class="me-3">
-                                            <!-- Avatar -->
-                                            <div class="user-avatar xl-avatar">
-                                                <img class="rounded" src="../assets/img/team/profile-picture-3.jpg" alt="change avatar">
-                                            </div>
-                                        </div>
-                                        <div class="file-field">
-                                            <div class="d-flex justify-content-xl-center ms-xl-3">
-                                                <div class="d-flex">
-                                                    <span class="icon icon-md"><span class="fas fa-paperclip me-3"></span></span> <input type="file">
-                                                    <div class="d-md-block text-left">
-                                                        <div class="fw-normal text-dark mb-1">Choose Image</div>
-                                                        <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-xl-12">
-                                <div class="card card-body shadow-sm mb-4">
-                                    <h2 class="h5 mb-4">Select cover photo</h2>
-                                    <div class="d-flex align-items-center">
-                                        <div class="me-3">
-                                            <!-- Avatar -->
-                                            <div class="user-avatar xl-avatar">
-                                                <img class="rounded" src="../assets/img/profile-cover.jpg" alt="change cover photo">
-                                            </div>
-                                        </div>
-                                        <div class="file-field">
-                                            <div class="d-flex justify-content-xl-center ms-xl-3">
-                                                <div class="d-flex">
-                                                    <span class="icon icon-md"><span class="fas fa-paperclip me-3"></span></span> <input type="file">
-                                                    <div class="d-md-block text-left">
-                                                        <div class="fw-normal text-dark mb-1">Choose Image</div>
-                                                        <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-12 mb-4">
+                <div class="card bg-secondary-alt shadow-sm">
+                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                        <div class="d-block mb-3 mb-sm-0">
+                            <div class="h5 fw-normal mb-2">GME</div>
+                            <h2 class="h3">$10,567</h2>
+                            <div class="small mt-2">
+                                <span class="fw-bold me-2">Yesterday</span>
+                                <span class="fas fa-angle-up text-success"></span>
+                                <span class="text-success fw-bold">10.57%</span>
                             </div>
                         </div>
+                        <div class="d-flex ms-auto">
+                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
+                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
                     </div>
                 </div>
-            </main>
-=======
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-    <div class="col col-md-6 col-lg-3 col-xl-4">
-        <div class="input-group">
-            <span class="input-group-text" id="basic-addon2">
-                <span class="fas fa-search"></span>
-            </span>
-            <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
             </div>
-    </div>
-</div>
 
-<div class="row justify-content-md-center">
-    <div class="col-12 mb-4">
-        <div class="card bg-secondary-alt shadow-sm">
-            <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                <div class="d-block mb-3 mb-sm-0">
-                    <div class="h5 fw-normal mb-2">GME</div>
-                    <h2 class="h3">$10,567</h2>
-                    <div class="small mt-2">
-                        <span class="fw-bold me-2">Yesterday</span>
-                        <span class="fas fa-angle-up text-success"></span>
-                        <span class="text-success fw-bold">10.57%</span>
+            <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                <div class="card bg-secondary-alt shadow-sm">
+                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                        <div class="d-block mb-3 mb-sm-0">
+                            <div class="h5 fw-normal mb-2">BAVA</div>
+                            <h2 class="h3">$10,567</h2>
+                            <div class="small mt-2">
+                                <span class="fw-bold me-2">Yesterday</span>
+                                <span class="fas fa-angle-up text-success"></span>
+                                <span class="text-success fw-bold">10.57%</span>
+                            </div>
+                        </div>
+                        <div class="d-flex ms-auto">
+                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
+                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
                     </div>
                 </div>
-                <div class="d-flex ms-auto">
-                    <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                    <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                </div>
             </div>
-            <div class="card-body p-2">
-                <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-        <div class="card bg-secondary-alt shadow-sm">
-            <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                <div class="d-block mb-3 mb-sm-0">
-                    <div class="h5 fw-normal mb-2">BAVA</div>
-                    <h2 class="h3">$10,567</h2>
-                    <div class="small mt-2">
-                        <span class="fw-bold me-2">Yesterday</span>
-                        <span class="fas fa-angle-up text-success"></span>
-                        <span class="text-success fw-bold">10.57%</span>
+            <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                <div class="card bg-secondary-alt shadow-sm">
+                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                        <div class="d-block mb-3 mb-sm-0">
+                            <div class="h5 fw-normal mb-2">APPL</div>
+                            <h2 class="h3">$10,567</h2>
+                            <div class="small mt-2">
+                                <span class="fw-bold me-2">Yesterday</span>
+                                <span class="fas fa-angle-up text-success"></span>
+                                <span class="text-success fw-bold">10.57%</span>
+                            </div>
+                        </div>
+                        <div class="d-flex ms-auto">
+                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
+                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
                     </div>
                 </div>
-                <div class="d-flex ms-auto">
-                    <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                    <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                </div>
             </div>
-            <div class="card-body p-2">
-                <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-        <div class="card bg-secondary-alt shadow-sm">
-            <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                <div class="d-block mb-3 mb-sm-0">
-                    <div class="h5 fw-normal mb-2">APPL</div>
-                    <h2 class="h3">$10,567</h2>
-                    <div class="small mt-2">
-                        <span class="fw-bold me-2">Yesterday</span>
-                        <span class="fas fa-angle-up text-success"></span>
-                        <span class="text-success fw-bold">10.57%</span>
-                    </div>
-                    </div>
-                <div class="d-flex ms-auto">
-                    <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                    <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                </div>
-                </div>
-            <div class="card-body p-2">
-                <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-        <div class="card bg-secondary-alt shadow-sm">
-            <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                <div class="d-block mb-3 mb-sm-0">
-                    <div class="h5 fw-normal mb-2">AMZN</div>
-                    <h2 class="h3">$10,567</h2>
-                    <div class="small mt-2">
-                        <span class="fw-bold me-2">Yesterday</span>
-                        <span class="fas fa-angle-up text-success"></span>
-                        <span class="text-success fw-bold">10.57%</span>
-                    </div>
-                </div>
-                <div class="d-flex ms-auto">
-                    <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                    <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                </div>
-            </div>
-            <div class="card-body p-2">
-                <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-            </div>
-        </div>
-    </div>
-</div>
-</main>
->>>>>>> 85c6c9bdf7c995f1d9312d1c253d824ff0cd0986
 
-        </body>
+            <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                <div class="card bg-secondary-alt shadow-sm">
+                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                        <div class="d-block mb-3 mb-sm-0">
+                            <div class="h5 fw-normal mb-2">AMZN</div>
+                            <h2 class="h3">$10,567</h2>
+                            <div class="small mt-2">
+                                <span class="fw-bold me-2">Yesterday</span>
+                                <span class="fas fa-angle-up text-success"></span>
+                                <span class="text-success fw-bold">10.57%</span>
+                            </div>
+                        </div>
+                        <div class="d-flex ms-auto">
+                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
+                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
 
     }
 }
