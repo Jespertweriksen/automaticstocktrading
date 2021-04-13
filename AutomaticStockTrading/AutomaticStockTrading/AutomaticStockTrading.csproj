@@ -21,4 +21,9 @@
     <PackageReference Include="System.Runtime.Caching" Version="5.0.0" />
     <PackageReference Include="TimeZoneConverter" Version="3.4.0" />
   </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\Dine sider\Orders.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Home\Dine sider\Portfolio.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Home\Dine sider\Settings.cshtml" />
+  </ItemGroup>
 </Project>

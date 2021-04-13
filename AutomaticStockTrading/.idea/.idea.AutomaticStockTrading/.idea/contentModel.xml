@@ -11,8 +11,10 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
+          <e p="LoginController.cs" t="Include" />
           <e p="StockAPIController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
+          <e p="YourPagesController.cs" t="Include" />
         </e>
         <e p="DataContext" t="Include">
           <e p="Context.cs" t="Include" />
@@ -57,10 +59,18 @@
             <e p="Index.cshtml" t="Include" />
             <e p="TestView.cshtml" t="Include" />
           </e>
+          <e p="Login" t="Include">
+            <e p="Login.cshtml" t="Include" />
+          </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
+          </e>
+          <e p="YourPages" t="Include">
+            <e p="Orders.cshtml" t="Include" />
+            <e p="Portfolio.cshtml" t="Include" />
+            <e p="Settings.cshtml" t="Include" />
           </e>
         </e>
         <e p="web.config" t="Include" />

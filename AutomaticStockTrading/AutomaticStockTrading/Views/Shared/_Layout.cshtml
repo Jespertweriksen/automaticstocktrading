@@ -86,6 +86,40 @@
                     <span class="sidebar-text">testview</span>
                 </a>
             </li>
+            <!-- YOUR PAGES DROPDOWN -->
+            <li class="nav-item">
+                <span class="nav-link d-flex justify-content-between align-items-center COLLAPSED" data-bs-toggle="collapse" data-bs-target="#submenu-app">
+                    <span>
+                        <span class="sidebar-icon">
+                            <span class="fas fa-table"></span>
+                        </span> <span class="sidebar-text">Dine sider</span>
+                    </span>
+                    <span class="link-arrow">
+                        <span class="fas fa-chevron-right">
+                        </span>
+                    </span>
+                </span>
+                <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
+                    <ul class="flex-column nav">
+                        <li class="nav-item">
+                            <a asp-controller="YourPages" asp-action="Portfolio" class="nav-link">
+                                <span class="sidebar-text">Portfølje</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="YourPages" asp-action="Orders" class="nav-link">
+                                <span class="sidebar-text">Ordre</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="YourPages" asp-action="Settings" class="nav-link">
+                                <span class="sidebar-text">Indstillinger</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            
             <li class="nav-item">
                 <a href="../../pages/upgrade-to-pro.html"
                    class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
