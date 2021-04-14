@@ -99,7 +99,7 @@ namespace AutomaticStockTrading.Controllers
 
             if (user == false)
             {
-                return BadRequest("No user found");
+                return View("/Views/Shared/Error.cshtml");
             }
 
 
@@ -121,8 +121,6 @@ namespace AutomaticStockTrading.Controllers
             else
             {
                 return BadRequest("User not authorized");
-                
-                
             }
             return View("/Views/Home/Forside.cshtml");
         }
@@ -142,6 +140,18 @@ namespace AutomaticStockTrading.Controllers
         {
             return View("/Views/Login/Login.cshtml");
         }
+
+        public IActionResult Logout()
+        {
+            var keylist = session.Keys;
+            foreach (var key in keylist)
+            {
+                session.Remove(key);
+            }
+            
+            return View("/Views/Login/Login.cshtml");
+        }
+
 
 
     }

@@ -3,160 +3,181 @@
 @{
     ViewData["Title"] = "Din Side";
 }
-
-<body>
-
-<main class="content">
-<!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
-
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-        <div class="d-block mb-4 mb-md-0">
-            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                    <li class="breadcrumb-item">
-                        <a href="#">
-                            <span class="fas fa-home"></span>
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="#">Dine sider</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Ordre</li>
-                </ol>
-            </nav>
-            <h2 class="h4">Alle Ordre</h2>
-            <p class="mb-0">Her ser du alle dine ordre.</p>
-        </div>
-        <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-primary">Eksporter</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="table-settings mb-4">
-        <div class="row align-items-center justify-content-between">
-            <div class="col col-md-6 col-lg-3 col-xl-4">
-                <div class="input-group">
-                    <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
-                    <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                </div>
-            </div>
-            <div class="col-4 col-md-2 col-xl-1 ps-md-0 text-right">
-                <div class="btn-group">
-                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="icon icon-sm icon-gray pt-1">
-                            <span class="fas fa-cog"></span>
-                        </span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-xs dropdown-menu-end pb-0">
-                        <span class="small ps-3 fw-bold text-dark">Show</span>
-                        <a class="dropdown-item d-flex fw-bold" href="#">10 <span class="icon icon-small ms-auto"><span class="fas fa-check"></span></span></a>
-                        <a class="dropdown-item fw-bold" href="#">20</a>
-                        <a class="dropdown-item fw-bold" href="#">30</a>
+@{
+    if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("username")))
+    {
+        <main>
+            <section class="vh-100 d-flex align-items-center justify-content-center">
+                <div class="container">
+                    <div class="row align-items-center ">
+                        <div class="col-12 col-lg-5 order-2 order-lg-1 text-center text-lg-left">
+                            <h1 class="mt-5">Something has gone <span class="text-primary">seriously</span> wrong</h1>
+                            <p class="lead my-4">It's always time for a coffee break. We should be back by the time you finish your coffee.</p>
+                            <a class="btn btn-dark animate-hover" href="../dashboard/dashboard.html"><i class="fas fa-chevron-left me-3 ps-2 animate-left-3"></i>Go back home</a>
+                        </div>
+                        <div class="col-12 col-lg-7 order-1 order-lg-2 text-center d-flex align-items-center justify-content-center">
+                            <img class="img-fluid w-75" src="../../assets/img/illustrations/500.svg" alt="500 Server Error">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </section>
+        </main>
+    }
+    else
+    {
+        <body>
+            <main class="content">
+                <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-    <div class="card card-body shadow-sm table-wrapper table-responsive">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+                    <div class="d-block mb-4 mb-md-0">
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                                <li class="breadcrumb-item">
+                                    <a href="#">
+                                        <span class="fas fa-home"></span>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="#">Dine sider</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Ordre</li>
+                            </ol>
+                        </nav>
+                        <h2 class="h4">Alle Ordre</h2>
+                        <p class="mb-0">Her ser du alle dine ordre.</p>
+                    </div>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-primary">Eksporter</button>
+                        </div>
+                    </div>
+                </div>
 
-    <table class="table table-hover">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Navn</th>
-        <th>Valuta</th>
-        <th>Køb/Salg</th>
-        <th>Antal</th>
-        <th>Pris</th>
-        <th>Nuværende Pris</th>
-        <th>Ordretype</th>
-        <th>Dato</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Item -->
-    <tr>
-        <td><a href="#" class="fw-bold">000001</a></td> <!-- NUMBER -->
-        <td><span class="fw-normal">GME</span></td> <!-- NAME/SYMBOL -->
-        <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
-        <td><span class="fw-normal text-warning">Salg</span></td> <!-- BUY/SALES ORDER -->
-        <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
-        <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
-        <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
-        <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
-        <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
-    </tr>
-    <!-- Item -->
-    <tr>
-        <td><a href="#" class="fw-bold">000002</a></td> <!-- NUMBER -->
-        <td><span class="fw-normal">GME</span></td> <!-- NAME/SYMBOL -->
-        <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
-        <td><span class="fw-normal text-success">Køb</span></td> <!-- BUY/SALES ORDER -->
-        <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
-        <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
-        <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
-        <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
-        <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
-    </tr>
-    <!-- Item -->
-    <tr>
-        <td><a href="#" class="fw-bold">000003</a></td> <!-- NUMBER -->
-        <td><span class="fw-normal">APPL</span></td> <!-- NAME/SYMBOL -->
-        <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
-        <td><span class="fw-normal text-success">Køb</span></td> <!-- BUY/SALES ORDER -->
-        <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
-        <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
-        <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
-        <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
-        <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
-    </tr>
+                <div class="table-settings mb-4">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col col-md-6 col-lg-3 col-xl-4">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
+                                <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2 col-xl-1 ps-md-0 text-right">
+                            <div class="btn-group">
+                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="icon icon-sm icon-gray pt-1">
+                                        <span class="fas fa-cog"></span>
+                                    </span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-xs dropdown-menu-end pb-0">
+                                    <span class="small ps-3 fw-bold text-dark">Show</span>
+                                    <a class="dropdown-item d-flex fw-bold" href="#">10 <span class="icon icon-small ms-auto"><span class="fas fa-check"></span></span></a>
+                                    <a class="dropdown-item fw-bold" href="#">20</a>
+                                    <a class="dropdown-item fw-bold" href="#">30</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Item -->
-    <tr>
-        <td><a href="#" class="fw-bold">000001</a></td> <!-- NUMBER -->
-        <td><span class="fw-normal">GME</span></td> <!-- NAME/SYMBOL -->
-        <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
-        <td><span class="fw-normal text-warning">Salg</span></td> <!-- BUY/SALES ORDER -->
-        <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
-        <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
-        <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
-        <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
-        <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
-    </tr>
-    <!-- Item -->
-    <tr>
-        <td><a href="#" class="fw-bold">000002</a></td> <!-- NUMBER -->
-        <td><span class="fw-normal">GME</span></td> <!-- NAME/SYMBOL -->
-        <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
-        <td><span class="fw-normal text-success">Køb</span></td> <!-- BUY/SALES ORDER -->
-        <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
-        <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
-        <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
-        <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
-        <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
-    </tr>
-    <!-- Item -->
-    <tr>
-        <td><a href="#" class="fw-bold">000003</a></td> <!-- NUMBER -->
-        <td><span class="fw-normal">APPL</span></td> <!-- NAME/SYMBOL -->
-        <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
-        <td><span class="fw-normal text-success">Køb</span></td> <!-- BUY/SALES ORDER -->
-        <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
-        <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
-        <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
-        <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
-        <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
-    </tr>    
-    </tbody>
-    </table>
-    </div>
+                <div class="card card-body shadow-sm table-wrapper table-responsive">
 
-<br>
-<br>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Navn</th>
+                                <th>Valuta</th>
+                                <th>Køb/Salg</th>
+                                <th>Antal</th>
+                                <th>Pris</th>
+                                <th>Nuværende Pris</th>
+                                <th>Ordretype</th>
+                                <th>Dato</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Item -->
+                            <tr>
+                                <td><a href="#" class="fw-bold">000001</a></td> <!-- NUMBER -->
+                                <td><span class="fw-normal">GME</span></td> <!-- NAME/SYMBOL -->
+                                <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
+                                <td><span class="fw-normal text-warning">Salg</span></td> <!-- BUY/SALES ORDER -->
+                                <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
+                                <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
+                                <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
+                                <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
+                                <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
+                            </tr>
+                            <!-- Item -->
+                            <tr>
+                                <td><a href="#" class="fw-bold">000002</a></td> <!-- NUMBER -->
+                                <td><span class="fw-normal">GME</span></td> <!-- NAME/SYMBOL -->
+                                <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
+                                <td><span class="fw-normal text-success">Køb</span></td> <!-- BUY/SALES ORDER -->
+                                <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
+                                <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
+                                <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
+                                <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
+                                <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
+                            </tr>
+                            <!-- Item -->
+                            <tr>
+                                <td><a href="#" class="fw-bold">000003</a></td> <!-- NUMBER -->
+                                <td><span class="fw-normal">APPL</span></td> <!-- NAME/SYMBOL -->
+                                <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
+                                <td><span class="fw-normal text-success">Køb</span></td> <!-- BUY/SALES ORDER -->
+                                <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
+                                <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
+                                <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
+                                <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
+                                <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
+                            </tr>
 
-</main>
+                            <!-- Item -->
+                            <tr>
+                                <td><a href="#" class="fw-bold">000001</a></td> <!-- NUMBER -->
+                                <td><span class="fw-normal">GME</span></td> <!-- NAME/SYMBOL -->
+                                <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
+                                <td><span class="fw-normal text-warning">Salg</span></td> <!-- BUY/SALES ORDER -->
+                                <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
+                                <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
+                                <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
+                                <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
+                                <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
+                            </tr>
+                            <!-- Item -->
+                            <tr>
+                                <td><a href="#" class="fw-bold">000002</a></td> <!-- NUMBER -->
+                                <td><span class="fw-normal">GME</span></td> <!-- NAME/SYMBOL -->
+                                <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
+                                <td><span class="fw-normal text-success">Køb</span></td> <!-- BUY/SALES ORDER -->
+                                <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
+                                <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
+                                <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
+                                <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
+                                <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
+                            </tr>
+                            <!-- Item -->
+                            <tr>
+                                <td><a href="#" class="fw-bold">000003</a></td> <!-- NUMBER -->
+                                <td><span class="fw-normal">APPL</span></td> <!-- NAME/SYMBOL -->
+                                <td><span class="fw-normal">USD</span></td> <!-- VALUTA -->
+                                <td><span class="fw-normal text-success">Køb</span></td> <!-- BUY/SALES ORDER -->
+                                <td><span class="fw-bold">100</span></td> <!-- AMOUNT -->
+                                <td><span class="fw-normal">1.245</span></td> <!-- PRICE -->
+                                <td><span class="fw-normal">1.250</span></td> <!-- CURRENT PRICE -->
+                                <td><span class="fw-normal">Aktier</span></td> <!-- ORDER TYPE -->
+                                <td><span class="fw-normal">12 April 2021</span></td> <!-- DATE -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-</body>
+                <br>
+                <br>
+
+            </main>
+        </body>
+    }
+}
 
