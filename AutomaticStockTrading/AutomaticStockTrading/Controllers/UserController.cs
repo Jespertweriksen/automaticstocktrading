@@ -99,9 +99,9 @@ namespace AutomaticStockTrading.Controllers
 
             if (user == false)
             {
-                return View("/Views/Shared/Error.cshtml");
+                return BadRequest();
+                //return View("/Views/Shared/Error.cshtml");
             }
-
 
             IActionResult response = Unauthorized();
             if (user)
@@ -113,9 +113,7 @@ namespace AutomaticStockTrading.Controllers
                 session.SetString("surname", userModel.surname);
                 session.SetString("lastname", userModel.last_name);
                 session.SetString("email", userModel.email);
-
                 //var tokenStr = GenerateJSONWebToken(userDto);
-
                 response = Ok(new { id = UserDataService.GetUserIDByEmail(userDto.email), email = userDto.email, /*tokenStr*/ });
             }
             else
