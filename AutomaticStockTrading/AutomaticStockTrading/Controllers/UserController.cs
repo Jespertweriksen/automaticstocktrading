@@ -99,9 +99,9 @@ namespace AutomaticStockTrading.Controllers
 
             if (user == false)
             {
-                return BadRequest("No user found");
+                return BadRequest();
+                //return View("/Views/Shared/Error.cshtml");
             }
-
 
             IActionResult response = Unauthorized();
             if (user)
@@ -113,16 +113,12 @@ namespace AutomaticStockTrading.Controllers
                 session.SetString("surname", userModel.surname);
                 session.SetString("lastname", userModel.last_name);
                 session.SetString("email", userModel.email);
-
                 //var tokenStr = GenerateJSONWebToken(userDto);
-
                 response = Ok(new { id = UserDataService.GetUserIDByEmail(userDto.email), email = userDto.email, /*tokenStr*/ });
             }
             else
             {
                 return BadRequest("User not authorized");
-                
-                
             }
             return View("/Views/Home/Forside.cshtml");
         }
@@ -142,6 +138,18 @@ namespace AutomaticStockTrading.Controllers
         {
             return View("/Views/Login/Login.cshtml");
         }
+
+        public IActionResult Logout()
+        {
+            var keylist = session.Keys;
+            foreach (var key in keylist)
+            {
+                session.Remove(key);
+            }
+            
+            return View("/Views/Login/Login.cshtml");
+        }
+
 
 
     }
