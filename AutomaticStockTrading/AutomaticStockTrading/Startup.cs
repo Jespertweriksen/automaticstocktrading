@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Session;
-
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace AutomaticStockTrading
 {
@@ -54,10 +54,15 @@ namespace AutomaticStockTrading
             services.AddScoped<UserDataService>();
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
-            services.AddSession(s => s.IdleTimeout = TimeSpan.FromMinutes(30)); 
-            services.AddDbContext<Context>(options => options.UseNpgsql(
-                Configuration.GetConnectionString("Myconnection")
-                )
+            services.AddSession(s => s.IdleTimeout = TimeSpan.FromMinutes(30));
+            services.AddDbContext<Context>(options => options.UseMySql(
+                Configuration.GetConnectionString("Myconnection"),
+                        // Replace with your server version and type.
+                        // For common usages, see pull request #1233.
+                        new MySqlServerVersion(new Version(8, 0, 21)), // use MariaDbServerVersion for MariaDB
+                        mySqlOptions => mySqlOptions
+                            .CharSetBehavior(CharSetBehavior.NeverAppend))
+                    // Everything from this point on is optional but helps with debugging.
             );
 
         }
