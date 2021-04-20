@@ -12,10 +12,10 @@ namespace AutomaticStockTrading.Controllers
         {
             return View("/Views/Home/Forside.cshtml");
         }
-        public IActionResult Index()
-        {
+        /*public IActionResult Index()
+        { 
             return View();
-        }
+        }*/
         public IActionResult Login()
         {
             return View("/Views/Login/Login.cshtml");

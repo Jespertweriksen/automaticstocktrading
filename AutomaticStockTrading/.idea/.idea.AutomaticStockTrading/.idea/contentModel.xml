@@ -12,6 +12,7 @@
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
           <e p="LoginController.cs" t="Include" />
+          <e p="PageController.cs" t="Include" />
           <e p="StockAPIController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
           <e p="YourPagesController.cs" t="Include" />
@@ -27,6 +28,7 @@
         </e>
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
+          <e p="PortfolioModel.cs" t="Include" />
           <e p="StockModel.cs" t="Include" />
           <e p="UserModel.cs" t="Include" />
         </e>
@@ -44,9 +46,13 @@
           <e p="PublishProfiles" t="Include">
             <e p="AutomaticStockTrading - Web Deploy.pubxml" t="Include" />
           </e>
+          <e p="ServiceDependencies" t="Include">
+            <e p="AutomaticStockTrading - Web Deploy" t="Include">
+              <e p="profile.arm.json" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Services" t="Include">
-          <e p="DatabaseTest.cs" t="Include" />
           <e p="Hashing.cs" t="Include" />
           <e p="UserDataService.cs" t="Include" />
           <e p="UserValidation.cs" t="Include" />
