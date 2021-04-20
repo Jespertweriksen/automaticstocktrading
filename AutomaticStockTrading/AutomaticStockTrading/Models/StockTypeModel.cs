@@ -10,5 +10,8 @@ namespace AutomaticStockTrading.Models
         public int id { get; set; }
         public string name { get; set; }
         public string stock_name { get; set; }
+        public List<StockDataModel> stockData { get; set; }
+        public List<OrderModel> order { get; set; }
+        public ForecastDataModel forecast { get; set; }
     }
 }
