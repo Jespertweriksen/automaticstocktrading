@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace AutomaticStockTrading.Models
 {
-    public class PortfolioModel
+    public class StockTypeModel
     {
         public int id { get; set; }
-        public int userID {get; set;}
-        public int stockID { get; set; }
-        public int amount { get; set; }
+        public string name { get; set; }
+        public string stock_name { get; set; }
     }
 }

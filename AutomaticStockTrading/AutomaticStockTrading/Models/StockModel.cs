@@ -20,5 +20,6 @@ namespace AutomaticStockTrading.Models
         public double volume { get; set; }
     }
 
+
     
 }
