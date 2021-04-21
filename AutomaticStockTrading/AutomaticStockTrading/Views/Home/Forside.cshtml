@@ -1,5 +1,6 @@
 ﻿@using AutomaticStockTrading.Services;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject StockDataService stock
 @{
     ViewData["Title"] = "Forside";
 }
@@ -220,12 +221,29 @@
                                     <svg>
                                         <span>
                                             PIE CHART GOES HERE
+
                                             @{
+<<<<<<< HEAD
                                                 var s = new StockTypeModel();
                                                 var x = s.id2;
 
                                                 <p>@x</p>
                                             }
+=======
+                                                var x = stock.GetAllTypes();
+
+                                                foreach (string element in x)
+                                                {
+                                                    <p>@element</p>
+                                                }
+
+
+
+
+                                            }
+
+
+>>>>>>> feature/stockpage
                                         </span>
                                     </svg>
                                 </div>
@@ -458,6 +476,6 @@
         </body>
 
 
-    }
+                                                }
 
 }
