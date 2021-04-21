@@ -33,6 +33,11 @@ namespace AutomaticStockTrading
         {
             services.AddControllersWithViews();
 
+            // ADD INJECTION OF SERVICES HER
+
+            services.AddTransient<StockDataService>();
+
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
          .AddJwtBearer(options =>
          {
