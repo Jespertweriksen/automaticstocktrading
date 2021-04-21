@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace AutomaticStockTrading.Controllers
 {
+    [Route("api/[controller]/")]
     public class UserController : Controller
     {
         readonly Context Context;
@@ -70,7 +71,23 @@ namespace AutomaticStockTrading.Controllers
             return Ok(user);
         }
 
-        
+        [HttpGet("stocktypes")]
+        public IActionResult GetStockTypes()
+        {
+            var stocktypes = UserDataService.stockTypes();
+            return Ok(stocktypes);
+        }
+
+
+        [HttpGet("userorders")]
+        public IActionResult GetUserOrders()
+        {
+            var stocktypes = UserDataService.orders();
+            return Ok(stocktypes);
+        }
+
+
+
         //CREATE NEW USER
         [HttpPost]
         [ActionName("Create")]

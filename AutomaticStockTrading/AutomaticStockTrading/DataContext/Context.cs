@@ -70,19 +70,11 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockDataModel>().Property(x => x.volume).HasColumnName("volume");
             modelBuilder.Entity<StockDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
 
-            modelBuilder.Entity<StockHistoriesModel>().ToTable("stock_histories");
-            modelBuilder.Entity<StockHistoriesModel>().Property(x => x.id).HasColumnName("id");
-            modelBuilder.Entity<StockHistoriesModel>().Property(x => x.userID).HasColumnName("userID");
-            modelBuilder.Entity<StockHistoriesModel>().Property(x => x.stockID).HasColumnName("stockID");
-            modelBuilder.Entity<StockHistoriesModel>().Property(x => x.portfolioID).HasColumnName("portfolioID");
 
             modelBuilder.Entity<StockTypeModel>().ToTable("stock_type");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.name).HasColumnName("name");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("name");
-            modelBuilder.Entity<StockTypeModel>().HasOne(e => e.forecast).WithOne(e => e.stockType)
-                .IsRequired()
-                .HasForeignKey<ForecastDataModel>(e => e.id);
 
 
 

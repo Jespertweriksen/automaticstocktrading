@@ -132,6 +132,25 @@ namespace AutomaticStockTrading.Services
             return model;
         }
 
+        public List<OrderModel> orders()
+        {
+
+
+            var query = (from u in context.users
+                         join f in context.orders
+                         on u.id equals f.userID
+                         where f.price > 5
+                         select u).ToList();
+            return null;
+        }
+
+
+        public List<StockTypeModel> stockTypes()
+        {
+            var query = context.stocktype.ToList();
+            return query;
+        }
+
 
 
         public bool DeleteUser(int id)
