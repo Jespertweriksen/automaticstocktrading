@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace AutomaticStockTrading.Services
 {
@@ -130,6 +132,13 @@ namespace AutomaticStockTrading.Services
             model.age = age;
             model.email = email;
             return model;
+        }
+
+        public IList<PortfolioModel> getUsersPortfolio(int id)
+        {
+            var query = context.users.AsQueryable().Include(x => x.portfolio).Where(x => x.id == id);
+
+            return query.ToList();
         }
 
 
