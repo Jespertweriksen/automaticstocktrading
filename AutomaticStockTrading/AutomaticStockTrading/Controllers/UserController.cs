@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Http;
 
 namespace AutomaticStockTrading.Controllers
 {
-    [Route("api/[controller]/")]
     public class UserController : Controller
     {
         readonly Context Context;
