@@ -16,5 +16,9 @@ namespace AutomaticStockTrading.Models
         public string volume { get; set; }
         public int stock_type_id { get; set; }
 
+        public StockTypeModel stockType { get; set; }
+
     }
+
+
 }
