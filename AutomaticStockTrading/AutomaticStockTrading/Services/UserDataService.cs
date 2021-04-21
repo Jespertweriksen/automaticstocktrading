@@ -2,6 +2,7 @@
 using AutomaticStockTrading.Models;
 using Microsoft.Extensions.Options;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -151,6 +152,27 @@ namespace AutomaticStockTrading.Services
 
             return query;
         }
+
+        public IList getOrdersWithDetails(int id)
+        {
+            var query = (from s in context.users
+                         join cs in context.orders on s.id equals cs.userID
+                         join os in context.stocktype on cs.stockID equals os.id
+                         where s.id == id
+                         select new
+                         {
+                             userID = s.id,
+                             id = cs.id,
+                             stockID = cs.stockID,
+                             amount = cs.amount,
+                             dateTime = cs.dateTime,
+                             price = cs.price,
+                             name = os.name,
+                             stock_name = os.stock_name
+                         }).ToList();
+            return query;
+        }
+
 
 
         public bool DeleteUser(int id)

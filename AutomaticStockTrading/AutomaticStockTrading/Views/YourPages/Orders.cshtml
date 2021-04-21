@@ -105,10 +105,10 @@
                                 var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
 
                                 var orderList = userDataService.getOrders(userID);
-
+                                
 
                             }
-                            @foreach (var orders in orderList)
+                            @foreach (var orders in orderList) 
                             {
 
                                 <tr>
