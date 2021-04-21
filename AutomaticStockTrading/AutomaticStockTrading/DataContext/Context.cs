@@ -56,6 +56,7 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<OrderModel>().Property(x => x.dateTime).HasColumnName("date");
             modelBuilder.Entity<OrderModel>().Property(x => x.price).HasColumnName("price");
 
+
             modelBuilder.Entity<StockDataModel>().ToTable("stock_data");
             modelBuilder.Entity<StockDataModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<StockDataModel>().Property(x => x.datetime).HasColumnName("datetime");
@@ -66,6 +67,11 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockDataModel>().Property(x => x.volume).HasColumnName("volume");
             modelBuilder.Entity<StockDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
 
+            modelBuilder.Entity<StockHistoriesModel>().ToTable("stock_histories");
+            modelBuilder.Entity<StockHistoriesModel>().Property(x => x.id).HasColumnName("id");
+            modelBuilder.Entity<StockHistoriesModel>().Property(x => x.userID).HasColumnName("userID");
+            modelBuilder.Entity<StockHistoriesModel>().Property(x => x.stockID).HasColumnName("stockID");
+            modelBuilder.Entity<StockHistoriesModel>().Property(x => x.portfolioID).HasColumnName("portfolioID");
 
             modelBuilder.Entity<StockTypeModel>().ToTable("stock_type");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.id).HasColumnName("id");
