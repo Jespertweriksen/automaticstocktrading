@@ -8,22 +8,17 @@ namespace AutomaticStockTrading.Models
 {
     public class StockTypeModel
     {
+        public int id2 = 5;
+
         public int id { get; set; }
         public string name { get; set; }
         public string stock_name { get; set; }
 
         public List<StockDataModel> stockData { get; set; }
         public List<OrderModel> order { get; set; }
-        public ForecastDataModel forecast { get; set; }
+        public List<ForecastDataModel> forecast { get; set; }
 
-        public List<StockTypeModel> getAllTypes()
-        {
-            using (var db = new Context())
-            {
-                var query = db.stocktype.Where(t => t.id == 1).ToList();
-                return query;
-            }
-        }
+       
 
         public int myInt()
         {

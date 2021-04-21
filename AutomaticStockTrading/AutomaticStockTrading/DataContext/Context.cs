@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,6 +15,10 @@ namespace AutomaticStockTrading.DataContext
            : base(options)
         {
 
+        }
+
+        public Context()
+        {
         }
 
         public static readonly ILoggerFactory MyLoggerFactory
@@ -71,6 +74,9 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockTypeModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.name).HasColumnName("name");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("name");
+
+
+               
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new DBConfig());
