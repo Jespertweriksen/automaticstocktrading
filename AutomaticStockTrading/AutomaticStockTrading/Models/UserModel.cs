@@ -16,5 +16,7 @@ namespace AutomaticStockTrading.Models
         public int age { get; set; }
         public string email { get; set; }
         public List<OrderModel> order { get; set; }
+
+
     }
 }
