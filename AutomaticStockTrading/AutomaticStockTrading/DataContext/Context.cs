@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,6 +15,10 @@ namespace AutomaticStockTrading.DataContext
            : base(options)
         {
 
+        }
+
+        public Context()
+        {
         }
 
         public static readonly ILoggerFactory MyLoggerFactory
@@ -81,6 +84,9 @@ namespace AutomaticStockTrading.DataContext
                 .IsRequired()
                 .HasForeignKey<ForecastDataModel>(e => e.id);
 
+
+
+               
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new DBConfig());
