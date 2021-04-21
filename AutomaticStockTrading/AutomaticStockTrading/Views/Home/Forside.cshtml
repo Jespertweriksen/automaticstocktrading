@@ -223,16 +223,16 @@
                                             PIE CHART GOES HERE
 
                                             @{
-<<<<<<< HEAD
                                                 var s = new StockTypeModel();
                                                 var x = s.id2;
 
                                                 <p>@x</p>
                                             }
-=======
-                                                var x = stock.GetAllTypes();
 
-                                                foreach (string element in x)
+                                            @{
+                                                var y = stock.GetAllTypes();
+
+                                                foreach (string element in y)
                                                 {
                                                     <p>@element</p>
                                                 }
@@ -241,9 +241,6 @@
 
 
                                             }
-
-
->>>>>>> feature/stockpage
                                         </span>
                                     </svg>
                                 </div>
