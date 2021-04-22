@@ -31,6 +31,8 @@ namespace AutomaticStockTrading.Services
             
             return query;
         }
+
+        
     }
     
 }
