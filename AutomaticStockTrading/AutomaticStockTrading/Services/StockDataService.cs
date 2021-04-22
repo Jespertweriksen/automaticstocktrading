@@ -18,9 +18,7 @@ namespace AutomaticStockTrading.Services
 
         private static readonly HttpClient client = new HttpClient();
         
-
         private readonly Context context;
-
 
         public StockDataService(Context context)
         {
@@ -30,7 +28,6 @@ namespace AutomaticStockTrading.Services
         // Get all types of stocks with their current price.
         public List<StockTypePriceDto> GetAllTypes()
         {
-        
             var query = (from t in context.stocktype select new StockTypePriceDto() { 
                 name = t.name
             }).ToList();
@@ -42,10 +39,10 @@ namespace AutomaticStockTrading.Services
                 element.price = (currentPrice.price).ToString();
                 element.closeYesterday = (newestClose).ToString();
             }
-
             return query;
         }
 
+        // Get yesterdays close price for at stock name
         public string GetAllClosePriceYesterday(string stockName)
         {
             var query = (from data in context.stockdata
@@ -53,12 +50,7 @@ namespace AutomaticStockTrading.Services
                          where stock.name == stockName
                          select data.close).ToList();
 
-
             var yesterDayClose = query[0];
-                     
-
-
-
             return yesterDayClose;
         }
 
