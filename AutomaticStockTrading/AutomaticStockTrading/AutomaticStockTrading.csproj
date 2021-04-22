@@ -5,6 +5,10 @@
     <LangVersion>8</LangVersion>
     <UserSecretsId>7f869b77-be50-4aeb-b212-f02585fdf063</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Class.cs" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="JWT" Version="8.1.6" />

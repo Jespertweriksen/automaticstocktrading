@@ -4,37 +4,56 @@
     ViewData["Title"] = "Profile Page";
 }
 
+@inject StockDataService _stockDataService
 
 
-<p>TEST</p>
+<body>
+    <main class="content">
+        <div style="width: 100%;">
+            <div class="container" style="margin-top: 10%;">
+                <h1>Aktie Kataloget</h1>
+                @{
+                    <table class="table table-hover" id="table">
+                        <thead>
+                            <tr>
+                                <th>navn</th>
+                                <th>pris (real-tid)</th>
+                                <th>close-yesterday</th>
+                            </tr>
 
-@{
+                        </thead>
+                        <tbody>
+                            @{
+                                var stockTypesList = _stockDataService.GetAllTypes();
 
-    var apilist = Tools.GetStocks("GME");
-    var currStock = Tools.GetStock("GME");
+                                foreach (var stockType in stockTypesList)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a>
+                                                @stockType.name
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @stockType.price <span>$</span>
+                                            </a>
+                                        </td>
+                                    </tr>
 
-    <p>@currStock.First().close</p>
+                                }
+                            }
+                        </tbody>
 
-    <table style="width:100%">
-        <tr>
-            <th>Datetime</th>
-            <th>Open</th>
-            <th>High</th>
-            <th>Low</th>
-            <th>Close</th>
-            <th>Volume</th>
-        </tr>
-        @{foreach (var item in apilist)
-            {
-                <tr>
-                    <td>@item.dateTime</td>
-                    <td>@item.open</td>
-                    <td>@item.high</td>
-                    <td>@item.low</td>
-                    <td>@item.close</td>
-                    <td>@item.volume</td>
-                </tr>
-            }
-        }
-    </table>
+                    </table>
+                }
+            </div>
+           
+        </div>
+    </main>
+    
+   
+</body>
+<
+
 }

@@ -90,7 +90,6 @@ namespace AutomaticStockTrading.Services
         }
         public static List<StockModel> GetStock(string stockAlias)
         {
-
             TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
@@ -103,6 +102,13 @@ namespace AutomaticStockTrading.Services
             return cache.Get("Stock", null) as List<StockModel>;
         }
 
+        public static int GetCurrentStockPrice()
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twelvedata.com/price?symbol=AAPL&apikey=6a81f55d739d49c2a19610cd4a98e366");
+            var response = request.GetResponse();
+            Console.WriteLine(response);
+            return 1;
+        }
     }
 }
 

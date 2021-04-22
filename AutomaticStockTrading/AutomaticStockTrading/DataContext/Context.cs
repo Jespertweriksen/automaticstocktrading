@@ -74,7 +74,7 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockTypeModel>().ToTable("stock_type");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.name).HasColumnName("name");
-            modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("name");
+            modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("stock_name");
 
 
 
