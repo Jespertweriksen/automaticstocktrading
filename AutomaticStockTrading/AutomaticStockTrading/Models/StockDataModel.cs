@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace AutomaticStockTrading.Models
 {
@@ -15,10 +12,7 @@ namespace AutomaticStockTrading.Models
         public string close { get; set; }
         public string volume { get; set; }
         public int stock_type_id { get; set; }
-
         public StockTypeModel stockType { get; set; }
 
     }
-
-
 }

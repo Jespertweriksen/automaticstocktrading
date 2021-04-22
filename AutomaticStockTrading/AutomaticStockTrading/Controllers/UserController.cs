@@ -70,7 +70,9 @@ namespace AutomaticStockTrading.Controllers
             return Ok(user);
         }
 
-        
+    
+
+
         //CREATE NEW USER
         [HttpPost]
         [ActionName("Create")]

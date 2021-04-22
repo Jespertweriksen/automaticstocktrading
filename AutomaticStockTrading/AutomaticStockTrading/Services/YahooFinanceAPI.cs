@@ -90,10 +90,9 @@ namespace AutomaticStockTrading.Services
         }
         public static List<StockModel> GetStock(string stockAlias)
         {
-            var windowsZoneId = TZConvert.GetTimeZoneInfo("W. Europe Standard Time");
 
-            
-            DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, windowsZoneId);
+            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+            DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
             var cache = MemoryCache.Default;
             if (!cache.Contains("Stock"))

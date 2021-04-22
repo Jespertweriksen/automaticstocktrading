@@ -70,10 +70,12 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockDataModel>().Property(x => x.volume).HasColumnName("volume");
             modelBuilder.Entity<StockDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
 
+
             modelBuilder.Entity<StockTypeModel>().ToTable("stock_type");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.name).HasColumnName("name");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("name");
+
 
 
                

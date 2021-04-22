@@ -132,6 +132,25 @@ namespace AutomaticStockTrading.Services
             return model;
         }
 
+        public IList<OrderModel> getOrders(int id)
+        {
+
+            var query = context.users.Join(
+                context.orders,
+                users => users.id,
+                orders => orders.user.id,
+                (users, orders) => new OrderModel
+                {
+                    userID = users.id,
+                    id = orders.id,
+                    stockID = orders.stockID,
+                    amount = orders.amount,
+                    dateTime = orders.dateTime,
+                    price = orders.price
+                }).Where(x => x.userID == id).ToList();
+
+            return query;
+        }
 
 
         public bool DeleteUser(int id)
