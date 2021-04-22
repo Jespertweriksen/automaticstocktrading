@@ -27,14 +27,8 @@ namespace AutomaticStockTrading.Services
             this.context = context;
         }
 
-        public int x()
-        {
-            return 5;
-        }
-
-
+        // Get all types of stocks with their current price.
         public List<StockTypePriceDto> GetAllTypes()
-
         {
         
             var query = (from t in context.stocktype select new StockTypePriceDto() { 
@@ -44,19 +38,34 @@ namespace AutomaticStockTrading.Services
             foreach (StockTypePriceDto element in query)
             {
                 var currentPrice = GetCurrentPrice(element.name);
-                element.price = (currentPrice.price).ToString();             
+                var newestClose = GetAllClosePriceYesterday(element.name);
+                element.price = (currentPrice.price).ToString();
+                element.closeYesterday = (newestClose).ToString();
             }
 
-            
-            
             return query;
         }
 
-        
+        public string GetAllClosePriceYesterday(string stockName)
+        {
+            var query = (from data in context.stockdata
+                         join stock in context.stocktype on data.stock_type_id equals stock.id
+                         where stock.name == stockName
+                         select data.close).ToList();
+
+
+            var yesterDayClose = query[0];
+                     
+
+
+
+            return yesterDayClose;
+        }
+
+        // query twelvedata for current price of stock return stockDto object
         public StockTypePriceDto GetCurrentPrice(string stockName)
         {
-        
-            var stockAlias = context.stocktype
+             var stockAlias = context.stocktype
                 .Where(x => x.name == stockName)
                 .Select(x => x.stock_name)
                 .FirstOrDefault()
@@ -68,7 +77,7 @@ namespace AutomaticStockTrading.Services
             return stockObject;
         }
 
-
+        // Diverse function for fetching data
         public string Get(string uri)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
