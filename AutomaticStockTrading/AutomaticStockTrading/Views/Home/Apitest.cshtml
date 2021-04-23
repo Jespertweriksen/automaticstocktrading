@@ -63,8 +63,8 @@
                                     foreach (var stockType in stockTypesList)
                                     {
                                         <tr>
-                                            <td>
-                                                <a>
+                                            <td >
+                                                <a asp-controller="Yourpages" asp-action="Stockpage" asp-route-id="@stockType.name" >
                                                     @stockType.name
                                                 </a>
                                             </td>
@@ -85,8 +85,7 @@
 
                         </table>
                     }
-</div>
-
+                </div>
             </div>
     </main>
     

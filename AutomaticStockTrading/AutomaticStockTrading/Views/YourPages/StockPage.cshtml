@@ -1,0 +1,28 @@
+﻿@using AutomaticStockTrading.Services;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject StockDataService stock
+@{
+    ViewData["Title"] = "Forside";
+}
+@using AutomaticStockTrading.Controllers; 
+
+@{ 
+    var nameOfStock = ViewBag.CaseId;
+    var selectedStock = YourPagesController.userSelection;
+
+}
+
+@{ 
+
+    <body>
+        <main class="content">
+            <div class="container" style="width: 100%;">
+                
+                <p>@selectedStock</p>
+                <p>Test</p>
+            </div>
+        </main>
+       
+    </body>
+    
+}
