@@ -26,9 +26,174 @@
     else
     {
         <body>
+        <div>
+            <br>
+        </div>
 
+        @{
+            string[] stockList = {"GME", "AAPL", "AMZN", "MSFT"};
+            var bigBoxStock = Tools.Stocks(stockList[0]);
+            var bigBoxCurr = bigBoxStock.First().close;
+            var bigOneD = bigBoxStock[1].close;
+            var bigAfkastOneD = Math.Round(bigBoxCurr / bigOneD * 100 - 100, 2);
+
+        }
         <main class="content">
-        <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+
+        <script type="text/javascript">
+        window.onload = function () {
+          var dataPoints = [];
+          var stockChart = new CanvasJS.StockChart("stockChartContainer", {
+            exportEnabled: true,
+            title: {
+              text:"StockChart with Line using JSON Data"
+            },
+            subtitles: [{
+              text:"Total Retail Sales of ACME "
+            }],
+            charts: [{
+              axisX: {
+                crosshair: {
+                  enabled: true,
+                  snapToDataPoint: true,
+                  valueFormatString: "MMM YYYY"
+                }
+              },
+              axisY: {
+                title: "Million of Dollars",
+                prefix: "$",
+                suffix: "M",
+                crosshair: {
+                  enabled: true,
+                  snapToDataPoint: true,
+                  valueFormatString: "$#,###.00M",
+                }
+              },
+              data: [{
+                type: "line",
+                xValueFormatString: "MMM YYYY",
+                yValueFormatString: "$#,###.##M",
+                dataPoints : dataPoints
+              }]
+            }],
+            navigator: {
+              slider: {
+                minimum: new Date(2010, 0, 1),
+                maximum: new Date(2018, 0, 1)
+              }
+            }
+          });
+          //https://api.twelvedata.com/time_series?symbol=GME&interval=1day&apikey=de262e878821448eb6b85c4b45f53064
+          $.getJSON("https://api.twelvedata.com/time_series?symbol=GME&interval=1day&apikey=de262e878821448eb6b85c4b45f53064", function(data) {
+           console.log(data.values.length)
+            for(var i = 0; i < data.length; i++){
+            console.log(data.values[i].datetime)
+              dataPoints.push({x: new Date(data.values[i].datetime), y: Number(data.values[i].close)});
+            }
+            stockChart.render();
+          });
+        }
+        </script>
+        <div class="row justify-content-md-center">
+            <div class="col-12 mb-4">
+                <div class="card bg-secondary-alt shadow-sm">
+                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                        <div class="d-block mb-3 mb-sm-0">
+                            <div class="h5 fw-normal mb-2">@stockList[0]</div>
+                            <h2 class="h3">@bigBoxStock.First().close</h2>
+                            <div class="small mt-2">
+                                <span class="fw-bold me-2">Afkast siden i går: </span>
+                                @{
+                                    if (bigAfkastOneD > 0)
+                                    {
+                                        <span class="text-success">
+                                            <span class="fas fa-angle-up"></span>
+                                            @bigAfkastOneD
+                                            <span class="fw fa-bold">%</span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        {
+                                            <span class="text-danger">
+                                                <span class="fas fa-angle-down"></span>
+                                                @bigAfkastOneD
+                                                <span class="fw-bold">%</span>
+                                            </span>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div id="chart_div"></div>
+                        <div id="stockChartContainer" style="height: 400px"></div>
+                    </div>
+                </div>
+            </div>
+            @{
+                var thisStock = 1.0; //Tools.Stocks(stock);
+                var thisCurr = 1.0; //thisStock.First().close;
+
+                var stockOneD = 1; //thisStock[1].close;
+                var stockOneM = 2; //thisStock[30].close;
+                var stockOneY = 3; //thisStock[364].close;
+
+                var stockAfkastOneD = Math.Round(thisCurr / stockOneD * 100 - 100, 2);
+                var stockAfkastOneM = Math.Round(thisCurr / stockOneM * 100 - 100, 2);
+                var stockAfkastOneY = Math.Round(thisCurr / stockOneY * 100 - 100, 2);
+
+                foreach (var stock in stockList.Skip(1))
+                {
+                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                        <div class="card bg-secondary-alt shadow-sm">
+                            <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                                <div class="d-block mb-3 mb-sm-0">
+                                    <a href="@stock" class="h5 fw-normal mb-2">@stock</a>
+                                    <h2 class="h3">@thisCurr</h2>
+                                    <div class="small mt-2">
+                                        <span class="fw-bold me-2">Afkast siden i går: </span>
+                                        @{
+                                            if (stockAfkastOneD > 0)
+                                            {
+                                                <span class="text-success">
+                                                    <span class="fas fa-angle-up"></span>
+                                                    @stockAfkastOneD
+                                                    <span class="fw fa-bold">%</span>
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                {
+                                                    <span class="text-danger">
+                                                        <span class="fas fa-angle-down"></span>
+                                                        @stockAfkastOneD
+                                                        <span class="fw-bold">%</span>
+                                                    </span>
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-2">
+                                <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
+                                <span>
+                                    graph tool here
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            }
+
+
+        </div>
 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
             <div class="col col-md-6 col-lg-3 col-xl-4">
@@ -41,98 +206,6 @@
             </div>
         </div>
 
-        <div class="row justify-content-md-center">
-            <div class="col-12 mb-4">
-                <div class="card bg-secondary-alt shadow-sm">
-                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                        <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">GME</div>
-                            <h2 class="h3">$10,567</h2>
-                            <div class="small mt-2">
-                                <span class="fw-bold me-2">Yesterday</span>
-                                <span class="fas fa-angle-up text-success"></span>
-                                <span class="text-success fw-bold">10.57%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex ms-auto">
-                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="card bg-secondary-alt shadow-sm">
-                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                        <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">BAVA</div>
-                            <h2 class="h3">$10,567</h2>
-                            <div class="small mt-2">
-                                <span class="fw-bold me-2">Yesterday</span>
-                                <span class="fas fa-angle-up text-success"></span>
-                                <span class="text-success fw-bold">10.57%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex ms-auto">
-                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="card bg-secondary-alt shadow-sm">
-                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                        <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">APPL</div>
-                            <h2 class="h3">$10,567</h2>
-                            <div class="small mt-2">
-                                <span class="fw-bold me-2">Yesterday</span>
-                                <span class="fas fa-angle-up text-success"></span>
-                                <span class="text-success fw-bold">10.57%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex ms-auto">
-                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="card bg-secondary-alt shadow-sm">
-                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                        <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">AMZN</div>
-                            <h2 class="h3">$10,567</h2>
-                            <div class="small mt-2">
-                                <span class="fw-bold me-2">Yesterday</span>
-                                <span class="fas fa-angle-up text-success"></span>
-                                <span class="text-success fw-bold">10.57%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex ms-auto">
-                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-12 mb-4">
                 <div class="card border-light shadow-sm">
@@ -151,21 +224,19 @@
                                 </thead>
 
                                 @{
-                                    string[] stockList = {"GME", "AAPL", "AMZN", "BAVA"};
                                     foreach (var stock in stockList)
                                     {
-                                        var thisStock = Tools.GetStock(stock);
-                                        var thisCurr = thisStock.First().close;
-                                        
-                                        Console.WriteLine(thisCurr);
-                                        Console.WriteLine(stock);
-                                        var stockOneD = thisStock[2].close;
-                                        var stockOneM = thisStock[32].close;
-                                        var stockOneY = thisStock[366].close;
-
-                                        var stockAfkastOneD = Math.Round(thisCurr / stockOneD * 100 - 100, 2);
-                                        var stockAfkastOneM = Math.Round(thisCurr / stockOneM * 100 - 100, 2);
-                                        var stockAfkastOneY = Math.Round(thisCurr / stockOneY * 100 - 100, 2);
+                                        //var thisStock = Tools.GetStocks(stock);
+                                        // var thisStock = 1.0; //Tools.Stocks(stock);
+                                        // var thisCurr = 1.0; //thisStock.First().close;
+                                        //
+                                        // var stockOneD = 1; //thisStock[1].close;
+                                        // var stockOneM = 1; //thisStock[30].close;
+                                        // var stockOneY = 1;  //thisStock[364].close;
+                                        //
+                                        // var stockAfkastOneD = Math.Round(thisCurr / stockOneD * 100 - 100, 2);
+                                        // var stockAfkastOneM = Math.Round(thisCurr / stockOneM * 100 - 100, 2);
+                                        // var stockAfkastOneY = Math.Round(thisCurr / stockOneY * 100 - 100, 2);
 
                                         //Afkast: værdi-idag divideret værdi-1år ganget 100 minus 100
                                         <tbody>
@@ -174,7 +245,7 @@
                                                 <a href="#" class="text-primary fw-bold">@stock</a>
                                             </td>
                                             <td class="fw-bold">
-                                                @thisStock.First().close
+                                               1 <!--thisStock.First().close-->
                                             </td>
                                             <td>
                                                 USD

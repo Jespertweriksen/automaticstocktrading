@@ -12,7 +12,6 @@ namespace AutomaticStockTrading.Models
 
     public class StockModel
     {
-        public string currency { get; set; }
         public DateTime dateTime { get; set; }
         public double open { get; set; }
         public double high { get; set; }
