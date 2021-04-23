@@ -2,6 +2,7 @@
 using AutomaticStockTrading.Models;
 using Microsoft.Extensions.Options;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -131,6 +132,86 @@ namespace AutomaticStockTrading.Services
             model.email = email;
             return model;
         }
+        
+        public IList<OrderModel> getOrders(int id)
+        {
+
+            var query = context.users.Join(
+                context.orders,
+                users => users.id,
+                orders => orders.user.id,
+                (users, orders) => new OrderModel
+                {
+                    userID = users.id,
+                    id = orders.id,
+                    stockID = orders.stockID,
+                    amount = orders.amount,
+                    dateTime = orders.dateTime,
+                    price = orders.price
+                }).Where(x => x.userID == id).ToList();
+
+            return query;
+        }
+
+        public IList<OrderModel> getOrdersWithDetails(int id)
+        {
+            var query = (from s in context.users
+                join cs in context.orders on s.id equals cs.userID
+                join os in context.stocktype on cs.stockID equals os.id
+                where s.id == id
+                select new OrderModel
+                {
+                    userID = s.id,
+                    id = cs.id,
+                    stockID = cs.stockID,
+                    amount = cs.amount,
+                    dateTime = cs.dateTime,
+                    price = cs.price,
+                    name = os.name,
+                    stock_name = os.stock_name
+                }).ToList();
+            return query;
+        }
+        
+        public List<PortfolioModel> getPortfolio(int id)
+        {
+            var query = context.users.Join(
+                context.portfolio,
+                users => users.id,
+                portfolio => portfolio.user.id,
+                (users, portfolio) => new PortfolioModel()
+                {
+                    userID = users.id,
+                    id = portfolio.id,
+                    stockID = portfolio.stockID,
+                    amount = portfolio.amount,
+                    dateTime = portfolio.dateTime,
+                    buy_price = portfolio.buy_price
+                }).Where(x => x.userID == id).ToList();
+
+            return query;
+        }
+
+        public IList<PortfolioModel> getPortfolioWithDetails(int id)
+        {
+            var query = (from s in context.users
+                join cs in context.portfolio on s.id equals cs.userID
+                join os in context.stocktype on cs.stockID equals os.id
+                where s.id == id
+                select new PortfolioModel()
+                {
+                    userID = s.id,
+                    id = cs.id,
+                    stockID = cs.stockID,
+                    amount = cs.amount,
+                    dateTime = cs.dateTime,
+                    buy_price = cs.buy_price,
+                    name = os.name,
+                    stock_name = os.stock_name
+                }).ToList();
+            return query;
+        }
+
 
 
 
