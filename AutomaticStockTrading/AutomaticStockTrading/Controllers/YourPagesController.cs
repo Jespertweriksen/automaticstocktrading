@@ -8,6 +8,7 @@ namespace AutomaticStockTrading.Controllers
 {
     public class YourPagesController : Controller
     {
+        // Vi ændre en static var alt efter hvad brugeren vælger
         public static string userSelection = "";
         public IActionResult Orders()
         {

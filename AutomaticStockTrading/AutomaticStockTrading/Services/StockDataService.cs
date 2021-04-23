@@ -36,7 +36,8 @@ namespace AutomaticStockTrading.Services
             {
                 var currentPrice = GetCurrentPrice(element.name);
                 var newestClose = GetAllClosePriceYesterday(element.name);
-               // element.price = (currentPrice.price).ToString();
+                // UDKOMMENTER NEDENSTÅENDE VED TEST
+                element.price = (currentPrice.price).ToString();
                 element.closeYesterday = (newestClose).ToString();
             }
             return query;
