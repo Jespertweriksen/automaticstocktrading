@@ -4,37 +4,93 @@
     ViewData["Title"] = "Profile Page";
 }
 
+@inject StockDataService _stockDataService
 
 
-<p>TEST</p>
+<body>
+    <main class="content">
+        <div style="width: 100%;">
+            <div class="container" style="margin-top: 10%;">
+                <h1>Aktie Kataloget</h1>
+                <br />
+                <p>
+                    Klik på navnene i nedenstående for at tilgå den individuelle aktie.
+                </p>
 
-@{
+                <div class="table-settings mb-4">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col col-md-6 col-lg-3 col-xl-4 mt-4 ml-4">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
+                                <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right mr-4 mt-5">
+                            <div class="btn-group">
+                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="icon icon-sm icon-gray">
+                                        <span class="fas fa-cog"></span>
+                                    </span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-xs dropdown-menu-right">
+                                    <span class="dropdown-item font-weight-bold text-dark">Show</span>
+                                    <a class="dropdown-item d-flex font-weight-bold" id="perPage5">5</a>
+                                    <a class="dropdown-item font-weight-bold" id="perPage10">10</a>
+                                    <a class="dropdown-item font-weight-bold" id="perPage15">15</a>
+                                    <a class="dropdown-item font-weight-bold" id="perPage20">20</a>
+                                    <a class="dropdown-item font-weight-bold" id="perPage25">25</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    var apilist = Tools.GetStocks("GME");
-    var currStock = Tools.GetStock("GME");
 
-    <p>@currStock.First().close</p>
+                    @{
+                        <table class="table table-hover" id="table">
+                            <thead>
+                                <tr>
+                                    <th>navn</th>
+                                    <th>pris (real-tid)</th>
+                                    <th>close-yesterday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var stockTypesList = _stockDataService.GetAllTypes();
 
-    <table style="width:100%">
-        <tr>
-            <th>Datetime</th>
-            <th>Open</th>
-            <th>High</th>
-            <th>Low</th>
-            <th>Close</th>
-            <th>Volume</th>
-        </tr>
-        @{foreach (var item in apilist)
-            {
-                <tr>
-                    <td>@item.dateTime</td>
-                    <td>@item.open</td>
-                    <td>@item.high</td>
-                    <td>@item.low</td>
-                    <td>@item.close</td>
-                    <td>@item.volume</td>
-                </tr>
-            }
-        }
-    </table>
+                                    foreach (var stockType in stockTypesList)
+                                    {
+                                        <tr>
+                                            <td >
+                                                <a asp-controller="Yourpages" asp-action="Stockpage" asp-route-id="@stockType.name" >
+                                                    @stockType.name
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    @stockType.price <span>$</span>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    @stockType.closeYesterday <span>$</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+
+                        </table>
+                    }
+                </div>
+            </div>
+    </main>
+    
+   
+</body>
+<
+
 }
