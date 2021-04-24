@@ -49,7 +49,7 @@ namespace AutomaticStockTrading.Services
         public static List<StockModel> GetStocks(string stockAlias)
         {
             
-            TimeZoneInfo cet = TZConvert.GetTimeZoneInfo("Central European Standard Time");
+            TimeZoneInfo cet = TZConvert.GetTimeZoneInfo("W. Europe Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
             
             var cache = MemoryCache.Default;
@@ -64,7 +64,7 @@ namespace AutomaticStockTrading.Services
 
         public static List<StockModel> Stock(string stockAlias)
         {
-            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+            TimeZoneInfo cet = TZConvert.GetTimeZoneInfo("W. Europe Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
             Console.WriteLine(offset);
@@ -90,9 +90,7 @@ namespace AutomaticStockTrading.Services
         }
         public static List<StockModel> GetStock(string stockAlias)
         {
-            string windowsZoneId = TZConvert.RailsToWindows("Central European Standard Time");
-
-            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById(windowsZoneId);
+            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
             var cache = MemoryCache.Default;
@@ -104,6 +102,13 @@ namespace AutomaticStockTrading.Services
             return cache.Get("Stock", null) as List<StockModel>;
         }
 
+        public static int GetCurrentStockPrice()
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twelvedata.com/price?symbol=AAPL&apikey=6a81f55d739d49c2a19610cd4a98e366");
+            var response = request.GetResponse();
+            Console.WriteLine(response);
+            return 1;
+        }
     }
 }
 
