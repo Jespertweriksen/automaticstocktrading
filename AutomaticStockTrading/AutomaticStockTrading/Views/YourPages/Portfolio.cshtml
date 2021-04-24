@@ -155,7 +155,7 @@
                                 <div class="media d-flex align-items-center">
                                     <img class="user-avatar md-avatar rounded-circle" alt="Image placeholder" src="../../assets/img/team/profile-picture-3.jpg">
                                     <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                        <span class="mb-0 font-small fw-bold">Bonnie Green</span>
+                                        <span class="mb-0 font-small fw-bold">You Shall not Pass!</span>
                                     </div>
                                 </div>
                             </a>
@@ -216,17 +216,18 @@
                             @{
                                 var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
                                 var portfolioList = userDataService.getPortfolioWithDetails(userID);
+                                var orderList = userDataService.getOrdersWithDetails(userID);
                             }
                             @{
-                                foreach (var stock in portfolioList)
+                                foreach (var stock in orderList)
                                 {
                                     <div class="d-flex align-items-center mb-2">
                                         <span class="shape-xs rounded-circle bg-secondary me-2"></span>
                                         <span class="fw-normal small me-3">@stock.stock_name</span>
                                         <span class="small fw-bold text-dark ms-auto">
                                             @{
-                                                var todayClose = Tools.Stocks(stock.stock_name).First().close;
-                                                var diff = Math.Round(todayClose / stock.buy_price * 100 - 100, 2);
+                                                var todayClose = Tools.GetStocks(stock.stock_name).First().close;
+                                                var diff = Math.Round(todayClose / stock.price * 100 - 100, 2);
                                             }
                                             @{
                                                 if (diff > 0)
@@ -285,19 +286,28 @@
                                     <tbody>
 
 
-                                    @foreach (var stock in portfolioList)
+                                    @foreach (var stock in orderList)
                                     {
                                         <tr>
+                                            <!-- Navn af aktie -->
                                             <td>@stock.stock_name</td>
+                                            
+                                            <!-- Antal aktier: skal beregnes -->
                                             <td>@stock.amount</td>
-                                            <td>@stock.buy_price</td>
+                                            
+                                            <!-- Pris på aktie ved købsdato: evt. gennemsnit? -->
+                                            <td>@stock.price</td>
+                                            
+                                            <!-- Nuværende pris på aktie -->
                                             <td>
-                                                @{ var todayClose = Tools.Stocks(stock.stock_name).First().close; }
+                                                @{ var todayClose = Tools.GetStocks(stock.stock_name).First().close; }
                                                 @todayClose
                                             </td>
+                                            
+                                            <!-- Forandring i pris fra købsdato til nu -->
                                             <td>
                                                 @{
-                                                    var diff = Math.Round(((todayClose / stock.buy_price) * 100) - 100, 2);
+                                                    var diff = Math.Round(todayClose / stock.price * 100 - 100, 2);
                                                 }
                                                 @{
                                                     if (diff > 0)
@@ -318,9 +328,11 @@
                                                     }
                                                 }
                                             </td>
+                                            
+                                            <!-- Gevinst af aktie -->
                                             <td>
                                                 @{
-                                                    var revenue = Math.Round(stock.amount * todayClose - stock.amount * stock.buy_price, 2);
+                                                    var revenue = Math.Round(stock.amount * todayClose - stock.amount * stock.price, 2);
                                                 }
                                                 @{
                                                     if (revenue > 0)
@@ -337,6 +349,8 @@
                                                     }
                                                 }
                                             </td>
+                                            
+                                            <!-- Sælg aktie -->
                                             <td>
                                                 <input id="sellStock" type="button" value="Sælg">
                                             </td>

@@ -32,7 +32,7 @@
 
         @{
             string[] stockList = {"GME", "AAPL", "AMZN", "MSFT"};
-            var bigBoxStock = Tools.Stocks(stockList[0]);
+            var bigBoxStock = Tools.GetStocks(stockList[0]);
             var bigBoxCurr = bigBoxStock.First().close;
             var bigOneD = bigBoxStock[1].close;
             var bigAfkastOneD = Math.Round(bigBoxCurr / bigOneD * 100 - 100, 2);
