@@ -4,11 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Caching;
 using System.Text.Json;
 using AutomaticStockTrading.DataContext;
 using AutomaticStockTrading.Models;
 using AutomaticStockTrading.Services;
-
+using TimeZoneConverter;
 
 namespace AutomaticStockTrading.Services
 {
@@ -63,13 +64,27 @@ namespace AutomaticStockTrading.Services
                 .Select(x => x.stock_name)
                 .FirstOrDefault()
                 .ToString();
-            
-            var response = Get($"https://api.twelvedata.com/price?symbol={stockAlias}&apikey=6a81f55d739d49c2a19610cd4a98e366").ToString();
-            var stockObject = JsonSerializer.Deserialize<StockTypePriceDto>(response);
-            stockObject.name = stockAlias;
-            return stockObject;
+
+            var cache = MemoryCache.Default;
+            TimeZoneInfo cet = TZConvert.GetTimeZoneInfo("W. Europe Standard Time");
+            DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
+
+            if (!cache.Contains(stockName))
+            {
+                var expiration = offset.AddHours(1);
+                var response = Get($"https://api.twelvedata.com/price?symbol={stockAlias}&apikey=6a81f55d739d49c2a19610cd4a98e366").ToString();
+                var stockObject = JsonSerializer.Deserialize<StockTypePriceDto>(response);
+                stockObject.name = stockAlias;
+                cache.Add(stockName, stockObject, expiration);
+
+            }
+
+
+
+            return cache.Get(stockName, null) as StockTypePriceDto;
         }
 
+        
         // Diverse function for fetching data
         public string Get(string uri)
         {
