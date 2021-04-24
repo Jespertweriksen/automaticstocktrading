@@ -153,13 +153,13 @@ namespace AutomaticStockTrading.Services
             return query;
         }
 
-        public IList getOrdersWithDetails(int id)
+        public IList<OrderModel> getOrdersWithDetails(int id)
         {
             var query = (from s in context.users
                          join cs in context.orders on s.id equals cs.userID
                          join os in context.stocktype on cs.stockID equals os.id
                          where s.id == id
-                         select new
+                         select new OrderModel
                          {
                              userID = s.id,
                              id = cs.id,

@@ -98,6 +98,8 @@ namespace AutomaticStockTrading.Services
                 return reader.ReadToEnd();
             }
         }
+
+        
     }
     
 }
