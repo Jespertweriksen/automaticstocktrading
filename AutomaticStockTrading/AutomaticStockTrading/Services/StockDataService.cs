@@ -76,11 +76,7 @@ namespace AutomaticStockTrading.Services
                 var stockObject = JsonSerializer.Deserialize<StockTypePriceDto>(response);
                 stockObject.name = stockAlias;
                 cache.Add(stockName, stockObject, expiration);
-
             }
-
-
-
             return cache.Get(stockName, null) as StockTypePriceDto;
         }
 
@@ -98,6 +94,17 @@ namespace AutomaticStockTrading.Services
                 return reader.ReadToEnd();
             }
         }
+
+
+        public List<StockDataModel> GetSpecificTypeData(string stockName)
+        {
+            var query = (from x in context.stockdata
+                         join t in context.stocktype on x.stock_type_id equals t.id
+                         where t.name == stockName
+                         select x).ToList();
+            return query;
+        }
+
     }
     
 }
