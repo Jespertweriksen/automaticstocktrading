@@ -153,8 +153,6 @@ namespace AutomaticStockTrading.Services
             return query;
         }
 
-<<<<<<< HEAD
-=======
         public IList<OrderModel> getOrdersWithDetails(int id)
         {
             var query = (from s in context.users
@@ -189,7 +187,6 @@ namespace AutomaticStockTrading.Services
 
 
 
->>>>>>> development
 
         public bool DeleteUser(int id)
         {
