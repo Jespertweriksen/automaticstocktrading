@@ -111,7 +111,7 @@ namespace AutomaticStockTrading.Controllers
                 var userModel = UserDataService.GetUserModelByEmail(userDto.email);
                 session.SetString("username", userModel.username);
                 session.SetInt32("userID", userModel.id);
-                session.SetInt32("age", userModel.age);
+                session.SetInt32("age", UserDataService.GetAge(userModel.age));
                 session.SetString("surname", userModel.surname);
                 session.SetString("lastname", userModel.last_name);
                 session.SetString("email", userModel.email);
