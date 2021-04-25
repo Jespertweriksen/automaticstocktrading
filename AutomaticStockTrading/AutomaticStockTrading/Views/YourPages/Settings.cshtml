@@ -71,20 +71,20 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <div>
-                                            <label for="first_name">First Name</label>
+                                            <label for="first_name">@HttpContextAccessor.HttpContext.Session.GetString("surname")</label>
                                             <input class="form-control" id="first_name" type="text" placeholder="Enter your first name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div>
-                                            <label for="last_name">Last Name</label>
+                                            <label for="last_name">@HttpContextAccessor.HttpContext.Session.GetString("lastname")</label>
                                             <input class="form-control" id="last_name" type="text" placeholder="Also your last name" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-md-6 mb-3">
-                                        <label for="birthday">Birthday</label>
+                                        <label for="birthday">@HttpContextAccessor.HttpContext.Session.GetString("age")</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
                                             <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>

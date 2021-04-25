@@ -14,6 +14,7 @@ namespace AutomaticStockTrading.Services
         private readonly Context context;
         private Hashing hashing = new Hashing();
         private UserValidation _userValidation = new UserValidation();
+
         public UserDataService(Context context)
         {
             this.context = context;
@@ -65,10 +66,10 @@ namespace AutomaticStockTrading.Services
         }
 
         //CREATE NEW USER
-        public bool CreateUser(string username, string password, string surname, string lastname, int age, string email)
+        public bool CreateUser(string username, string password, string surname, string lastname, DateTime age, string email)
         {
             Hashing.HashSalt hashSalt = hashing.PasswordHash(16, password);
-
+            
             var maxId = context.users.Max(x => x.id);
             var usernameQuery = context.users.Where(x => x.username == username).ToList();
             if (usernameQuery.Count > 0) return false;
@@ -91,7 +92,7 @@ namespace AutomaticStockTrading.Services
                 Console.WriteLine(email + "is not correct");
                 return false;
             }
-            if (age == 0)
+            if (GetAge(age) == 0)
             {
                 Console.WriteLine(age + " is 0");
                 return false;
@@ -152,6 +153,43 @@ namespace AutomaticStockTrading.Services
             return query;
         }
 
+<<<<<<< HEAD
+=======
+        public IList<OrderModel> getOrdersWithDetails(int id)
+        {
+            var query = (from s in context.users
+                         join cs in context.orders on s.id equals cs.userID
+                         join os in context.stocktype on cs.stockID equals os.id
+                         where s.id == id
+                         select new OrderModel
+                         {
+                             userID = s.id,
+                             id = cs.id,
+                             stockID = cs.stockID,
+                             amount = cs.amount,
+                             dateTime = cs.dateTime,
+                             price = cs.price,
+                             name = os.name,
+                             stock_name = os.stock_name
+                         }).ToList();
+            return query;
+        }
+
+
+        public Int32 GetAge(DateTime dateOfBirth)
+        {
+            var today = DateTime.Today;
+
+            var a = (today.Year * 100 + today.Month) * 100 + today.Day;
+            var b = (dateOfBirth.Year * 100 + dateOfBirth.Month) * 100 + dateOfBirth.Day;
+
+            return (a - b) / 10000;
+        }
+
+
+
+
+>>>>>>> development
 
         public bool DeleteUser(int id)
         {
