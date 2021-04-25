@@ -69,6 +69,9 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockDataModel>().Property(x => x.close).HasColumnName("close");
             modelBuilder.Entity<StockDataModel>().Property(x => x.volume).HasColumnName("volume");
             modelBuilder.Entity<StockDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
+            modelBuilder.Entity<StockDataModel>().HasOne(x => x.stockType).WithMany(x => x.stockData)
+                .HasForeignKey(x => x.stock_type_id);
+
 
 
             modelBuilder.Entity<StockTypeModel>().ToTable("stock_type");

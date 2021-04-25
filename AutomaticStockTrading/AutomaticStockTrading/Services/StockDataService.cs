@@ -29,9 +29,11 @@ namespace AutomaticStockTrading.Services
         // Get all types of stocks with their current price.
         public List<StockTypePriceDto> GetAllTypes()
         {
-            var query = (from t in context.stocktype select new StockTypePriceDto() { 
-                name = t.name
-            }).ToList();
+            var query = (from t in context.stocktype
+                         select new StockTypePriceDto()
+                         {
+                             name = t.name
+                         }).ToList();
 
             foreach (StockTypePriceDto element in query)
             {
@@ -43,8 +45,6 @@ namespace AutomaticStockTrading.Services
             }
             return query;
         }
-
-        // Get yesterdays close price for at stock name
         public string GetAllClosePriceYesterday(string stockName)
         {
             var query = (from data in context.stockdata
@@ -55,6 +55,9 @@ namespace AutomaticStockTrading.Services
             var yesterDayClose = query[0];
             return yesterDayClose;
         }
+
+        // Get yesterdays close price for at stock name
+
 
         // query twelvedata for current price of stock return stockDto object
         public StockTypePriceDto GetCurrentPrice(string stockName)
@@ -95,20 +98,21 @@ namespace AutomaticStockTrading.Services
             }
         }
 
-<<<<<<< HEAD
 
+        // Denne funktion er til at fetche for en specific stock baseret på navn
         public List<StockDataModel> GetSpecificTypeData(string stockName)
         {
-            var query = (from x in context.stockdata
-                         join t in context.stocktype on x.stock_type_id equals t.id
+
+            
+            var query = (from data in context.stockdata
+                         join t in context.stocktype on data.stock_type_id equals t.id
                          where t.name == stockName
-                         select x).ToList();
+                         select data).ToList();
+
             return query;
+
         }
 
-=======
-        
->>>>>>> development
     }
     
 }
