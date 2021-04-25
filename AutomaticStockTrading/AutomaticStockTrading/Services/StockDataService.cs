@@ -95,6 +95,7 @@ namespace AutomaticStockTrading.Services
             }
         }
 
+<<<<<<< HEAD
 
         public List<StockDataModel> GetSpecificTypeData(string stockName)
         {
@@ -105,6 +106,9 @@ namespace AutomaticStockTrading.Services
             return query;
         }
 
+=======
+        
+>>>>>>> development
     }
     
 }

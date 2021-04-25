@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -34,7 +35,7 @@ namespace AutomaticStockTrading.Controllers
 
         }
 
-        [HttpGet("stocktypes/{id}")]
+       
         public IList<OrderModel> getOrders(int id)
         {
 
@@ -55,6 +56,28 @@ namespace AutomaticStockTrading.Controllers
 
             return query;
         }
+
+        [HttpGet("stocktypes/{id}")]
+        public IList getOrdersWithDetails(int id)
+        {
+            var query = (from s in Context.users
+                         join cs in Context.orders on s.id equals cs.userID
+                         join os in Context.stocktype on cs.stockID equals os.id
+                         where s.id == id
+                         select new
+                         {
+                             userID = s.id,
+                             id = cs.id,
+                             stockID = cs.stockID,
+                             amount = cs.amount,
+                             dateTime = cs.dateTime,
+                             price = cs.price,
+                             name = os.name,
+                             stock_name = os.stock_name
+                         }).ToList();
+            return query as IList;
+        }
+
 
 
 

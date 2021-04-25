@@ -93,6 +93,8 @@
                             <tr>
                                 <th>Id</th>
                                 <th>userID</th>
+                                <th>Name</th>
+                                <th>Stock Alias</th>
                                 <th>amount</th>
                                 <th>dateTime</th>
                                 <th>price</th>
@@ -104,21 +106,23 @@
                             @{
                                 var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
 
-                                var orderList = userDataService.getOrders(userID);
-
+                                var orderList = userDataService.getOrdersWithDetails(userID);
+                                
 
                             }
-                            @foreach (var orders in orderList)
+                            @foreach (var orders in orderList) 
                             {
 
-                                <tr>
+                            <tr>
 
-                                    <td>@orders.id</td>
-                                    <td>@orders.userID</td>
-                                    <td>@orders.amount</td>
-                                    <td>@orders.dateTime</td>
-                                    <td>@orders.price</td>
-                                </tr>
+                                <td>@orders.id</td>
+                                <td>@orders.userID</td>
+                                <td>@orders.name</td>
+                                <td>@orders.stock_name</td>
+                                <td>@orders.amount</td>
+                                <td>@orders.dateTime</td>
+                                <td>@orders.price</td>
+                            </tr>
                             }
                             <!-- Item -->
                         </tbody>
