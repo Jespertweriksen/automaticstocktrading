@@ -100,15 +100,16 @@ namespace AutomaticStockTrading.Services
 
 
         // Denne funktion er til at fetche for en specific stock baseret på navn
-        public List<StockDataModel> GetSpecificTypeData(string stockName)
+        public IEnumerable<StockDataModel> GetSpecificTypeData(string stockName)
         {
 
             
             var query = (from data in context.stockdata
                          join t in context.stocktype on data.stock_type_id equals t.id
                          where t.name == stockName
-                         select data).ToList();
+                         select data).ToList().Where((data, i) => i % 100 == 0);
 
+            
             return query;
 
         }

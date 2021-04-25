@@ -16,18 +16,34 @@
     <body>
 
         <main class="content">
-
-            <div class="container" style="width: 100%;">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col col-md-6 col-lg-3 col-xl-4 mt-4 ml-4">
-                        <h1>@selectedStock</h1>
-
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-between">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+                <div class="d-block mb-4 mb-md-0">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                            <li class="breadcrumb-item">
+                                <a href="#">
+                                    <span class="fas fa-home"></span>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#">Aktiedata</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">@selectedStock</li>
+                        </ol>
+                    </nav>
+                    <h1 id="currentStock">@selectedStock</h1>
+                    <p class="mb-0">Her ser du alle dine ordre.</p>
                 </div>
             </div>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-10 mb-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body pb-0">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
         </main>
     </body>
     <script src ="~/js/stockPageChart.js" type="module"></script>
