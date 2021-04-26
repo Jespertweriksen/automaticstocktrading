@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -124,11 +125,62 @@ namespace AutomaticStockTrading.Services
             return query;
         }
 
-        
-        public List<StockDataModel> GetCloseByStockName(string stockName)
+        // Vi vil kun have den seneste close værdi
+        public StockDataModel GetCloseByStockName(string stockName)
         {
 
-            return null;
+            var query = (from data in context.stockdata
+                         join t in context.stocktype on data.stock_type_id equals t.id
+                         where t.name == stockName
+                         select data).First();
+
+            return query;
+        }
+
+
+
+        public decimal GetAvarageStockDataLastYear(string stockName, int yearsBack)
+        {
+            var lastYearData = new List<decimal>();
+
+            var YearBack = GetLastYear(yearsBack);
+
+            var query = (from data in context.stockdata
+                         join t in context.stocktype on data.stock_type_id equals t.id
+                         where t.name == stockName
+                         select data).ToList();
+
+            foreach (StockDataModel row in query)
+            {
+                if (row.datetime.Contains(YearBack))
+                {
+                    var containerFloat = decimal.Parse(row.close, CultureInfo.InvariantCulture);
+                    var rand = Convert.ToInt32(containerFloat);
+                    lastYearData.Add(containerFloat);
+                }
+            }
+
+            var lenghtOfYearBack = lastYearData.Count();
+
+            decimal count = 0;
+
+            foreach (var row in lastYearData)
+            {
+                count += row;
+            }
+
+            count = (count / lenghtOfYearBack);
+
+            return count;
+        }
+
+
+        public string GetLastYear(int yearsBack)
+        {
+            var lastYear = DateTime.Now.AddYears(-(yearsBack)).Year;
+
+           
+            return lastYear.ToString();
         }
     }
     

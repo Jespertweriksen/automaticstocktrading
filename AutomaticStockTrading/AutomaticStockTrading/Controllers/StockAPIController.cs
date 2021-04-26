@@ -55,7 +55,6 @@ namespace AutomaticStockTrading.Controllers
                     price = orders.price
                 }).Where(x => x.userID == id).ToList();
 
-
             return query;
         }
 
