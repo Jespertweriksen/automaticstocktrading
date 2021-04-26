@@ -2,6 +2,7 @@
 
 namespace AutomaticStockTrading.Models
 {
+    [System.ComponentModel.DataAnnotations.Schema.ComplexType]
     public class StockDataModel
     {
         public int id { get; set; }
@@ -11,6 +12,8 @@ namespace AutomaticStockTrading.Models
         public string low { get; set; }
         public string close { get; set; }
         public string volume { get; set; }
+
+        
         public int stock_type_id { get; set; }
         public StockTypeModel stockType { get; set; }
 
