@@ -81,7 +81,6 @@ namespace AutomaticStockTrading.Controllers
         }
 
 
-<<<<<<< HEAD
         [HttpPost("updateuser/{id}")]
         public IActionResult Update(int id, UserModel userDto)
         {
@@ -97,7 +96,7 @@ namespace AutomaticStockTrading.Controllers
             }
         }
 
-=======
+
         [HttpGet("stockdata/{name}")]
         public ActionResult GetStockData(string name)
         {
@@ -107,7 +106,6 @@ namespace AutomaticStockTrading.Controllers
 
 
 
->>>>>>> feature/stockpage
 
 
     }
