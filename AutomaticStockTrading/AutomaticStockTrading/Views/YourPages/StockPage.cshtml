@@ -4,14 +4,21 @@
 @{
     ViewData["Title"] = "Forside";
 }
-@using AutomaticStockTrading.Controllers; 
+@using AutomaticStockTrading.Controllers;
 
-@{ 
+@{
     var nameOfStock = ViewBag.CaseId;
     var selectedStock = YourPagesController.userSelection;
+
+
+    var current_price = stock.GetCurrentPrice(selectedStock);
+
+    var close_yesterday = stock.GetAllClosePriceYesterday(selectedStock);
+
+    var percentageChange = Math.Round( double.Parse(close_yesterday) / double.Parse(current_price.price)) ;
 }
 
-@{ 
+@{
 
     <body>
 
@@ -43,8 +50,77 @@
                 </div>
             </div>
 
-          
+            <div class="row">
+                <div class="col-12 col-sm-6 col-xl-3 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Nuværende Pris</div>
+                                <h2 class="h3">
+                                    $@current_price.price
+                                </h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Procent forandring fra igår</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">@percentageChange.ToString()%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Lukkeværdi imorgen</div>
+                                <h2 class="h3">$10,567</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Procent forandring fra idag</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">10.57%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Median i år</div>
+                                <h2 class="h3">$10,567</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Median sidste år</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">10.57%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Tilgængelig for køb</div>
+                                <h2 class="h3">Ja</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Igår</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">Ja</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
         </main>
     </body>
-    <script src ="~/js/stockPageChart.js" type="module"></script>
+    <script src="~/js/stockPageChart.js" type="module"></script>
 }

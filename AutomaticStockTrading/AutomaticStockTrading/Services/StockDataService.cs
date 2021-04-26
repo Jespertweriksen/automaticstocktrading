@@ -114,6 +114,11 @@ namespace AutomaticStockTrading.Services
 
         }
 
+        public List<ForecastDataModel> GetForeCastByStockName()
+        {
+            return null;
+        }
+
     }
     
 }

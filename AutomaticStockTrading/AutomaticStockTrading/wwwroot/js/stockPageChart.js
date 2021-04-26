@@ -108,7 +108,3 @@ const renderChart = (date_sequence, open_sequence, close_sequence, high_sequence
         }
     });
 }
-
-
-
-console.log("hej")
