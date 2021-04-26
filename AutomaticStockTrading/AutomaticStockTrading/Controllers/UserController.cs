@@ -98,14 +98,39 @@ namespace AutomaticStockTrading.Controllers
         {
 
             var user = UserDataService.UpdateUser(session.GetInt32("userID"), userDto.username, userDto.surname, userDto.last_name, userDto.age, userDto.email);
-
+          
             if (user)
             {
+                if (!string.IsNullOrEmpty(userDto.username))
+                {
+                    session.SetString("username", Context.users.Find(session.GetInt32("userID")).username);
+
+                }
+                if (!string.IsNullOrEmpty(userDto.age.ToString()))
+                {
+                    session.SetString("age", Context.users.Find(session.GetInt32("userID")).age.ToString(("dd/MM/yyyy")));
+
+                }
+                if (!string.IsNullOrEmpty(userDto.surname))
+                {
+                    session.SetString("surname", Context.users.Find(session.GetInt32("userID")).surname);
+
+                }
+                if (!string.IsNullOrEmpty(userDto.last_name))
+                {
+                    session.SetString("lastname", Context.users.Find(session.GetInt32("userID")).last_name);
+
+                }
+                if (!string.IsNullOrEmpty(userDto.email))
+                {
+                    session.SetString("email", Context.users.Find(session.GetInt32("userID")).email);
+
+                }
                 return View("/Views/YourPages/Settings.cshtml");
             }
             else
             {
-                return Ok();
+                return BadRequest("Profile update failed");
             }
         }
         

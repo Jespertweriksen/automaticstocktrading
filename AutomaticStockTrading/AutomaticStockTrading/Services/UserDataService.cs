@@ -117,12 +117,16 @@ namespace AutomaticStockTrading.Services
             surname ??= getUser.surname;
             lastname ??= getUser.last_name;
             email ??= getUser.email;
+
+            var userNameCheck = context.users.Where(x => x.username == username).ToList();
+            var emailCheck = context.users.Where(x => x.email == email).ToList();
+
             //if (getUser == null) return false;
             //PASSWORD
             //if (_userValidation.VerifyPassword(password, ctx.users.Find(id).Password, ctx.users.Find(id).Salt))
             //{
             //USERNAME
-            if (username != null && Regex.IsMatch(username, @"^[a-zA-Z]+$"))
+            if (username != null && Regex.IsMatch(username, @"^[a-zA-Z]+$") && userNameCheck.Count() == 0)
             {
                 context.users.Update(context.users.Find(id)).Entity.username = username;
             }
@@ -146,7 +150,7 @@ namespace AutomaticStockTrading.Services
             }
 
             //EMAIL
-            if (email != null && IsValidEmail(email))
+            if (email != null && IsValidEmail(email) && emailCheck.Count() == 0)
             {
                 context.users.Update(context.users.Find(id)).Entity.email = email;
             }
