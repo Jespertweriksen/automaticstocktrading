@@ -87,10 +87,11 @@ namespace AutomaticStockTrading.Controllers
             return Json(myList);
         }
 
-
-
-
-
+        [HttpGet("forecastdata/{name}")]
+        public ActionResult GetForecastData(string name)
+        {
+            var myList = _stockDataService.GetForeCastByStockName(name);
+            return Json(myList);
+        }
     }
-
 }

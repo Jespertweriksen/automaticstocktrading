@@ -179,7 +179,7 @@ namespace AutomaticStockTrading.Services
         {
             var lastYear = DateTime.Now.AddYears(-(yearsBack)).Year;
 
-           
+
             return lastYear.ToString();
         }
     }

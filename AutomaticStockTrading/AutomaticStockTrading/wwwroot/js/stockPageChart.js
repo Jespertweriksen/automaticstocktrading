@@ -1,7 +1,7 @@
 ﻿import { GetStockData } from "./store.js"
 
 var currentStockName = document.getElementById('currentStock')
-var ctx = document.getElementById('myChart');
+var ctx = document.getElementById('historic_Chart');
 
 
 
@@ -35,7 +35,6 @@ const myIterator = (alist) => {
 async function updateChart() {
     var currentName = currentStockName.innerHTML;
     const sequences = await GetStockData(currentName);
-    console.log(sequences)
     var [datetime, open, close, volume, high, low] = myIterator(sequences);
 
     var open_seq = {
@@ -69,8 +68,6 @@ async function updateChart() {
         borderColor: "yellow",
         borderWidth: 1
     }
-
-    console.log(datetime)
     renderChart(datetime, open_seq, close_seq, high_seq, low_seq)
     
 }
