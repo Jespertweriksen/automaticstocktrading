@@ -46,6 +46,7 @@ namespace AutomaticStockTrading.Services
                 return list;
             }
         }
+
         public static List<StockModel> GetStocks(string stockAlias)
         {
             

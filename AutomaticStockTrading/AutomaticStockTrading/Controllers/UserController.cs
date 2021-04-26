@@ -92,16 +92,18 @@ namespace AutomaticStockTrading.Controllers
         }
 
 
-        [HttpPut]
+        [HttpPost]
         [ActionName("Update")]
-        public IActionResult Update(UserModel userDto)
+        public IActionResult Update([FromForm] UserModel userDto)
         {
-            var user = UserDataService.UpdateUser(userDto.id, userDto.username, userDto.surname, userDto.last_name, userDto.age, userDto.email);
+
+            var user = UserDataService.UpdateUser(session.GetInt32("userID"), userDto.username, userDto.surname, userDto.last_name, userDto.age, userDto.email);
 
             if (user)
             {
-                return Ok();
-            }else
+                return View("/Views/YourPages/Settings.cshtml");
+            }
+            else
             {
                 return Ok();
             }

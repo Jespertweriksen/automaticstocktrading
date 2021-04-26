@@ -110,13 +110,12 @@ namespace AutomaticStockTrading.Services
         }
 
         //UPDATE USER PROFILE
-        public bool UpdateUser(int id, string username, string surname, string lastname, DateTime age, string email)
+        public bool UpdateUser(int? id, string username, string surname, string lastname, DateTime age, string email)
         {
             var getUser = context.users.Find(id);
             username ??= getUser.username;
             surname ??= getUser.surname;
             lastname ??= getUser.last_name;
-            age = getUser.age;
             email ??= getUser.email;
             //if (getUser == null) return false;
             //PASSWORD
@@ -143,7 +142,7 @@ namespace AutomaticStockTrading.Services
             //AGE
             if (GetAge(age) != 0)
             {
-                context.users.Update(context.users.Find(id)).Entity.age = age;
+                context.users.Update(context.users.Find(id)).Entity.age = age.Date;
             }
 
             //EMAIL
