@@ -114,11 +114,22 @@ namespace AutomaticStockTrading.Services
 
         }
 
-        public List<ForecastDataModel> GetForeCastByStockName()
+        public List<ForecastDataModel> GetForeCastByStockName(string stockName)
         {
-            return null;
+            var query = (from data in context.forecast_data
+                         join t in context.stocktype on data.stock_type_id equals t.id
+                         where t.name == stockName
+                         select data).ToList();
+
+            return query;
         }
 
+        
+        public List<StockDataModel> GetCloseByStockName(string stockName)
+        {
+
+            return null;
+        }
     }
     
 }

@@ -50,6 +50,7 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.close).HasColumnName("close");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
+            modelBuilder.Entity<ForecastDataModel>().HasOne(x => x.stockType).WithMany(x => x.forecast).HasForeignKey(x => x.stock_type_id);
 
             modelBuilder.Entity<OrderModel>().ToTable("orders");
             modelBuilder.Entity<OrderModel>().Property(x => x.id).HasColumnName("id");
