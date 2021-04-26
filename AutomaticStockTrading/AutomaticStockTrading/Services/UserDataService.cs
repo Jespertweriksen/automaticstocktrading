@@ -109,6 +109,69 @@ namespace AutomaticStockTrading.Services
             //return ctx.users.Find(maxId + 1);
         }
 
+        //UPDATE USER PROFILE
+        public bool UpdateUser(int id, string username, string surname, string lastname, DateTime age, string email)
+        {
+            var getUser = context.users.Find(id);
+            username ??= getUser.username;
+            surname ??= getUser.surname;
+            lastname ??= getUser.last_name;
+            age = getUser.age;
+            email ??= getUser.email;
+            //if (getUser == null) return false;
+            //PASSWORD
+            //if (_userValidation.VerifyPassword(password, ctx.users.Find(id).Password, ctx.users.Find(id).Salt))
+            //{
+            //USERNAME
+            if (username != null && Regex.IsMatch(username, @"^[a-zA-Z]+$"))
+            {
+                context.users.Update(context.users.Find(id)).Entity.username = username;
+            }
+
+            //SURNAME
+            if (surname != null && Regex.IsMatch(surname, @"^[a-zA-Z]+$"))
+            {
+                context.users.Update(context.users.Find(id)).Entity.surname = surname;
+            }
+
+            //LASTNAME
+            if (lastname != null && Regex.IsMatch(lastname, @"^[a-zA-Z]+$"))
+            {
+                context.users.Update(context.users.Find(id)).Entity.last_name = lastname;
+            }
+
+            //AGE
+            if (GetAge(age) != 0)
+            {
+                context.users.Update(context.users.Find(id)).Entity.age = age;
+            }
+
+            //EMAIL
+            if (email != null && IsValidEmail(email))
+            {
+                context.users.Update(context.users.Find(id)).Entity.email = email;
+            }
+
+            context.SaveChanges();
+            return true;
+            //}
+        }
+
+        //CHANGE PASSWORD
+        public bool ChangePassword(/*int id,*/ string username, string oldpassword, string newpassword)
+        {
+            var getUser = context.users.FirstOrDefault(x => x.username == username);
+            if (getUser.Equals(null)) return false;
+            if (!_userValidation.VerifyPassword(oldpassword, getUser.password, getUser.salt)) return false;
+
+            Hashing.HashSalt hashSalt = hashing.PasswordHash(16, newpassword);
+            context.users.Update(getUser).Entity.password = hashSalt.Hash;
+            context.users.Update(getUser).Entity.salt = hashSalt.Salt;
+            context.SaveChanges();
+            return true;
+
+        }
+
         //GET USER PROFILE
         public int GetUserIDByEmail(string email)
         {

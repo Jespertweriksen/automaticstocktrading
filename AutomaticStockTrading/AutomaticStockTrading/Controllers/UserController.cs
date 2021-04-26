@@ -90,6 +90,22 @@ namespace AutomaticStockTrading.Controllers
                 return BadRequest("User creation failed");
             }
         }
+
+
+        [HttpPut]
+        [ActionName("Update")]
+        public IActionResult Update(UserModel userDto)
+        {
+            var user = UserDataService.UpdateUser(userDto.id, userDto.username, userDto.surname, userDto.last_name, userDto.age, userDto.email);
+
+            if (user)
+            {
+                return Ok();
+            }else
+            {
+                return Ok();
+            }
+        }
         
 
         //LOGIN
@@ -111,7 +127,7 @@ namespace AutomaticStockTrading.Controllers
                 var userModel = UserDataService.GetUserModelByEmail(userDto.email);
                 session.SetString("username", userModel.username);
                 session.SetInt32("userID", userModel.id);
-                session.SetInt32("age", UserDataService.GetAge(userModel.age));
+                session.SetString("age", userModel.age.ToString(("dd/MM/yyyy")));
                 session.SetString("surname", userModel.surname);
                 session.SetString("lastname", userModel.last_name);
                 session.SetString("email", userModel.email);

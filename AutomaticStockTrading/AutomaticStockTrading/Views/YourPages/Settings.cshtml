@@ -1,7 +1,9 @@
-﻿
+﻿@model AutomaticStockTrading.Models.UserModel;
+@using AutomaticStockTrading.Services;
+
 @{
     ViewData["Title"] = "Indstillinger";
-    @inject UserDataService userDataService
+
 }
 
 @{
@@ -67,27 +69,27 @@
                     <div class="col-12 col-xl-8">
                         <div class="card card-body shadow-sm mb-4">
                             <h2 class="h5 mb-4">General information</h2>
-                            <form>
+                            <form method="post" asp-action="Update" asp-controller="User">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <div>
-                                            <label for="first_name">@HttpContextAccessor.HttpContext.Session.GetString("surname")</label>
-                                            <input class="form-control" id="first_name" type="text" placeholder="Enter your first name" required>
+                                            <label for="first_name">First name</label>
+                                            <input asp-for="surname" class="form-control" id="first_name" type="text" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("surname")" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div>
-                                            <label for="last_name">@HttpContextAccessor.HttpContext.Session.GetString("lastname")</label>
-                                            <input class="form-control" id="last_name" type="text" placeholder="Also your last name" required>
+                                            <label for="last_name">Last name</label>
+                                            <input asp-for="last_name" class="form-control" id="last_name" type="text" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("lastname")" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-md-6 mb-3">
-                                        <label for="birthday">@HttpContextAccessor.HttpContext.Session.GetString("age")</label>
+                                        <label for="birthday">Birthday</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                                            <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>
+                                            <input asp-for="age" data-datepicker="" class="form-control" id="birthday" type="text" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("age")" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
@@ -103,15 +105,10 @@
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input class="form-control" id="email" type="email" placeholder="name@company.com" required>
+                                            <input asp-for="email" class="form-control" id="email" type="email" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("email")" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="phone">Phone</label>
-                                            <input class="form-control" id="phone" type="number" placeholder="+12-345 678 910" required>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <h2 class="h5 my-4">Location</h2>
                                 <div class="row">

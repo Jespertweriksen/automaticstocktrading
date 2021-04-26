@@ -79,6 +79,21 @@ namespace AutomaticStockTrading.Controllers
         }
 
 
+        [HttpPost("updateuser/{id}")]
+        public IActionResult Update(int id, UserModel userDto)
+        {
+            var user = UserDataService.UpdateUser(id, userDto.username, userDto.surname, userDto.last_name, userDto.age, userDto.email);
+
+            if (user)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok();
+            }
+        }
+
 
 
     }
