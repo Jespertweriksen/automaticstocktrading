@@ -100,15 +100,15 @@
                             @{
                                 var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
                                 var orderList = userDataService.getOrdersWithDetails(userID);
-                                
                             }
+                            <div id="userid">@userDataService.GetUser(userID).id</div> <!--  style="display: none" -->
                             @{
                                 var distinctStocks = orderList.GroupBy(s => s.name).Select(grp => grp.First()).ToList();
                                 foreach (var stock in distinctStocks)
                                 {
                                     <div class="d-flex align-items-center mb-2">
                                         <span class="shape-xs rounded-circle bg-secondary me-2"></span>
-                                        <span class="fw-normal small me-3">@stock.name</span>
+                                        <span class="fw-normal small me-3" id="portfolioStock">@stock.name</span>
                                         <span class="small fw-bold text-dark ms-auto">
                                             @{
                                                 var totalStocks = orderList.Where(item => item.name == stock.name)
@@ -126,8 +126,7 @@
                     </div>
                     <div class="card-body p-2 py-5">
                         <div class="ct-chart-traffic-share-2 ct-golden-section ct-series-a">
-                            PIECHART
-                            <canvas id="myChart"></canvas>
+                            <canvas id="portfolioPie"></canvas>
                         </div>
                     </div>
                 </div>
@@ -249,5 +248,6 @@
 
         </main>
         </body>
+        <script src="~/js/stockpage/portfolioChart.js" type="module"></script>
     }
 }

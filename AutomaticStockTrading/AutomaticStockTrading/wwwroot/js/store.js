@@ -21,8 +21,16 @@ async function getLastDateOfLog(stockName) {
     return data;
 }
 
+async function getPortfolioStocks(id){
+    let response = await fetch(`/api/stocktypes/${id}`);
+    let data = await response.json();
+    console.log("SUCCES: ORDERS LOADED")
+    return data;
+}
+
 export {
     getStockData as GetStockData,
     getForecastData as GetForecastData,
     getLastDateOfLog as GetLastDateOfLog,
+    getPortfolioStocks as GetPortfolioStocks,
 }
