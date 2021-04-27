@@ -78,18 +78,8 @@
                     </div>
                 </div>
             </div>
-            @{
-                // var thisStock = 1.0; //Tools.Stocks(stock);
-                // var thisCurr = 1.0; //thisStock.First().close;
-                //
-                // var stockOneD = 1; //thisStock[1].close;
-                // var stockOneM = 2; //thisStock[30].close;
-                // var stockOneY = 3; //thisStock[364].close;
-                //
-                // var stockAfkastOneD = Math.Round(thisCurr / stockOneD * 100 - 100, 2);
-                // var stockAfkastOneM = Math.Round(thisCurr / stockOneM * 100 - 100, 2);
-                // var stockAfkastOneY = Math.Round(thisCurr / stockOneY * 100 - 100, 2);
-
+            <!--
+            @{/*
                 foreach (var stock in _stockDataService.GetAllTypes().Skip(0))
                 {
                     var thisCur = stock.price;
@@ -139,11 +129,8 @@
                         </div>
                     </div>
                 }
-
-
-            }
-
-
+            */}
+            -->
         </div>
 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -177,19 +164,6 @@
                                 @{
                                     foreach (var stock in _stockDataService.GetAllTypes())
                                     {
-                                        //var thisStock = Tools.GetStocks(stock);
-                                        // var thisStock = 1.0; //Tools.Stocks(stock);
-                                        // var thisCurr = 1.0; //thisStock.First().close;
-                                        //
-                                        // var stockOneD = 1; //thisStock[1].close;
-                                        // var stockOneM = 1; //thisStock[30].close;
-                                        // var stockOneY = 1;  //thisStock[364].close;
-                                        //
-                                        // var stockAfkastOneD = Math.Round(thisCurr / stockOneD * 100 - 100, 2);
-                                        // var stockAfkastOneM = Math.Round(thisCurr / stockOneM * 100 - 100, 2);
-                                        // var stockAfkastOneY = Math.Round(thisCurr / stockOneY * 100 - 100, 2);
-
-                                        //Afkast: værdi-idag divideret værdi-1år ganget 100 minus 100
                                         var thisCur = stock.price;
                                         var thisYesterday = stock.closeYesterday;
                                         var thisOneMonth = stock.closeOneMonth;
