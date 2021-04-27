@@ -1,4 +1,4 @@
-﻿import { GetForecastData, GetLastDateOfLog } from "./store.js"
+﻿import { GetForecastData, GetLastDateOfLog } from "../store.js"
 
 
 var currentStockName = document.getElementById('currentStock')

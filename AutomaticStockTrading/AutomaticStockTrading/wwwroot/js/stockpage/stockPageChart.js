@@ -1,5 +1,4 @@
-﻿import { GetStockData } from "./store.js"
-
+﻿import { GetStockData } from "../store.js"
 var currentStockName = document.getElementById('currentStock')
 var ctx = document.getElementById('historic_Chart');
 
