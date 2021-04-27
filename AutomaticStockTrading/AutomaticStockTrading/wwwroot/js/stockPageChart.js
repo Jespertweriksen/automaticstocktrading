@@ -86,6 +86,7 @@ const renderChart = (date_sequence, open_sequence, close_sequence, high_sequence
             datasets: [open_sequence, close_sequence, high_sequence, low_sequence]
         },
         options: {
+
             plugins: {
                 title: {
                     display: true,
@@ -101,7 +102,8 @@ const renderChart = (date_sequence, open_sequence, close_sequence, high_sequence
                 y: {
                     beginAtZero: true
                 }
-            }
+            },
+            
         }
     });
 }
