@@ -16,7 +16,6 @@ namespace AutomaticStockTrading.Models
 
         public List<StockDataModel> stockData { get; set; }
         public List<OrderModel> order { get; set; }
-        public List<PortfolioModel> portfolio { get; set; }
         public List<ForecastDataModel> forecast { get; set; }
 
        

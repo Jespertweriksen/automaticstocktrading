@@ -30,11 +30,9 @@ namespace AutomaticStockTrading.Services
            // DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
            // Console.WriteLine(offset);
-           //var apikey = "6a81f55d739d49c2a19610cd4a98e366";
-           var apikey = "de262e878821448eb6b85c4b45f53064";
+            
 
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twelvedata.com/time_series?symbol=" + stockAlias + "&interval=1day&type=stock&format=JSON&start_date=2001-01-01%2021:24:00&end_date=2021-03-19%2021:24:00&apikey=" + apikey);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twelvedata.com/time_series?symbol=" + stockAlias + "&interval=1day&type=stock&format=JSON&start_date=2001-01-01%2021:24:00&end_date=2021-03-19%2021:24:00&apikey=6a81f55d739d49c2a19610cd4a98e366");
 
             var httpResponse = (HttpWebResponse)request.GetResponse();
 
@@ -48,10 +46,11 @@ namespace AutomaticStockTrading.Services
                 return list;
             }
         }
+
         public static List<StockModel> GetStocks(string stockAlias)
         {
             
-            TimeZoneInfo cet = TZConvert.GetTimeZoneInfo("Central European Standard Time");
+            TimeZoneInfo cet = TZConvert.GetTimeZoneInfo("W. Europe Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
             
             var cache = MemoryCache.Default;
@@ -66,9 +65,7 @@ namespace AutomaticStockTrading.Services
 
         public static List<StockModel> Stock(string stockAlias)
         {
-            //var apikey = "6a81f55d739d49c2a19610cd4a98e366";
-            var apikey = "de262e878821448eb6b85c4b45f53064";
-            TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+            TimeZoneInfo cet = TZConvert.GetTimeZoneInfo("W. Europe Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
             Console.WriteLine(offset);
@@ -80,7 +77,7 @@ namespace AutomaticStockTrading.Services
             var unformattedUSDate = dt.ToString("yyyy-MM-dd");
             var usDate = unformattedUSDate.Replace("/", "-");
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twelvedata.com/time_series?symbol=" + stockAlias + "&interval=1day&type=stock&format=JSON&start_date=" + usDate +  "%20" + time + "&end_date=" + usDate +  "%20" + time + "&apikey=" + apikey);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twelvedata.com/time_series?symbol=" + stockAlias + "&interval=1day&type=stock&format=JSON&start_date=" + usDate +  "%20" + time + "&end_date=" + usDate +  "%20" + time + "&apikey=6a81f55d739d49c2a19610cd4a98e366");
 
             var httpResponse = (HttpWebResponse)request.GetResponse();
 
@@ -94,7 +91,6 @@ namespace AutomaticStockTrading.Services
         }
         public static List<StockModel> GetStock(string stockAlias)
         {
-
             TimeZoneInfo cet = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             DateTimeOffset offset = TimeZoneInfo.ConvertTime(DateTime.Now, cet);
 
@@ -107,6 +103,13 @@ namespace AutomaticStockTrading.Services
             return cache.Get("Stock", null) as List<StockModel>;
         }
 
+        public static int GetCurrentStockPrice()
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twelvedata.com/price?symbol=AAPL&apikey=6a81f55d739d49c2a19610cd4a98e366");
+            var response = request.GetResponse();
+            Console.WriteLine(response);
+            return 1;
+        }
     }
 }
 

@@ -23,14 +23,16 @@ namespace AutomaticStockTrading.Controllers
         private static readonly HttpClient client = new HttpClient();
         readonly Context Context;
         readonly UserDataService UserDataService;
+        readonly StockDataService _stockDataService;
         private IConfiguration _config;
         private readonly ISession session;
 
 
-        public StockController(Context context, UserDataService userDataService, IHttpContextAccessor httpContextAccessor)
+        public StockController(Context context, UserDataService userDataService, IHttpContextAccessor httpContextAccessor, StockDataService stockDataService)
         {
             Context = context;
             UserDataService = userDataService;
+            _stockDataService = stockDataService;
             this.session = httpContextAccessor.HttpContext.Session;
 
         }
@@ -77,52 +79,35 @@ namespace AutomaticStockTrading.Controllers
                          }).ToList();
             return query as IList;
         }
-        
-        public IList<PortfolioModel> getPortfolio(int id)
+
+
+        [HttpPost("updateuser/{id}")]
+        public IActionResult Update(int id, UserModel userDto)
         {
-            
-            var query = Context.users.Join(
-                Context.portfolio,
-                users => users.id,
-                portfolio => portfolio.user.id,
-                (users, portfolio) => new PortfolioModel()
-                {
-                    userID = users.id,
-                    id = portfolio.id,
-                    stockID = portfolio.stockID,
-                    amount = portfolio.amount,
-                    dateTime = portfolio.dateTime,
-                    buy_price = portfolio.buy_price
-                }).Where(x => x.userID == id).ToList();
-            return query;
+            var user = UserDataService.UpdateUser(id, userDto.username, userDto.surname, userDto.last_name, userDto.age, userDto.email);
+
+            if (user)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok();
+            }
         }
-        
-        [HttpGet("portfolio/{id}")]
-        public IList getPortfolioWithDetails(int id)
+
+
+        [HttpGet("stockdata/{name}")]
+        public ActionResult GetStockData(string name)
         {
-            var query = (from s in Context.users
-                join cs in Context.portfolio on s.id equals cs.userID
-                join os in Context.stocktype on cs.stockID equals os.id
-                where s.id == id
-                select new
-                {
-                    userID = s.id,
-                    id = cs.id,
-                    stockID = cs.stockID,
-                    amount = cs.amount,
-                    dateTime = cs.dateTime,
-                    price = cs.buy_price,
-                    name = os.name,
-                    stock_name = os.stock_name
-                }).ToList();
-            return query;
+            var myList = _stockDataService.GetSpecificTypeData(name);
+            return Json(myList);
         }
 
 
 
 
-        
-        
+
     }
 
 }

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,7 +31,6 @@ namespace AutomaticStockTrading.DataContext
         public DbSet<OrderModel> orders { get; set; }
         public DbSet<StockDataModel> stockdata { get; set; }
         public DbSet<StockTypeModel> stocktype { get; set; }
-        public DbSet<PortfolioModel> portfolio { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -51,6 +51,7 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.close).HasColumnName("close");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
+            modelBuilder.Entity<ForecastDataModel>().HasOne(x => x.stockType).WithMany(x => x.forecast).HasForeignKey(x => x.stock_type_id);
 
             modelBuilder.Entity<OrderModel>().ToTable("orders");
             modelBuilder.Entity<OrderModel>().Property(x => x.id).HasColumnName("id");
@@ -70,6 +71,9 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockDataModel>().Property(x => x.close).HasColumnName("close");
             modelBuilder.Entity<StockDataModel>().Property(x => x.volume).HasColumnName("volume");
             modelBuilder.Entity<StockDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
+            modelBuilder.Entity<StockDataModel>().HasOne(x => x.stockType).WithMany(x => x.stockData)
+                .HasForeignKey(x => x.stock_type_id);
+
 
 
             modelBuilder.Entity<StockTypeModel>().ToTable("stock_type");
@@ -77,14 +81,6 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockTypeModel>().Property(x => x.name).HasColumnName("name");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("stock_name");
 
-            
-            modelBuilder.Entity<PortfolioModel>().ToTable("portfolio");
-            modelBuilder.Entity<PortfolioModel>().Property(x => x.id).HasColumnName("id");
-            modelBuilder.Entity<PortfolioModel>().Property(x => x.userID).HasColumnName("userID");
-            modelBuilder.Entity<PortfolioModel>().Property(x => x.stockID).HasColumnName("stockID");
-            modelBuilder.Entity<PortfolioModel>().Property(x => x.amount).HasColumnName("amount");
-            modelBuilder.Entity<PortfolioModel>().Property(x => x.dateTime).HasColumnName("date");
-            modelBuilder.Entity<PortfolioModel>().Property(x => x.buy_price).HasColumnName("buy_price");
 
 
                

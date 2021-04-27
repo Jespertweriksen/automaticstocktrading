@@ -70,7 +70,9 @@ namespace AutomaticStockTrading.Controllers
             return Ok(user);
         }
 
-        
+    
+
+
         //CREATE NEW USER
         [HttpPost]
         [ActionName("Create")]
@@ -86,6 +88,49 @@ namespace AutomaticStockTrading.Controllers
             else
             {
                 return BadRequest("User creation failed");
+            }
+        }
+
+
+        [HttpPost]
+        [ActionName("Update")]
+        public IActionResult Update([FromForm] UserModel userDto)
+        {
+
+            var user = UserDataService.UpdateUser(session.GetInt32("userID"), userDto.username, userDto.surname, userDto.last_name, userDto.age, userDto.email);
+          
+            if (user)
+            {
+                if (!string.IsNullOrEmpty(userDto.username))
+                {
+                    session.SetString("username", Context.users.Find(session.GetInt32("userID")).username);
+
+                }
+                if (!string.IsNullOrEmpty(userDto.age.ToString()))
+                {
+                    session.SetString("age", Context.users.Find(session.GetInt32("userID")).age.ToString(("dd/MM/yyyy")));
+
+                }
+                if (!string.IsNullOrEmpty(userDto.surname))
+                {
+                    session.SetString("surname", Context.users.Find(session.GetInt32("userID")).surname);
+
+                }
+                if (!string.IsNullOrEmpty(userDto.last_name))
+                {
+                    session.SetString("lastname", Context.users.Find(session.GetInt32("userID")).last_name);
+
+                }
+                if (!string.IsNullOrEmpty(userDto.email))
+                {
+                    session.SetString("email", Context.users.Find(session.GetInt32("userID")).email);
+
+                }
+                return View("/Views/YourPages/Settings.cshtml");
+            }
+            else
+            {
+                return BadRequest("Profile update failed");
             }
         }
         
@@ -109,7 +154,7 @@ namespace AutomaticStockTrading.Controllers
                 var userModel = UserDataService.GetUserModelByEmail(userDto.email);
                 session.SetString("username", userModel.username);
                 session.SetInt32("userID", userModel.id);
-                session.SetInt32("age", userModel.age);
+                session.SetString("age", userModel.age.ToString(("dd/MM/yyyy")));
                 session.SetString("surname", userModel.surname);
                 session.SetString("lastname", userModel.last_name);
                 session.SetString("email", userModel.email);

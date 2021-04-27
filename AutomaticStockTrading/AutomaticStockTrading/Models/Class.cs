@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AutomaticStockTrading.Models
 {
-    public class PortfolioModel
+    public class StockPriceDto
     {
         public int id { get; set; }
         public int userID { get; set; }
