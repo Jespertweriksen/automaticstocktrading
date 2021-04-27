@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http;
-
+using System;
 
 namespace AutomaticStockTrading.Controllers
 {
@@ -168,6 +168,25 @@ namespace AutomaticStockTrading.Controllers
             return View("/Views/Home/Forside.cshtml");
         }
 
+
+        [HttpPost]
+        [ActionName("ResetPassword")]
+        public IActionResult ResetPassword([FromForm] UserModel userDto, string newPassword)
+        {
+            var user = UserDataService.ChangePassword(userDto.email, userDto.password, newPassword);
+
+            if (user)
+            {
+                return View("/Views/Yourpages/Settings.cshtml");
+            }
+            else
+            {
+                return BadRequest("Error updating password");
+            }
+            
+        }
+
+
         public IActionResult CreateUserPage()
         {
             return View("/Views/Login/CreateAccount.cshtml");
@@ -184,6 +203,11 @@ namespace AutomaticStockTrading.Controllers
             return View("/Views/Login/Login.cshtml");
         }
 
+        public IActionResult RecoverPage()
+        {
+            return View("/Views/Login/ResetPassword.cshtml");
+        }
+
         public IActionResult Logout()
         {
             var keylist = session.Keys;
@@ -195,7 +219,20 @@ namespace AutomaticStockTrading.Controllers
             return View("/Views/Login/Login.cshtml");
         }
 
+        [HttpPost]
+        [ActionName("PasswordRecovery")]
+        public IActionResult PasswordRecovery([FromForm] UserModel userDto)
+        {
+            //string host = HttpContext.Request.Host.Value;
 
+            var emailBody = "Oh you forgot your password? Too bad... On another note. Request password reset on: info.automaticstocktrading@gmail.com";
+            
+            var emailSubject = "Password recovery";
+
+                
+            UserDataService.SendEmail(emailBody, emailSubject, userDto.email);
+            return View("/Views/Login/Login.cshtml");
+        }
 
     }
 }
