@@ -1,4 +1,4 @@
-﻿import { GetForecastData } from "./store.js"
+﻿import { GetForecastData, GetLastDateOfLog } from "./store.js"
 
 
 var currentStockName = document.getElementById('currentStock')
@@ -6,31 +6,47 @@ var currentStockName = document.getElementById('currentStock')
 async function updateForecastChart() {
     var currentStock = currentStockName.innerHTML;
     const data = await GetForecastData(currentStock);
-    createFutureDates(1);
+    const lastDateLogging = await GetLastDateOfLog(currentStock);
+    var startDate = lastDateLogging;
+    var dateSeries = createFutureDates(startDate);
+
     renderForecastChart();
-    console.log(data);
+    
 }
 
 function createFutureDates(day) {
-    var today = new Date();
-    var dd = String(today.getDate() + day).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
+    var today = new Date(day);
+    var thirtyFromToday = new Date();
+    thirtyFromToday.setDate(thirtyFromToday.getDate() + 26);
 
-    today = yyyy + '-' + mm + '-' + dd;
-    return today
+   
+    var sequenceDate = getDateSequence(today, thirtyFromToday)
+    return sequenceDate;
 }
 
-function generateArray(inputData) {
-    dateList = [];
-    closeList = [];
+function getDateSequence(startDate, endDate) {
+    var dates = [],
+        currentDate = startDate,
+        addDays = function (days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        };
+    while (currentDate <= endDate) {
+        dates.push(dateFormat(currentDate));
+        currentDate = addDays.call(currentDate, 1);
+    }
+    dates.shift();
+    return dates;
+}
 
-
-
-    inputData.forEach(function (item){
-        closeList.Push(item.close);
-
-    })
+function dateFormat(dateObject) {
+    var containerDate = dateObject;
+    var dd = String(containerDate.getDate()).padStart(2, '0');
+    var mm = String(containerDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = containerDate.getFullYear();
+    var containerDate = yyyy + '-' + mm + '-' + dd;
+    return containerDate
 }
 
 const renderForecastChart = () => {

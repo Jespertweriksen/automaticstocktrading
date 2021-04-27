@@ -182,6 +182,16 @@ namespace AutomaticStockTrading.Services
 
             return lastYear.ToString();
         }
+
+        // Need to know the newest date af stock and its data has been logged
+        public string GetLastDateOfStockData(string stockName)
+        {
+            var query = (from data in context.stockdata
+                         join t in context.stocktype on data.stock_type_id equals t.id
+                         where t.name == stockName
+                         select data.datetime).First();
+            return query;
+        }
     }
     
 }

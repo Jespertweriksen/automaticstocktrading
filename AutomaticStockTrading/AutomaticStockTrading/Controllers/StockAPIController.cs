@@ -93,5 +93,12 @@ namespace AutomaticStockTrading.Controllers
             var myList = _stockDataService.GetForeCastByStockName(name);
             return Json(myList);
         }
+
+        [HttpGet("stockdata/date/{name}")]
+        public ActionResult GetLastDateOfLogging(string name)
+        {
+            var lastDate = _stockDataService.GetLastDateOfStockData(name);
+            return Json(lastDate);
+        }
     }
 }
