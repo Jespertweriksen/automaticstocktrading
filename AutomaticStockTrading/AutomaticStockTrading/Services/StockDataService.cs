@@ -39,9 +39,13 @@ namespace AutomaticStockTrading.Services
             {
                 var currentPrice = GetCurrentPrice(element.name);
                 var newestClose = GetAllClosePriceYesterday(element.name);
+                var oneMonthClose = GetAllClosePriceOneMonth(element.name);
+                var oneYearClose = GetAllClosePriceOneYear(element.name);
                 // UDKOMMENTER NEDENSTÅENDE VED TEST
                 element.price = (currentPrice.price).ToString();
                 element.closeYesterday = (newestClose).ToString();
+                element.closeOneMonth = oneMonthClose.ToString();
+                element.closeOneYear = oneYearClose.ToString();
             }
             return query;
         }
@@ -53,6 +57,28 @@ namespace AutomaticStockTrading.Services
                          select data.close).ToList();
 
             var yesterDayClose = query[0];
+            return yesterDayClose;
+        }
+        
+        public string GetAllClosePriceOneMonth(string stockName)
+        {
+            var query = (from data in context.stockdata
+                join stock in context.stocktype on data.stock_type_id equals stock.id
+                where stock.name == stockName
+                select data.close).ToList();
+
+            var yesterDayClose = query[30];
+            return yesterDayClose;
+        }
+        
+        public string GetAllClosePriceOneYear(string stockName)
+        {
+            var query = (from data in context.stockdata
+                join stock in context.stocktype on data.stock_type_id equals stock.id
+                where stock.name == stockName
+                select data.close).ToList();
+
+            var yesterDayClose = query[364];
             return yesterDayClose;
         }
 

@@ -29,80 +29,24 @@
         <div>
             <br>
         </div>
-
+        @inject StockDataService _stockDataService;
         @{
             string[] stockList = {"GME", "AAPL", "AMZN", "MSFT"};
-            var bigBoxStock = Tools.GetStocks(stockList[0]);
-            var bigBoxCurr = bigBoxStock.First().close;
-            var bigOneD = bigBoxStock[1].close;
-            var bigAfkastOneD = Math.Round(bigBoxCurr / bigOneD * 100 - 100, 2);
-
+            var stockTypesList = _stockDataService.GetAllTypes();
+            var selectedStock = stockTypesList[0].name;
+            //var bigBoxStock = _stockDataService.GetCurrentPrice(selectedStock);
+            var bigBoxCurr = _stockDataService.GetCurrentPrice(selectedStock);
+            var bigBoxCloseYesterday = _stockDataService.GetAllClosePriceYesterday(selectedStock);
+            var bigAfkastOneD = Math.Round(double.Parse(bigBoxCurr.price) / double.Parse(bigBoxCloseYesterday) * 100 - 100, 2);
         }
         <main class="content">
-        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
-
-        <script type="text/javascript">
-        window.onload = function () {
-          var dataPoints = [];
-          var stockChart = new CanvasJS.StockChart("stockChartContainer", {
-            exportEnabled: true,
-            title: {
-              text:"StockChart with Line using JSON Data"
-            },
-            subtitles: [{
-              text:"Total Retail Sales of ACME "
-            }],
-            charts: [{
-              axisX: {
-                crosshair: {
-                  enabled: true,
-                  snapToDataPoint: true,
-                  valueFormatString: "MMM YYYY"
-                }
-              },
-              axisY: {
-                title: "Million of Dollars",
-                prefix: "$",
-                suffix: "M",
-                crosshair: {
-                  enabled: true,
-                  snapToDataPoint: true,
-                  valueFormatString: "$#,###.00M",
-                }
-              },
-              data: [{
-                type: "line",
-                xValueFormatString: "MMM YYYY",
-                yValueFormatString: "$#,###.##M",
-                dataPoints : dataPoints
-              }]
-            }],
-            navigator: {
-              slider: {
-                minimum: new Date(2010, 0, 1),
-                maximum: new Date(2018, 0, 1)
-              }
-            }
-          });
-          //https://api.twelvedata.com/time_series?symbol=GME&interval=1day&apikey=de262e878821448eb6b85c4b45f53064
-          $.getJSON("https://api.twelvedata.com/time_series?symbol=GME&interval=1day&apikey=de262e878821448eb6b85c4b45f53064", function(data) {
-           console.log(data.values.length)
-            for(var i = 0; i < data.length; i++){
-            console.log(data.values[i].datetime)
-              dataPoints.push({x: new Date(data.values[i].datetime), y: Number(data.values[i].close)});
-            }
-            stockChart.render();
-          });
-        }
-        </script>
         <div class="row justify-content-md-center">
             <div class="col-12 mb-4">
                 <div class="card bg-secondary-alt shadow-sm">
                     <div class="card-header d-sm-flex flex-row align-items-center flex-0">
                         <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">@stockList[0]</div>
-                            <h2 class="h3">@bigBoxStock.First().close</h2>
+                            <a class="h5 fw-normal mb-2" asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stockTypesList[0].name">@stockTypesList[0].name</a>
+                            <h2 class="h3">@bigBoxCurr.price $</h2>
                             <div class="small mt-2">
                                 <span class="fw-bold me-2">Afkast siden i går: </span>
                                 @{
@@ -130,38 +74,45 @@
                     </div>
                     <div class="card-body p-2">
                         <div id="chart_div"></div>
-                        <div id="stockChartContainer" style="height: 400px"></div>
+                        <div id="stockChartContainer" style="height: 400px">My Graph</div>
                     </div>
                 </div>
             </div>
             @{
-                var thisStock = 1.0; //Tools.Stocks(stock);
-                var thisCurr = 1.0; //thisStock.First().close;
+                // var thisStock = 1.0; //Tools.Stocks(stock);
+                // var thisCurr = 1.0; //thisStock.First().close;
+                //
+                // var stockOneD = 1; //thisStock[1].close;
+                // var stockOneM = 2; //thisStock[30].close;
+                // var stockOneY = 3; //thisStock[364].close;
+                //
+                // var stockAfkastOneD = Math.Round(thisCurr / stockOneD * 100 - 100, 2);
+                // var stockAfkastOneM = Math.Round(thisCurr / stockOneM * 100 - 100, 2);
+                // var stockAfkastOneY = Math.Round(thisCurr / stockOneY * 100 - 100, 2);
 
-                var stockOneD = 1; //thisStock[1].close;
-                var stockOneM = 2; //thisStock[30].close;
-                var stockOneY = 3; //thisStock[364].close;
-
-                var stockAfkastOneD = Math.Round(thisCurr / stockOneD * 100 - 100, 2);
-                var stockAfkastOneM = Math.Round(thisCurr / stockOneM * 100 - 100, 2);
-                var stockAfkastOneY = Math.Round(thisCurr / stockOneY * 100 - 100, 2);
-
-                foreach (var stock in stockList.Skip(1))
+                foreach (var stock in _stockDataService.GetAllTypes().Skip(0))
                 {
+                    var thisCur = stock.price;
+                    var thisYesterday = stock.closeYesterday;
+                    var thisOneMonth = stock.closeOneMonth;
+                    var thisOneYear = stock.closeOneYear;
+
+                    var stockAfkastOneDay = Math.Round(double.Parse(thisCur) / double.Parse(thisYesterday) * 100 - 100, 2);
+
                     <div class="col-12 col-sm-6 col-xl-4 mb-4">
                         <div class="card bg-secondary-alt shadow-sm">
                             <div class="card-header d-sm-flex flex-row align-items-center flex-0">
                                 <div class="d-block mb-3 mb-sm-0">
-                                    <a href="@stock" class="h5 fw-normal mb-2">@stock</a>
-                                    <h2 class="h3">@thisCurr</h2>
+                                    <a class="h5 fw-normal mb-2" asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stock.name">@stock.name</a>
+                                    <h2 class="h3">@thisCur</h2>
                                     <div class="small mt-2">
                                         <span class="fw-bold me-2">Afkast siden i går: </span>
                                         @{
-                                            if (stockAfkastOneD > 0)
+                                            if (stockAfkastOneDay > 0)
                                             {
                                                 <span class="text-success">
                                                     <span class="fas fa-angle-up"></span>
-                                                    @stockAfkastOneD
+                                                    @stockAfkastOneDay
                                                     <span class="fw fa-bold">%</span>
                                                 </span>
                                             }
@@ -170,7 +121,7 @@
                                                 {
                                                     <span class="text-danger">
                                                         <span class="fas fa-angle-down"></span>
-                                                        @stockAfkastOneD
+                                                        @stockAfkastOneDay
                                                         <span class="fw-bold">%</span>
                                                     </span>
                                                 }
@@ -224,7 +175,7 @@
                                 </thead>
 
                                 @{
-                                    foreach (var stock in stockList)
+                                    foreach (var stock in _stockDataService.GetAllTypes())
                                     {
                                         //var thisStock = Tools.GetStocks(stock);
                                         // var thisStock = 1.0; //Tools.Stocks(stock);
@@ -239,24 +190,32 @@
                                         // var stockAfkastOneY = Math.Round(thisCurr / stockOneY * 100 - 100, 2);
 
                                         //Afkast: værdi-idag divideret værdi-1år ganget 100 minus 100
+                                        var thisCur = stock.price;
+                                        var thisYesterday = stock.closeYesterday;
+                                        var thisOneMonth = stock.closeOneMonth;
+                                        var thisOneYear = stock.closeOneYear;
+
+                                        var stockAfkastOneDay = Math.Round(double.Parse(thisCur) / double.Parse(thisYesterday) * 100 - 100, 2);
+                                        var stockAfkastOneMonth = Math.Round(double.Parse(thisCur) / double.Parse(thisOneMonth) * 100 - 100, 2);
+                                        var stockAfkastOneYear = Math.Round(double.Parse(thisCur) / double.Parse(thisOneYear) * 100 - 100, 2);
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <a href="#" class="text-primary fw-bold">@stock</a>
+                                                <a asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stock.name">@stock.name</a>
                                             </td>
                                             <td class="fw-bold">
-                                               1 <!--thisStock.First().close-->
+                                               @thisCur
                                             </td>
                                             <td>
                                                 USD
                                             </td>
                                             <td>
                                                 @{
-                                                    if (stockAfkastOneD > 0)
+                                                    if (stockAfkastOneDay > 0)
                                                     {
                                                         <span class="text-success">
                                                             <span class="fas fa-angle-up"></span>
-                                                            @stockAfkastOneD
+                                                            @stockAfkastOneDay
                                                             <span class="fw-bold">%</span>
                                                         </span>
                                                     }
@@ -264,7 +223,7 @@
                                                     {
                                                         <span class="text-danger">
                                                             <span class="fas fa-angle-down"></span>
-                                                            @stockAfkastOneD
+                                                            @stockAfkastOneDay
                                                             <span class="fw-bold">%</span>
                                                         </span>
                                                     }
@@ -272,11 +231,11 @@
                                             </td>
                                             <td>
                                                 @{
-                                                    if (stockAfkastOneM > 0)
+                                                    if (stockAfkastOneMonth > 0)
                                                     {
                                                         <span class="text-success">
                                                             <span class="fas fa-angle-up"></span>
-                                                            @stockAfkastOneM
+                                                            @stockAfkastOneMonth
                                                             <span class="fw-bold">%</span>
                                                         </span>
                                                     }
@@ -284,7 +243,7 @@
                                                     {
                                                         <span class="text-danger">
                                                             <span class="fas fa-angle-down"></span>
-                                                            @stockAfkastOneM
+                                                            @stockAfkastOneMonth
                                                             <span class="fw-bold">%</span>
                                                         </span>
                                                     }
@@ -292,11 +251,11 @@
                                             </td>
                                             <td>
                                                 @{
-                                                    if (stockAfkastOneY > 0)
+                                                    if (stockAfkastOneYear > 0)
                                                     {
                                                         <span class="text-success">
                                                             <span class="fas fa-angle-up"></span>
-                                                            @stockAfkastOneY
+                                                            @stockAfkastOneYear
                                                             <span class="fw-bold">%</span>
                                                         </span>
                                                     }
@@ -304,7 +263,7 @@
                                                     {
                                                         <span class="text-danger">
                                                             <span class="fas fa-angle-down"></span>
-                                                            @stockAfkastOneY
+                                                            @stockAfkastOneYear
                                                             <span class="fw-bold">%</span>
                                                         </span>
                                                     }

@@ -213,10 +213,11 @@
                         </div>
                         <div class="ms-auto">
                             @inject UserDataService userDataService;
+                            @inject StockDataService _stockDataService;
                             @{
                                 var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
-                                var portfolioList = userDataService.getPortfolioWithDetails(userID);
                                 var orderList = userDataService.getOrdersWithDetails(userID);
+                                
                             }
                             @{
                                 foreach (var stock in orderList)
