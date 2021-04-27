@@ -19,7 +19,7 @@ namespace AutomaticStockTrading.Services
     {
 
         private static readonly HttpClient client = new HttpClient();
-        
+
         private readonly Context context;
 
         public StockDataService(Context context)
@@ -63,11 +63,11 @@ namespace AutomaticStockTrading.Services
         // query twelvedata for current price of stock return stockDto object
         public StockTypePriceDto GetCurrentPrice(string stockName)
         {
-             var stockAlias = context.stocktype
-                .Where(x => x.name == stockName)
-                .Select(x => x.stock_name)
-                .FirstOrDefault()
-                .ToString();
+            var stockAlias = context.stocktype
+               .Where(x => x.name == stockName)
+               .Select(x => x.stock_name)
+               .FirstOrDefault()
+               .ToString();
 
             var cache = MemoryCache.Default;
             TimeZoneInfo cet = TZConvert.GetTimeZoneInfo("W. Europe Standard Time");
@@ -84,7 +84,7 @@ namespace AutomaticStockTrading.Services
             return cache.Get(stockName, null) as StockTypePriceDto;
         }
 
-        
+
         // Diverse function for fetching data
         public string Get(string uri)
         {
@@ -104,13 +104,13 @@ namespace AutomaticStockTrading.Services
         public IEnumerable<StockDataModel> GetSpecificTypeData(string stockName)
         {
 
-            
+
             var query = (from data in context.stockdata
                          join t in context.stocktype on data.stock_type_id equals t.id
                          where t.name == stockName
                          select data).ToList().Where((data, i) => i % 100 == 0);
 
-            
+
             return query;
 
         }
@@ -191,6 +191,23 @@ namespace AutomaticStockTrading.Services
                          where t.name == stockName
                          select data.datetime).First();
             return query;
+        }
+
+        public struct dataHolder
+        {
+            string date { get; set; }
+            string close { get; set; }
+        }
+
+        public Array GetCloseAndDate(string stockName)
+        {
+            var query = (from data in context.stockdata
+                         join t in context.stocktype on data.stock_type_id equals t.id
+                         where t.name == stockName
+                         select new { data.datetime, data.close }).ToArray();
+
+            return query;
+
         }
     }
     

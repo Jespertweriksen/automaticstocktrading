@@ -100,5 +100,15 @@ namespace AutomaticStockTrading.Controllers
             var lastDate = _stockDataService.GetLastDateOfStockData(name);
             return Json(lastDate);
         }
+
+
+        // brug nedenstående til at få alle close og date op for en bestem stock
+
+        [HttpGet("stockData/close/{name}")]
+        public ActionResult GetCloseAndDate(string name)
+        {
+            var closeAndDate = _stockDataService.GetCloseAndDate(name);
+            return Json(closeAndDate);
+        }
     }
 }
