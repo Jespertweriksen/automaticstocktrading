@@ -1,5 +1,6 @@
 ﻿@using AutomaticStockTrading.Services;
 @using AutomaticStockTrading.DataContext;
+@using System.Globalization
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Din Side";
@@ -47,124 +48,6 @@
                             </div>
                         </form>
                     </div>
-                    <ul class="navbar-nav align-items-center">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-dark me-lg-3 icon-notifications dropdown-toggle" data-unread-notifications="true" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="icon icon-sm">
-                                    <span class="fas fa-bell bell-shake"></span> <span class="icon-badge rounded-circle unread-notifications" style="display: block;"></span>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu dashboard-dropdown dropdown-menu-lg dropdown-menu-center mt-2 py-0">
-                                <div class="list-group list-group-flush">
-                                    <a href="#" class="text-center text-primary fw-bold border-bottom border-light py-3">Notifications</a>
-                                    <a href="../../pages/calendar.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <img alt="Image placeholder" src="../../assets/img/team/profile-picture-1.jpg" class="user-avatar lg-avatar rounded-circle">
-                                            </div>
-                                            <div class="col ps-0 ms-2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="h6 mb-0 text-small">Jose Leos</h4>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <small class="text-danger">a few moments ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="font-small mt-1 mb-0">Added you to an event "Project stand-up" tomorrow at 12:30 AM.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../../pages/tasks.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <img alt="Image placeholder" src="../../assets/img/team/profile-picture-2.jpg" class="user-avatar lg-avatar rounded-circle">
-                                            </div>
-                                            <div class="col ps-0 ms-2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="h6 mb-0 text-small">Neil Sims</h4>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <small class="text-danger">2 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="font-small mt-1 mb-0">You've been assigned a task for "Awesome new project".</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../../pages/tasks.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <img alt="Image placeholder" src="../../assets/img/team/profile-picture-3.jpg" class="user-avatar lg-avatar rounded-circle">
-                                            </div>
-                                            <div class="col ps-0 m-2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="h6 mb-0 text-small">Roberta Casas</h4>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <small>5 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="font-small mt-1 mb-0">Tagged you in a document called "First quarter financial plans",</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../../pages/single-message.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <img alt="Image placeholder" src="../../assets/img/team/profile-picture-4.jpg" class="user-avatar lg-avatar rounded-circle">
-                                            </div>
-                                            <div class="col ps-0 ms-2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="h6 mb-0 text-small">Joseph Garth</h4>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <small>1 d ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="font-small mt-1 mb-0">New message: "Hey, what's up? All set for the presentation?"</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../../pages/single-message.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <img alt="Image placeholder" src="../../assets/img/team/profile-picture-5.jpg" class="user-avatar lg-avatar rounded-circle">
-                                            </div>
-                                            <div class="col ps-0 ms-2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="h6 mb-0 text-small">Bonnie Green</h4>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <small>2 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="font-small mt-1 mb-0">New message: "We need to improve the UI/UX for the landing page."</p>
-                                            </div>
-                                        </div>
-                                    </a><a href="#" class="dropdown-item text-center text-primary fw-bold rounded-bottom py-3">View all</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="media d-flex align-items-center">
-                                    <img class="user-avatar md-avatar rounded-circle" alt="Image placeholder" src="../../assets/img/team/profile-picture-3.jpg">
-                                    <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                        <span class="mb-0 font-small fw-bold">You Shall not Pass!</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-0">
-                                <a class="dropdown-item rounded-top fw-bold" href="#"><span class="far fa-user-circle"></span>My Profile</a> <a class="dropdown-item fw-bold" href="#"><span class="fas fa-cog"></span>Settings</a> <a class="dropdown-item fw-bold" href="#"><span class="fas fa-envelope-open-text"></span>Messages</a> <a class="dropdown-item fw-bold" href="#"><span class="fas fa-user-shield"></span>Support</a>
-                                <div role="separator" class="dropdown-divider my-0"></div><a class="dropdown-item rounded-bottom fw-bold" href="#"><span class="fas fa-sign-out-alt text-danger"></span>Logout</a>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -220,47 +103,31 @@
                                 
                             }
                             @{
-                                foreach (var stock in orderList)
+                                var distinctStocks = orderList.GroupBy(s => s.name).Select(grp => grp.First()).ToList();
+                                foreach (var stock in distinctStocks)
                                 {
                                     <div class="d-flex align-items-center mb-2">
                                         <span class="shape-xs rounded-circle bg-secondary me-2"></span>
-                                        <span class="fw-normal small me-3">@stock.stock_name</span>
+                                        <span class="fw-normal small me-3">@stock.name</span>
                                         <span class="small fw-bold text-dark ms-auto">
                                             @{
-                                                var todayClose = Tools.GetStocks(stock.stock_name).First().close;
-                                                var diff = Math.Round(todayClose / stock.price * 100 - 100, 2);
+                                                var totalStocks = orderList.Where(item => item.name == stock.name)
+                                                                              .Sum(item => item.amount);
                                             }
-                                            @{
-                                                if (diff > 0)
-                                                {
-                                                    <span class="text-success">
-                                                        @diff
-                                                        <span class="fw-bold">%</span>
-                                                    </span>
-                                                }
-                                                else
-                                                {
-                                                    <span class="text-danger">
-                                                        @diff
-                                                        <span class="fw-bold">%</span>
-                                                    </span>
-                                                }
-                                            }
+                                            <span class="text-success">
+                                                @totalStocks
+                                                <span class="fw-bold">stk</span>
+                                            </span>
                                         </span>
                                     </div>
                                 }
                             }
-
                         </div>
                     </div>
                     <div class="card-body p-2 py-5">
                         <div class="ct-chart-traffic-share-2 ct-golden-section ct-series-a">
-                            <div class="chartist-tooltip"></div>
-                            <svg>
-                                <span>
-                                    PIE CHART GOES HERE
-                                </span>
-                            </svg>
+                            PIECHART
+                            <canvas id="myChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -281,17 +148,20 @@
                                         <th class="border-0">Nuværende pris</th>
                                         <th class="border-0">Forandring</th>
                                         <th class="border-0">Gevinst</th>
+                                        <th class="border-0">Købsdato</th>
                                         <th class="border-0">Sælg</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-
-                                    @foreach (var stock in orderList)
+                                    @{
+                                        var orderListByName = orderList.OrderBy(x => x.name).ThenBy(y => y.dateTime).ToList();
+                                    }
+                                    @foreach (var stock in orderListByName)
                                     {
                                         <tr>
                                             <!-- Navn af aktie -->
-                                            <td>@stock.stock_name</td>
+                                            <td>@stock.name</td>
                                             
                                             <!-- Antal aktier: skal beregnes -->
                                             <td>@stock.amount</td>
@@ -301,7 +171,10 @@
                                             
                                             <!-- Nuværende pris på aktie -->
                                             <td>
-                                                @{ var todayClose = Tools.GetStocks(stock.stock_name).First().close; }
+                                                @{
+                                                    var todayCloseP = _stockDataService.GetCurrentPrice(stock.name).price;
+                                                    var todayClose = double.Parse(todayCloseP, CultureInfo.InvariantCulture);
+                                                }
                                                 @todayClose
                                             </td>
                                             
@@ -333,7 +206,7 @@
                                             <!-- Gevinst af aktie -->
                                             <td>
                                                 @{
-                                                    var revenue = Math.Round(stock.amount * todayClose - stock.amount * stock.price, 2);
+                                                    var revenue = Math.Round(stock.amount * todayClose - (stock.amount * stock.price), 2);
                                                 }
                                                 @{
                                                     if (revenue > 0)
@@ -350,10 +223,13 @@
                                                     }
                                                 }
                                             </td>
-                                            
                                             <!-- Sælg aktie -->
                                             <td>
-                                                <input id="sellStock" type="button" value="Sælg">
+                                                <span>@stock.dateTime.ToString("dd-MM-yyyy")</span>
+                                            </td>
+                                            <!-- Sælg aktie -->
+                                            <td>
+                                                <input class="btn btn-sm btn-dark" id="sellStock" type="button" value="Sælg">
                                             </td>
 
                                         </tr>
