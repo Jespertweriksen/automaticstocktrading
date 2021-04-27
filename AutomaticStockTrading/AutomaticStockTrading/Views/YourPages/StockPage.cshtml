@@ -50,7 +50,8 @@
                         </ol>
                     </nav>
                     <h1 id="currentStock">@selectedStock</h1>
-                    <p class="mb-0">Her ser du alle dine ordre.</p>
+                    <p class="mb-0">Her kan du se forskellige informationer vedr. aktien</p>
+                   <button class="btn btn-secondary">Køb Denne Aktie</button>
                 </div>
             </div>
             <div class="row align-items-center justify-content-between">
@@ -135,6 +136,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-6 mb-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body pb-0">
+                            <canvas id="percentage_Chart"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
@@ -146,4 +154,5 @@
     </body>
     <script src="~/js/stockpage/stockPageChart.js" type="module"></script>
     <script src="~/js/stockpage/forecastChart.js" type="module"></script>
+    <script src="~/js/stockpage/percentageChangeChart.js" type="module"></script>
 }

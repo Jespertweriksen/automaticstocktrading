@@ -15,8 +15,7 @@ async function updateForecastChart() {
     data.forEach(function (item) {
         closeSeries.push(item.close)
     })
-    console.log(closeSeries)
-    console.log(dateSeries)
+    
 
     renderForecastChart(dateSeries, closeSeries);
     
