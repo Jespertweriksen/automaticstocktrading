@@ -21,6 +21,14 @@
 
     var foreCastTommorow = forecastListObject[0];
 
+    var close_today = stock.GetCloseByStockName(selectedStock);
+
+    var percentagechangeForcastFromToday = Math.Round(foreCastTommorow.close / float.Parse(close_today.close));
+
+    var averageLastYear = Math.Round(stock.GetAvarageStockDataLastYear(selectedStock, 1));
+
+    var averageThisYear = Math.Round(stock.GetAvarageStockDataLastYear(selectedStock, 0));
+
 }
 
 @{
@@ -42,14 +50,15 @@
                         </ol>
                     </nav>
                     <h1 id="currentStock">@selectedStock</h1>
-                    <p class="mb-0">Her ser du alle dine ordre.</p>
+                    <p class="mb-0">Her kan du se forskellige informationer vedr. aktien</p>
+                   <button class="btn btn-secondary">Køb Denne Aktie</button>
                 </div>
             </div>
             <div class="row align-items-center justify-content-between">
-                <div class="col-10 mb-4">
+                <div class="col-12 mb-4">
                     <div class="card border-light shadow-sm">
                         <div class="card-body pb-0">
-                            <canvas id="myChart"></canvas>
+                            <canvas id="historic_Chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -82,7 +91,7 @@
                                 <div class="small mt-2">
                                     <span class="fw-bold me-2">Procent forandring fra idag</span>
                                     <span class="fas fa-angle-up text-success"></span>
-                                    <span class="text-success fw-bold">10.57%</span>
+                                    <span class="text-success fw-bold">@percentagechangeForcastFromToday%</span>
                                 </div>
                             </div>
                         </div>
@@ -92,12 +101,12 @@
                     <div class="card bg-secondary-alt shadow-sm">
                         <div class="card-header d-sm-flex flex-row align-items-center flex-0">
                             <div class="d-block mb-3 mb-sm-0">
-                                <div class="h5 fw-normal mb-2">Median i år</div>
-                                <h2 class="h3">$10,567</h2>
+                                <div class="h5 fw-normal mb-2">Average close sidste år</div>
+                                <h2 class="h3">$@averageLastYear</h2>
                                 <div class="small mt-2">
-                                    <span class="fw-bold me-2">Median sidste år</span>
+                                    <span class="fw-bold me-2">Average værdi i år</span>
                                     <span class="fas fa-angle-up text-success"></span>
-                                    <span class="text-success fw-bold">10.57%</span>
+                                    <span class="text-success fw-bold">@averageThisYear</span>
                                 </div>
                             </div>
                         </div>
@@ -119,6 +128,22 @@
                     </div>
                 </div>
             </div>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-6 mb-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body pb-0">
+                            <canvas id="forecast_Chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body pb-0">
+                            <canvas id="percentage_Chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -127,5 +152,7 @@
 
         </main>
     </body>
-    <script src="~/js/stockPageChart.js" type="module"></script>
+    <script src="~/js/stockpage/stockPageChart.js" type="module"></script>
+    <script src="~/js/stockpage/forecastChart.js" type="module"></script>
+    <script src="~/js/stockpage/percentageChangeChart.js" type="module"></script>
 }

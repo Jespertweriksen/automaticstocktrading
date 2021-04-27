@@ -55,7 +55,6 @@ namespace AutomaticStockTrading.Controllers
                     price = orders.price
                 }).Where(x => x.userID == id).ToList();
 
-
             return query;
         }
 
@@ -104,10 +103,28 @@ namespace AutomaticStockTrading.Controllers
             return Json(myList);
         }
 
+        [HttpGet("forecastdata/{name}")]
+        public ActionResult GetForecastData(string name)
+        {
+            var myList = _stockDataService.GetForeCastByStockName(name);
+            return Json(myList);
+        }
+
+        [HttpGet("stockdata/date/{name}")]
+        public ActionResult GetLastDateOfLogging(string name)
+        {
+            var lastDate = _stockDataService.GetLastDateOfStockData(name);
+            return Json(lastDate);
+        }
 
 
+        // brug nedenstående til at få alle close og date op for en bestem stock
 
-
+        [HttpGet("stockData/close/{name}")]
+        public ActionResult GetCloseAndDate(string name)
+        {
+            var closeAndDate = _stockDataService.GetCloseAndDate(name);
+            return Json(closeAndDate);
+        }
     }
-
 }
