@@ -23,14 +23,16 @@ namespace AutomaticStockTrading.Controllers
         private static readonly HttpClient client = new HttpClient();
         readonly Context Context;
         readonly UserDataService UserDataService;
+        readonly StockDataService _stockDataService;
         private IConfiguration _config;
         private readonly ISession session;
 
 
-        public StockController(Context context, UserDataService userDataService, IHttpContextAccessor httpContextAccessor)
+        public StockController(Context context, UserDataService userDataService, IHttpContextAccessor httpContextAccessor, StockDataService stockDataService)
         {
             Context = context;
             UserDataService = userDataService;
+            _stockDataService = stockDataService;
             this.session = httpContextAccessor.HttpContext.Session;
 
         }
@@ -93,6 +95,16 @@ namespace AutomaticStockTrading.Controllers
                 return Ok();
             }
         }
+
+
+        [HttpGet("stockdata/{name}")]
+        public ActionResult GetStockData(string name)
+        {
+            var myList = _stockDataService.GetSpecificTypeData(name);
+            return Json(myList);
+        }
+
+
 
 
 

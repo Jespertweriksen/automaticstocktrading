@@ -4,28 +4,128 @@
 @{
     ViewData["Title"] = "Forside";
 }
-@using AutomaticStockTrading.Controllers; 
+@using AutomaticStockTrading.Controllers;
 
-@{ 
+@{
     var nameOfStock = ViewBag.CaseId;
     var selectedStock = YourPagesController.userSelection;
+
+
+    var current_price = stock.GetCurrentPrice(selectedStock);
+
+    var close_yesterday = stock.GetAllClosePriceYesterday(selectedStock);
+
+    var percentageChange = Math.Round( double.Parse(close_yesterday) / double.Parse(current_price.price)) ;
+
+    var forecastListObject = stock.GetForeCastByStockName(selectedStock);
+
+    var foreCastTommorow = forecastListObject[0];
+
 }
 
-@{ 
+@{
 
     <body>
+
         <main class="content">
-            <div class="container" style="width: 100%;">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col col-md-6 col-lg-3 col-xl-4 mt-4 ml-4">
-                        <h1>@selectedStock</h1>
-                        <canvas id="myChart" width="400" height="400"></canvas>
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-between">
-                 
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+                <div class="d-block mb-4 mb-md-0">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                            <li class="breadcrumb-item">
+                                <a href="#">
+                                    <span class="fas fa-home"></span>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#">Aktiedata</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">@selectedStock</li>
+                        </ol>
+                    </nav>
+                    <h1 id="currentStock">@selectedStock</h1>
+                    <p class="mb-0">Her ser du alle dine ordre.</p>
                 </div>
             </div>
-         </main>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-10 mb-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body pb-0">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-6 col-xl-3 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Nuværende Pris</div>
+                                <h2 class="h3">
+                                    $@current_price.price
+                                </h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Procent forandring fra igår</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">@percentageChange.ToString()%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Lukkeværdi imorgen</div>
+                                <h2 class="h3">$@foreCastTommorow.close</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Procent forandring fra idag</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">10.57%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Median i år</div>
+                                <h2 class="h3">$10,567</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Median sidste år</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">10.57%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Tilgængelig for køb</div>
+                                <h2 class="h3">Ja</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Igår</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">Ja</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </main>
     </body>
+    <script src="~/js/stockPageChart.js" type="module"></script>
 }
