@@ -9,7 +9,7 @@ namespace AutomaticStockTrading.Models
     {
         public int id { get; set; }
         public int userid { get; set; }
-        public int amount { get; set; }
+        public float amount { get; set; }
         public DateTime paymentDate { get; set; }
 
         public UserModel user { get; set; }

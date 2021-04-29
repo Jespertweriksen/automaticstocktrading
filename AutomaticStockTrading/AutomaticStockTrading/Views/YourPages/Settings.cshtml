@@ -121,9 +121,9 @@
                                         <div class="col-12 col-xl-7 px-xl-0">
                                             <div class="d-none d-sm-block">
                                                 <h2 class="h5">Account balance</h2>
-                                                <h3 class="mb-1">@userDataService.GetWallets(HttpContextAccessor.HttpContext.Session.GetInt32("userID")).Where(x => x.userid == HttpContextAccessor.HttpContext.Session.GetInt32("userID"))</h3>
+                                                <h3 class="mb-1">@userDataService.GetWallets(HttpContextAccessor.HttpContext.Session.GetInt32("userID")).amount.-</h3>
                                             </div>
-                                            <small>Feb 1 - Apr 1,  <span class="icon icon-small"><span class="fas fa-globe-europe"></span></span> WorldWide</small>
+                                            <small>Transactions: <span class="icon icon-small"></span>X</small>
                                             <div class="small mt-2">
                                                 <span class="fas fa-angle-up text-success"></span>
                                                 <span class="text-success fw-bold">18.2%</span> Since last month
@@ -134,27 +134,27 @@
                             </div>
                             <div class="col-6">
                                 <div class="card card-body shadow-sm mb-4">
-                                    <div class="row d-block d-xl-flex align-items-center">
-                                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
-                                            <div class="icon icon-shape icon-md icon-shape-secondary rounded me-4"><span class="fas fa-cash-register"></span></div>
-                                            <div class="d-sm-none">
-                                                <h2 class="h5">Revenue</h2>
-                                                <h3 class="mb-1">$43,594</h3>
+                                   
+                                        <div class="col-6 mb-2">
+                                            <form method="post" asp-action="AddToBalance" asp-controller="User">
+
+                                                <div class="col-12 mb-2">
+                                                    <input name="amount" id="addamount" class="form-control" required>
+                                                </div>
+                                                <div class="col-12 mb-2">
+                                                    <button class="btn btn-success mr-3" type="submit">Add to balance</button>
+                                                </div>
+                                                </form>
+                                            <form method="post" asp-action="SubtractBalance" asp-controller="User">
+                                                <div class="col-12 mb-2">
+                                                    <input name="amount"id="removeamount" class="form-control" required>
+                                                </div>
+                                                    <div class="col-12 mb-2">
+                                                        <button class="btn btn-warning ml-3" type="submit">Withdraw</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-xl-7 px-xl-0">
-                                            <div class="d-none d-sm-block">
-                                                <h2 class="h5">Revenue</h2>
-                                                <h3 class="mb-1">$43,594</h3>
-                                            </div>
-                                            <small>Feb 1 - Apr 1,  <span class="icon icon-small"><span class="fas fa-globe-europe"></span></span> Worldwide</small>
-                                            <div class="small mt-2">
-                                                <span class="fas fa-angle-up text-success"></span>
-                                                <span class="text-success fw-bold">28.2%</span> Since last month
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
 

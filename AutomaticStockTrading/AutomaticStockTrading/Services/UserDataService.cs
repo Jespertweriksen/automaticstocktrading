@@ -276,12 +276,43 @@ namespace AutomaticStockTrading.Services
             
         }
 
-        public IList<WalletModel> GetWallets(int? userID)
+        public WalletModel GetWallets(int? userID)
         {
 
-            var query = context.users.Find(userID).wallet.ToList();
+            var walletBalance = context.wallet.Where(item => item.userid == userID)
+                                                                              .Sum(item => item.amount);
 
-            return query;
+            WalletModel WalletModel = new WalletModel()
+            {
+                amount = walletBalance
+            };
+            return WalletModel;
+        }
+
+        public bool UpdateBalance(int? userID, float amount)
+        {
+            var getUser = context.users.FirstOrDefault(x => x.id == userID);
+            var getWallet = context.wallet.Where(item => item.userid == userID);
+            if (!amount.Equals(null))
+            {
+                context.wallet.Update(getWallet.FirstOrDefault()).Entity.amount += amount;
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public bool SubtractBalance(int? userID, float amount)
+        {
+            var getUser = context.users.FirstOrDefault(x => x.id == userID);
+            var getWallet = context.wallet.Where(item => item.userid == userID);
+            if (!amount.Equals(null))
+            {
+                context.wallet.Update(getWallet.FirstOrDefault()).Entity.amount -= amount;
+                context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public bool DeleteUser(int id)

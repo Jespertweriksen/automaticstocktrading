@@ -187,6 +187,43 @@ namespace AutomaticStockTrading.Controllers
         }
 
 
+
+
+        [HttpPost]
+        [ActionName("AddToBalance")]
+        public IActionResult AddToBalance([FromForm] float amount)
+        {
+            var balanceStatus = UserDataService.UpdateBalance(session.GetInt32("userID"), amount);
+
+            if (balanceStatus)
+            {
+                return View("/Views/Yourpages/Settings.cshtml");
+            }
+            else
+            {
+                return BadRequest("Error updating balance");
+            }
+        }
+
+        [HttpPost]
+        [ActionName("SubtractBalance")]
+        public IActionResult SubtractBalance([FromForm] float amount)
+        {
+            var balanceStatus = UserDataService.SubtractBalance(session.GetInt32("userID"), amount);
+
+            if (balanceStatus)
+            {
+                return View("/Views/Yourpages/Settings.cshtml");
+            }
+            else
+            {
+                return BadRequest("Error updating balance");
+            }
+        }
+
+
+
+
         public IActionResult CreateUserPage()
         {
             return View("/Views/Login/CreateAccount.cshtml");
