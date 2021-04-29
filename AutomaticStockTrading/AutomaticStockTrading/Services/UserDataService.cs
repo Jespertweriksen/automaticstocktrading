@@ -297,6 +297,7 @@ namespace AutomaticStockTrading.Services
             {
                 context.wallet.Update(getWallet.FirstOrDefault()).Entity.amount += amount;
                 context.SaveChanges();
+                
                 return true;
             }
             return false;

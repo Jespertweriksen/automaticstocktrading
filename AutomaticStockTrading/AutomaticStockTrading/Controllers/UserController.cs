@@ -191,9 +191,9 @@ namespace AutomaticStockTrading.Controllers
 
         [HttpPost]
         [ActionName("AddToBalance")]
-        public IActionResult AddToBalance([FromForm] float amount)
+        public IActionResult AddToBalance([FromForm] WalletModel wallet)
         {
-            var balanceStatus = UserDataService.UpdateBalance(session.GetInt32("userID"), amount);
+            var balanceStatus = UserDataService.UpdateBalance(session.GetInt32("userID"), wallet.amount);
 
             if (balanceStatus)
             {
@@ -207,9 +207,9 @@ namespace AutomaticStockTrading.Controllers
 
         [HttpPost]
         [ActionName("SubtractBalance")]
-        public IActionResult SubtractBalance([FromForm] float amount)
+        public IActionResult SubtractBalance([FromForm] WalletModel wallet)
         {
-            var balanceStatus = UserDataService.SubtractBalance(session.GetInt32("userID"), amount);
+            var balanceStatus = UserDataService.SubtractBalance(session.GetInt32("userID"), wallet.amount);
 
             if (balanceStatus)
             {
