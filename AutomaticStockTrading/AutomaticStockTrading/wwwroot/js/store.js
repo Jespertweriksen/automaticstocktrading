@@ -28,9 +28,17 @@ async function getPortfolioStocks(id){
     return data;
 }
 
+async function getFrontpageStocks(stockName) {
+    let response = await fetch(`/api/stockdata/${stockName}`);
+    let data = await response.json();
+    console.log("SUCCES: WE GOT IT");
+    return data;
+}
+
 export {
     getStockData as GetStockData,
     getForecastData as GetForecastData,
     getLastDateOfLog as GetLastDateOfLog,
     getPortfolioStocks as GetPortfolioStocks,
+    getFrontpageStocks as GetFrontpageStocks,
 }

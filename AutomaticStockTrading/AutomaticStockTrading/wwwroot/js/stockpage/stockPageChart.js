@@ -3,7 +3,6 @@ var currentStockName = document.getElementById('currentStock')
 var ctx = document.getElementById('historic_Chart');
 
 
-
 const myIterator = (alist) => {
     let datetime = []
     let open = []

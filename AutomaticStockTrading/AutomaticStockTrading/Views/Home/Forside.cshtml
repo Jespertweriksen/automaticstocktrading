@@ -45,7 +45,7 @@
                 <div class="card bg-secondary-alt shadow-sm">
                     <div class="card-header d-sm-flex flex-row align-items-center flex-0">
                         <div class="d-block mb-3 mb-sm-0">
-                            <a class="h5 fw-normal mb-2" asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stockTypesList[0].name">@stockTypesList[0].name</a>
+                            <a id="frontpageStock" class="h5 fw-normal mb-2" asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stockTypesList[0].name">@stockTypesList[0].name</a>
                             <h2 class="h3">@bigBoxCurr.price $</h2>
                             <div class="small mt-2">
                                 <span class="fw-bold me-2">Afkast siden i går: </span>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="card-body p-2">
                         <div id="chart_div"></div>
-                        <div id="stockChartContainer" style="height: 400px">My Graph</div>
+                        <canvas id="frontpageChart" style="height: 400px"></canvas>
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                                                 <a asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stock.name">@stock.name</a>
                                             </td>
                                             <td class="fw-bold">
-                                               @thisCur
+                                                @thisCur
                                             </td>
                                             <td>
                                                 USD
@@ -253,9 +253,8 @@
                 </div>
             </div>
         </div>
-        </main>
-
-        </body>
+    </main>
+    </body>
+    <script src="~/js/stockpage/frontpageChart.js" type="module"></script>
     }
-
 }
