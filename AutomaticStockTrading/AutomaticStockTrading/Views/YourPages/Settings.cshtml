@@ -156,6 +156,8 @@
                                     </div>
                             </div>
                         </div>
+                            
+                    </div>
 
                     </div>
                     <div class="col-12 col-xl-4">
@@ -169,11 +171,20 @@
                                         <h5 class="fw-normal">Brugernavn: @HttpContextAccessor.HttpContext.Session.GetString("username")</h5>
                                         <h5 class="fw-normal">Email: @HttpContextAccessor.HttpContext.Session.GetString("email")</h5>
                                         @{
+<<<<<<< HEAD
                                             var dateString = HttpContextAccessor.HttpContext.Session.GetString("age");
                                             DateTime oDate = Convert.ToDateTime(dateString);
                                         }
 
                                         <p class="text-gray mb-4">Alder: @userDataService.GetAge(oDate)</p>
+=======
+                                        @inject UserDataService userDateService;
+                                            //var dateString = HttpContextAccessor.HttpContext.Session.GetString("age");
+                                            //DateTime oDate = Convert.ToDateTime(dateString);
+                                            }
+
+                                        <p class="text-gray mb-4">Alder: @userDateService.GetAge(DateTime.Now)</p>
+>>>>>>> portfolio_frontpage
 
                                     </div>
                                 </div>
@@ -222,6 +233,7 @@
                             </ul>
                         </div>
                     </div>
+<<<<<<< HEAD
 
                 </div>
 
@@ -229,6 +241,12 @@
 
         </body>
 
+=======
+                </div>
+            </main>
+        </body>
+        
+>>>>>>> portfolio_frontpage
     }
 }
 

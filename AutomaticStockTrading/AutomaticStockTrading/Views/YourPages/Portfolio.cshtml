@@ -1,4 +1,8 @@
-﻿@{
+﻿@using AutomaticStockTrading.Services;
+@using AutomaticStockTrading.DataContext;
+@using System.Globalization
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
     ViewData["Title"] = "Din Side";
 
 }
@@ -6,7 +10,6 @@
 @{
     if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("username")))
     {
-       
         <main>
             <section class="vh-100 d-flex align-items-center justify-content-center">
                 <div class="container">
@@ -26,118 +29,225 @@
     }
     else
     {
-<body>
-
-    <main class="content">
+        <body>
         <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
-
+        <main class="content">
+        <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
+            <div class="container-fluid px-0">
+                <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
+                    <div class="d-flex align-items-center">
+                        <button id="sidebar-toggle" class="sidebar-toggle me-3 btn btn-icon-only btn-lg btn-circle d-none d-md-inline-block">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <form class="navbar-search form-inline" id="navbar-search-main">
+                            <div class="input-group input-group-merge search-bar">
+                                <span class="input-group-text" id="topbar-addon">
+                                    <span class="fas fa-search"></span>
+                                </span>
+                                <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="topbar-addon">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-            <div class="col col-md-6 col-lg-3 col-xl-4">
-                <div class="input-group">
-                    <span class="input-group-text" id="basic-addon2">
-                        <span class="fas fa-search"></span>
-                    </span>
-                    <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                </div>
-            </div>
         </div>
-
-        <div class="row justify-content-md-center">
+        <div class="row">
             <div class="col-12 mb-4">
-                <div class="card bg-secondary-alt shadow-sm">
-                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                        <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">GME</div>
-                            <h2 class="h3">$10,567</h2>
-                            <div class="small mt-2">
-                                <span class="fw-bold me-2">Yesterday</span>
-                                <span class="fas fa-angle-up text-success"></span>
-                                <span class="text-success fw-bold">10.57%</span> 
+                <div class="card border-light shadow-sm">
+                    <div class="card-body pb-0">
+                        <div class="table-responsive">
+                            <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                                <div class="w-100 d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h2 class="h4">Kontooversigt</h2>
+                                    </div>
+                                </div>
                             </div>
+                            <table class="table table-centered table-nowrap mb-0 rounded">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th class="border-0">Konto</th>
+                                    <th class="border-0">Valuta</th>
+                                    <th class="border-0">Værdi</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>wallet</td>
+                                    <td class="fw-bold">DKK</td>
+                                    <td>wallet-værdi</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="d-flex ms-auto">
-                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="card bg-secondary-alt shadow-sm">
-                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                        <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">BAVA</div>
-                            <h2 class="h3">$10,567</h2>
-                            <div class="small mt-2">
-                                <span class="fw-bold me-2">Yesterday</span>
-                                <span class="fas fa-angle-up text-success"></span>
-                                <span class="text-success fw-bold">10.57%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex ms-auto">
-                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                <div class="card bg-secondary-alt shadow-sm">
-                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                        <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">APPL</div>
-                            <h2 class="h3">$10,567</h2>
-                            <div class="small mt-2">
-                                <span class="fw-bold me-2">Yesterday</span>
-                                <span class="fas fa-angle-up text-success"></span>
-                                <span class="text-success fw-bold">10.57%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex ms-auto">
-                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-4 mb-4"> 
-                <div class="card bg-secondary-alt shadow-sm">
-                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
-                        <div class="d-block mb-3 mb-sm-0">
-                            <div class="h5 fw-normal mb-2">AMZN</div>
-                            <h2 class="h3">$10,567</h2>
-                            <div class="small mt-2">
-                                <span class="fw-bold me-2">Yesterday</span>
-                                <span class="fas fa-angle-up text-success"></span>
-                                <span class="text-success fw-bold">10.57%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex ms-auto">
-                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                            <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+        <div class="row">
+            <div class="col-12 col-xl-4 mb-4">
+                <div class="card border-light shadow-sm">
+                    <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                        <div class="d-block">
+                            <div class="h6 fw-normal text-gray mb-2">Aktier</div>
+                            <h2 class="h4">Din beholdning</h2>
+                        </div>
+                        <div class="ms-auto">
+                            @inject UserDataService userDataService;
+                            @inject StockDataService _stockDataService;
+                            @{
+                                var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
+                                var orderList = userDataService.getOrdersWithDetails(userID);
+                            }
+                            <div id="userid">@userDataService.GetUser(userID).id</div> <!--  style="display: none" -->
+                            @{
+                                var distinctStocks = orderList.GroupBy(s => s.name).Select(grp => grp.First()).ToList();
+                                foreach (var stock in distinctStocks)
+                                {
+                                    <div class="d-flex align-items-center mb-2">
+                                        <span class="shape-xs rounded-circle bg-secondary me-2"></span>
+                                        <span class="fw-normal small me-3" id="portfolioStock">@stock.name</span>
+                                        <span class="small fw-bold text-dark ms-auto">
+                                            @{
+                                                var totalStocks = orderList.Where(item => item.name == stock.name)
+                                                                              .Sum(item => item.amount);
+                                            }
+                                            <span class="text-success">
+                                                @totalStocks
+                                                <span class="fw-bold">stk</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="card-body p-2 py-5">
+                        <div class="ct-chart-traffic-share-2 ct-golden-section ct-series-a">
+                            <canvas id="portfolioPie"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</body>
 
+            <div class="col-12 col-xl-8 mb-4">
+                <div class="card border-light shadow-sm">
+                    <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                        <div class="w-100 d-flex justify-content-between align-items-start">
+                            <div class="table-responsive">
+                                <table class="table table-centered table-nowrap mb-0 rounded">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th class="border-0">Navn</th>
+                                        <th class="border-0">Antal</th>
+                                        <th class="border-0">Købspris</th>
+                                        <th class="border-0">Nuværende pris</th>
+                                        <th class="border-0">Forandring</th>
+                                        <th class="border-0">Gevinst</th>
+                                        <th class="border-0">Købsdato</th>
+                                        <th class="border-0">Sælg</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    @{
+                                        var orderListByName = orderList.OrderBy(x => x.name).ThenBy(y => y.dateTime).ToList();
+                                    }
+                                    @foreach (var stock in orderListByName)
+                                    {
+                                        <tr>
+                                            <!-- Navn af aktie -->
+                                            <td>@stock.name</td>
+                                            
+                                            <!-- Antal aktier: skal beregnes -->
+                                            <td>@stock.amount</td>
+                                            
+                                            <!-- Pris på aktie ved købsdato: evt. gennemsnit? -->
+                                            <td>@stock.price</td>
+                                            
+                                            <!-- Nuværende pris på aktie -->
+                                            <td>
+                                                @{
+                                                    var todayCloseP = _stockDataService.GetCurrentPrice(stock.name).price;
+                                                    var todayClose = double.Parse(todayCloseP, CultureInfo.InvariantCulture);
+                                                }
+                                                @todayClose
+                                            </td>
+                                            
+                                            <!-- Forandring i pris fra købsdato til nu -->
+                                            <td>
+                                                @{
+                                                    var diff = Math.Round(todayClose / stock.price * 100 - 100, 2);
+                                                }
+                                                @{
+                                                    if (diff > 0)
+                                                    {
+                                                        <span class="text-success">
+                                                            <span class="fas fa-angle-up"></span>
+                                                            @diff
+                                                            <span class="fw-bold">%</span>
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger">
+                                                            <span class="fas fa-angle-down"></span>
+                                                            @diff
+                                                            <span class="fw-bold">%</span>
+                                                        </span>
+                                                    }
+                                                }
+                                            </td>
+                                            
+                                            <!-- Gevinst af aktie -->
+                                            <td>
+                                                @{
+                                                    var revenue = Math.Round(stock.amount * todayClose - (stock.amount * stock.price), 2);
+                                                }
+                                                @{
+                                                    if (revenue > 0)
+                                                    {
+                                                        <span class="text-success">
+                                                            @revenue USD
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger">
+                                                            @revenue USD
+                                                        </span>
+                                                    }
+                                                }
+                                            </td>
+                                            <!-- Sælg aktie -->
+                                            <td>
+                                                <span>@stock.dateTime.ToString("dd-MM-yyyy")</span>
+                                            </td>
+                                            <!-- Sælg aktie -->
+                                            <td>
+                                                <input class="btn btn-sm btn-dark" id="sellStock" type="button" value="Sælg">
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                    <!-- ITEM -->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </main>
+        </body>
+        <script src="~/js/stockpage/portfolioChart.js" type="module"></script>
     }
 }
-
