@@ -200,12 +200,7 @@ namespace AutomaticStockTrading.Services
             model.email = email;
             return model;
         }
-<<<<<<< HEAD
 
-
-=======
-        
->>>>>>> portfolio_frontpage
         public IList<OrderModel> getOrders(int id)
         {
 
