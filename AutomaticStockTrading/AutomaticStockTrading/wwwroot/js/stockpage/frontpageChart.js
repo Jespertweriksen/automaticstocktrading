@@ -60,25 +60,15 @@ async function currentChart() {
     var microsoft_seq = {
         label: 'Microsoft',
         data: microsoftClose,
-        backgroundColor: "yellow",
-        borderColor: "yellow",
+        backgroundColor: "red",
+        borderColor: "red",
         borderWidth: 1
     }
     
     renderChart(datetime, apple_seq, google_seq, microsoft_seq)
 }
-/*
-async function googleChart() {
-    var googleStock = "google";
-    const sequences = await GetFrontpageStocks(googleStock);
-    var [datetime, close] = myGoogleIterator(sequences);
-
-    
-    renderChart(datetime, google_seq)
-}*/
 
 currentChart();
-//googleChart();
 
 
 const renderChart = (datetime, apple_sequence, google_sequence, microsoft_sequence) => {

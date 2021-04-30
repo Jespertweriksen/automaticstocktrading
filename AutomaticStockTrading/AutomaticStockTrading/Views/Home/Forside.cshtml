@@ -26,9 +26,7 @@
     else
     {
         <body>
-        <div>
-            <br>
-        </div>
+
         @inject StockDataService _stockDataService;
         @{
             string[] stockList = {"GME", "AAPL", "AMZN", "MSFT"};
@@ -40,6 +38,30 @@
             var bigAfkastOneD = Math.Round(double.Parse(bigBoxCurr.price) / double.Parse(bigBoxCloseYesterday) * 100 - 100, 2);
         }
         <main class="content">
+        
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+                        <div class="d-block mb-4 mb-md-0">
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                                    <li class="breadcrumb-item">
+                                        <a href="#">
+                                            <span class="fas fa-home"></span>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Forside</li>
+                                </ol>
+                            </nav>
+                            <h2 class="h1">AutoStocks</h2>
+                            <p class="mb-0">Udvalg af aktier</p>
+                        </div>
+                        
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-primary">Eksporter</button>
+                            </div>
+                        </div>
+                    </div>
+        
         <div class="row justify-content-md-center">
             <div class="col-12 mb-4">
                 <div class="card bg-secondary-alt shadow-sm">
@@ -79,7 +101,8 @@
                 </div>
             </div>
             <!--
-            @{/*
+            @{
+                /*
                 foreach (var stock in _stockDataService.GetAllTypes().Skip(0))
                 {
                     var thisCur = stock.price;
@@ -129,12 +152,13 @@
                         </div>
                     </div>
                 }
-            */}
+            */
+            }
             -->
         </div>
 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-            <div class="col col-md-6 col-lg-3 col-xl-4">
+            <div class="col col-md-6 col-lg-3 col-xl-4 mt-4 ml-4">
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon2">
                         <span class="fas fa-search"></span>
@@ -146,115 +170,134 @@
 
         <div class="row">
             <div class="col-12 mb-4">
-                <div class="card border-light shadow-sm">
-                    <div class="card-body pb-0">
-                        <div class="table-responsive">
-                            <table class="table table-centered table-nowrap mb-0 rounded">
-                                <thead class="thead-light">
+                <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0  ml-4 mr-4">
+                    <table class="table table-hover" id="table">
+                        <thead class="thead-light">
+                        <tr>
+                            <th class="border-0">Navn</th>
+                            <th class="border-0">Pris</th>
+                            <th class="border-0">Valuta</th>
+                            <th class="border-0">Lukkeværdi i morgen</th>
+                            <th class="border-0">Afkast 1 dag</th>
+                            <th class="border-0">Afkast 1 måned</th>
+                            <th class="border-0">Afkast 1 år</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @{
+                            foreach (var stock in _stockDataService.GetAllTypes())
+                            {
+                                var thisCur = stock.price;
+                                var thisYesterday = stock.closeYesterday;
+                                var thisOneMonth = stock.closeOneMonth;
+                                var thisOneYear = stock.closeOneYear;
+
+                                var stockAfkastOneDay = Math.Round(double.Parse(thisCur) / double.Parse(thisYesterday) * 100 - 100, 2);
+                                var stockAfkastOneMonth = Math.Round(double.Parse(thisCur) / double.Parse(thisOneMonth) * 100 - 100, 2);
+                                var stockAfkastOneYear = Math.Round(double.Parse(thisCur) / double.Parse(thisOneYear) * 100 - 100, 2);
+                                
+                                var forecastListObject = _stockDataService.GetForeCastByStockName(stock.name);
+                                var foreCastTommorow = forecastListObject[0];
+
                                 <tr>
-                                    <th class="border-0">Navn</th>
-                                    <th class="border-0">Pris</th>
-                                    <th class="border-0">Valuta</th>
-                                    <th class="border-0">Afkast 1 dag</th>
-                                    <th class="border-0">Afkast 1 måned</th>
-                                    <th class="border-0">Afkast 1 år</th>
+                                    <td>
+                                        <a asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stock.name">@stock.name</a>
+                                    </td>
+                                    <td class="fw-bold">
+                                        @thisCur
+                                    </td>
+                                    <td>
+                                        USD
+                                    </td>
+                                    <td>
+                                        @{
+                                            if (foreCastTommorow.close > float.Parse(thisCur))
+                                            {
+                                                <span class="text-success">
+                                                    <span class="fas fa-angle-up"></span>
+                                                    @foreCastTommorow.close
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-danger">
+                                                    <span class="fas fa-angle-down"></span>
+                                                    @foreCastTommorow.close
+                                                </span>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @{
+                                            if (stockAfkastOneDay > 0)
+                                            {
+                                                <span class="text-success">
+                                                    <span class="fas fa-angle-up"></span>
+                                                    @stockAfkastOneDay
+                                                    <span class="fw-bold">%</span>
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-danger">
+                                                    <span class="fas fa-angle-down"></span>
+                                                    @stockAfkastOneDay
+                                                    <span class="fw-bold">%</span>
+                                                </span>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @{
+                                            if (stockAfkastOneMonth > 0)
+                                            {
+                                                <span class="text-success">
+                                                    <span class="fas fa-angle-up"></span>
+                                                    @stockAfkastOneMonth
+                                                    <span class="fw-bold">%</span>
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-danger">
+                                                    <span class="fas fa-angle-down"></span>
+                                                    @stockAfkastOneMonth
+                                                    <span class="fw-bold">%</span>
+                                                </span>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @{
+                                            if (stockAfkastOneYear > 0)
+                                            {
+                                                <span class="text-success">
+                                                    <span class="fas fa-angle-up"></span>
+                                                    @stockAfkastOneYear
+                                                    <span class="fw-bold">%</span>
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-danger">
+                                                    <span class="fas fa-angle-down"></span>
+                                                    @stockAfkastOneYear
+                                                    <span class="fw-bold">%</span>
+                                                </span>
+                                            }
+                                        }
+                                    </td>
                                 </tr>
-                                </thead>
-
-                                @{
-                                    foreach (var stock in _stockDataService.GetAllTypes())
-                                    {
-                                        var thisCur = stock.price;
-                                        var thisYesterday = stock.closeYesterday;
-                                        var thisOneMonth = stock.closeOneMonth;
-                                        var thisOneYear = stock.closeOneYear;
-
-                                        var stockAfkastOneDay = Math.Round(double.Parse(thisCur) / double.Parse(thisYesterday) * 100 - 100, 2);
-                                        var stockAfkastOneMonth = Math.Round(double.Parse(thisCur) / double.Parse(thisOneMonth) * 100 - 100, 2);
-                                        var stockAfkastOneYear = Math.Round(double.Parse(thisCur) / double.Parse(thisOneYear) * 100 - 100, 2);
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <a asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stock.name">@stock.name</a>
-                                            </td>
-                                            <td class="fw-bold">
-                                                @thisCur
-                                            </td>
-                                            <td>
-                                                USD
-                                            </td>
-                                            <td>
-                                                @{
-                                                    if (stockAfkastOneDay > 0)
-                                                    {
-                                                        <span class="text-success">
-                                                            <span class="fas fa-angle-up"></span>
-                                                            @stockAfkastOneDay
-                                                            <span class="fw-bold">%</span>
-                                                        </span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span class="text-danger">
-                                                            <span class="fas fa-angle-down"></span>
-                                                            @stockAfkastOneDay
-                                                            <span class="fw-bold">%</span>
-                                                        </span>
-                                                    }
-                                                }
-                                            </td>
-                                            <td>
-                                                @{
-                                                    if (stockAfkastOneMonth > 0)
-                                                    {
-                                                        <span class="text-success">
-                                                            <span class="fas fa-angle-up"></span>
-                                                            @stockAfkastOneMonth
-                                                            <span class="fw-bold">%</span>
-                                                        </span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span class="text-danger">
-                                                            <span class="fas fa-angle-down"></span>
-                                                            @stockAfkastOneMonth
-                                                            <span class="fw-bold">%</span>
-                                                        </span>
-                                                    }
-                                                }
-                                            </td>
-                                            <td>
-                                                @{
-                                                    if (stockAfkastOneYear > 0)
-                                                    {
-                                                        <span class="text-success">
-                                                            <span class="fas fa-angle-up"></span>
-                                                            @stockAfkastOneYear
-                                                            <span class="fw-bold">%</span>
-                                                        </span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span class="text-danger">
-                                                            <span class="fas fa-angle-down"></span>
-                                                            @stockAfkastOneYear
-                                                            <span class="fw-bold">%</span>
-                                                        </span>
-                                                    }
-                                                }
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    }
-                                }
-                            </table>
-                        </div>
-                    </div>
+                            }
+                        }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </main>
-    </body>
-    <script src="~/js/stockpage/frontpageChart.js" type="module"></script>
+        </main>
+        </body>
+        <script src="~/js/stockpage/frontpageChart.js" type="module"></script>
+        <script src="~/js/stockpage/datatables.js" type="module"></script>
     }
 }
