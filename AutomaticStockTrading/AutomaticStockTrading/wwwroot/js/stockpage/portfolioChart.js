@@ -4,10 +4,10 @@ console.log(getUserID);
 var ctx = document.getElementById('portfolioPie');
 
 var pieColors = [];
-var dynamicColors = function( i, total) {
-    var r = 100+i* 155/total;
-    var g = i* 255/total;
-    var b = i* 255/total;
+var dynamicColors = function() {
+    var r = Math.floor(Math.random() * 255);
+    var g = Math.floor(Math.random() * 255);
+    var b = Math.floor(Math.random() * 255);
     return "rgb(" + r + "," + g + "," + b + ")";
 };
 
@@ -25,16 +25,15 @@ const myIterator = (alist) => {
 
 async function updateChart() {
     var currentName = getUserID.innerHTML;
-    console.log(currentName);
     const sequences = await GetPortfolioStocks(currentName);
     var [name, amount] = myIterator(sequences);
     
     for (var i in amount) {
-        pieColors.push(dynamicColors(i, amount.length));
+        pieColors.push(dynamicColors());
     }
 
     var name_seq = {
-        label: 'Stock Name',
+        label: "Stock",
         data: name,
         backgroundColor: "red",
         borderColor: "red",
@@ -42,25 +41,32 @@ async function updateChart() {
     }
 
     var amount_seq = {
-        label: 'Amount',
+        label: "Amount",
         data: amount,
         backgroundColor: pieColors,
         borderColor: "black",
         borderWidth: 2
     }
+    console.log(amount_seq)
+    console.log(name_seq)
+    console.log(name)
+    
     renderChart(name_seq, amount_seq)
 }
 
 updateChart();
 
 
-const renderChart = (name_sequence, amount_sequence) => {
+
+const renderChart = (name_seq, amount_seq) => {
+    console.log("kekw")
+    console.log(name_seq.data);
+    
     var myChart = new Chart(ctx, {
         type: 'pie',
-
         data: {
-            labels: name_sequence, amount_sequence,
-            datasets: [name_sequence, amount_sequence]
+            labels: name_seq.data, 
+            datasets: [amount_seq]
         },
         options: {
             responsive: true,
@@ -68,6 +74,10 @@ const renderChart = (name_sequence, amount_sequence) => {
                 legend: {
                     position: 'top',
                 },
+                title:{
+                    display: true,
+                    text: "Din Beholdning"
+                }
             }
         }
     });
