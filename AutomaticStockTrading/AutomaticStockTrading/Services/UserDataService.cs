@@ -2,8 +2,10 @@
 using AutomaticStockTrading.Models;
 using Microsoft.Extensions.Options;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -161,9 +163,9 @@ namespace AutomaticStockTrading.Services
         }
 
         //CHANGE PASSWORD
-        public bool ChangePassword(/*int id,*/ string username, string oldpassword, string newpassword)
+        public bool ChangePassword(/*int id,*/ string email, string oldpassword, string newpassword)
         {
-            var getUser = context.users.FirstOrDefault(x => x.username == username);
+            var getUser = context.users.FirstOrDefault(x => x.email == email);
             if (getUser.Equals(null)) return false;
             if (!_userValidation.VerifyPassword(oldpassword, getUser.password, getUser.salt)) return false;
 
@@ -222,23 +224,22 @@ namespace AutomaticStockTrading.Services
         public IList<OrderModel> getOrdersWithDetails(int id)
         {
             var query = (from s in context.users
-                         join cs in context.orders on s.id equals cs.userID
-                         join os in context.stocktype on cs.stockID equals os.id
-                         where s.id == id
-                         select new OrderModel
-                         {
-                             userID = s.id,
-                             id = cs.id,
-                             stockID = cs.stockID,
-                             amount = cs.amount,
-                             dateTime = cs.dateTime,
-                             price = cs.price,
-                             name = os.name,
-                             stock_name = os.stock_name
-                         }).ToList();
+                join cs in context.orders on s.id equals cs.userID
+                join os in context.stocktype on cs.stockID equals os.id
+                where s.id == id
+                select new OrderModel
+                {
+                    userID = s.id,
+                    id = cs.id,
+                    stockID = cs.stockID,
+                    amount = cs.amount,
+                    dateTime = cs.dateTime,
+                    price = cs.price,
+                    name = os.name,
+                    stock_name = os.stock_name
+                }).ToList();
             return query;
         }
-
 
         public Int32 GetAge(DateTime dateOfBirth)
         {
@@ -251,8 +252,68 @@ namespace AutomaticStockTrading.Services
         }
 
 
+        public static void SendEmail(string emailBody, string emailSubject, string receiver)
+        {
+            var fromAddress = "info.automaticstocktrading@gmail.com";
+            MailMessage mailMessage = new MailMessage(fromAddress, receiver);
+            mailMessage.Subject = emailSubject;
+            mailMessage.Body = emailBody;
 
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+ 
 
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new System.Net.NetworkCredential()
+
+            {
+                UserName = "info.automaticstocktrading@gmail.com",
+                Password = "autostocks123"
+            };
+            smtpClient.Send(mailMessage);
+
+            
+        }
+
+        public WalletModel GetWallets(int? userID)
+        {
+
+            var walletBalance = context.wallet.Where(item => item.userid == userID)
+                                                                              .Sum(item => item.amount);
+
+            WalletModel WalletModel = new WalletModel()
+            {
+                amount = walletBalance
+            };
+            return WalletModel;
+        }
+
+        public bool UpdateBalance(int? userID, float amount)
+        {
+            var getUser = context.users.FirstOrDefault(x => x.id == userID);
+            var getWallet = context.wallet.Where(item => item.userid == userID);
+            if (!amount.Equals(null))
+            {
+                context.wallet.Update(getWallet.FirstOrDefault()).Entity.amount += amount;
+                context.SaveChanges();
+                
+                return true;
+            }
+            return false;
+        }
+
+        public bool SubtractBalance(int? userID, float amount)
+        {
+            var getUser = context.users.FirstOrDefault(x => x.id == userID);
+            var getWallet = context.wallet.Where(item => item.userid == userID);
+            if (!amount.Equals(null))
+            {
+                context.wallet.Update(getWallet.FirstOrDefault()).Entity.amount -= amount;
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
 
         public bool DeleteUser(int id)
         {

@@ -12,6 +12,7 @@
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
           <e p="LoginController.cs" t="Include" />
+          <e p="PageController.cs" t="Include" />
           <e p="StockAPIController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
           <e p="YourPagesController.cs" t="Include" />
@@ -19,12 +20,20 @@
         <e p="DataContext" t="Include">
           <e p="Context.cs" t="Include" />
         </e>
+        <e p="Helpers" t="Include">
+          <e p="SessionHelper.cs" t="Include" />
+        </e>
         <e p="ModelConfiguration" t="Include">
           <e p="DBConfig.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
+          <e p="ForecastDataModel.cs" t="Include" />
+          <e p="OrderModel.cs" t="Include" />
+          <e p="StockDataModel.cs" t="Include" />
           <e p="StockModel.cs" t="Include" />
+          <e p="StockTypeModel.cs" t="Include" />
+          <e p="StockTypePriceDto.cs" t="Include" />
           <e p="UserModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -35,16 +44,24 @@
             </e>
           </e>
         </e>
+        <e p="package-lock.json" t="Include" />
+        <e p="package.json" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
           <e p="PublishProfiles" t="Include">
             <e p="AutomaticStockTrading - Web Deploy.pubxml" t="Include" />
           </e>
+          <e p="ServiceDependencies" t="Include">
+            <e p="AutomaticStockTrading - Web Deploy" t="Include">
+              <e p="profile.arm.json" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Services" t="Include">
-          <e p="DatabaseTest.cs" t="Include" />
+          <e p="GraphGenerator.cs" t="Include" />
           <e p="Hashing.cs" t="Include" />
+          <e p="StockDataService.cs" t="Include" />
           <e p="UserDataService.cs" t="Include" />
           <e p="UserValidation.cs" t="Include" />
           <e p="YahooFinanceAPI.cs" t="Include" />
@@ -57,10 +74,12 @@
             <e p="Apitest.cshtml" t="Include" />
             <e p="Forside.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
-            <e p="TestView.cshtml" t="Include" />
           </e>
           <e p="Login" t="Include">
+            <e p="CreateAccount.cshtml" t="Include" />
+            <e p="ForgotPassword.cshtml" t="Include" />
             <e p="Login.cshtml" t="Include" />
+            <e p="ResetPassword.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
@@ -71,6 +90,8 @@
             <e p="Orders.cshtml" t="Include" />
             <e p="Portfolio.cshtml" t="Include" />
             <e p="Settings.cshtml" t="Include" />
+            <e p="StockPage.cshtml" t="Include" />
+            <e p="StockPage.cshtml.cs" t="Include" />
           </e>
         </e>
         <e p="web.config" t="Include" />
@@ -244,6 +265,7 @@
                 <e p="profile-picture-4.jpg" t="Include" />
                 <e p="profile-picture-5.jpg" t="Include" />
                 <e p="profile-picture-6.jpg" t="Include" />
+                <e p="profile-placeholder.png" t="Include" />
               </e>
               <e p="technologies" t="Include">
                 <e p="bootstrap-5-logo.svg" t="Include" />
@@ -263,7 +285,17 @@
           </e>
           <e p="favicon.ico" t="Include" />
           <e p="js" t="Include">
+            <e p="chart.js" t="Include" />
+            <e p="datatables.js" t="Include" />
             <e p="site.js" t="Include" />
+            <e p="stockpage" t="Include">
+              <e p="forecastChart.js" t="Include" />
+              <e p="frontpageChart.js" t="Include" />
+              <e p="percentageChangeChart.js" t="Include" />
+              <e p="portfolioChart.js" t="Include" />
+              <e p="stockPageChart.js" t="Include" />
+            </e>
+            <e p="store.js" t="Include" />
             <e p="volt.js" t="Include" />
           </e>
           <e p="lib" t="Include">

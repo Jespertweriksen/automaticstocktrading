@@ -1,16 +1,11 @@
 ﻿@using AutomaticStockTrading.Services;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@inject StockDataService stock
 @{
     ViewData["Title"] = "Forside";
 }
 @{
-
-
-
     if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("username")))
     {
-
         <main>
             <section class="vh-100 d-flex align-items-center justify-content-center">
                 <div class="container">
@@ -31,427 +26,235 @@
     else
     {
         <body>
-            <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
-            <main class="content">
-                <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
-                    <div class="container-fluid px-0">
-                        <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
-                            <div class="d-flex align-items-center">
-                                <button id="sidebar-toggle" class="sidebar-toggle me-3 btn btn-icon-only btn-lg btn-circle d-none d-md-inline-block">
-                                    <span class="fas fa-bars"></span>
-                                </button>
-                                <form class="navbar-search form-inline" id="navbar-search-main">
-                                    <div class="input-group input-group-merge search-bar">
-                                        <span class="input-group-text" id="topbar-addon">
-                                            <span class="fas fa-search"></span>
+        <div>
+            <br>
+        </div>
+        @inject StockDataService _stockDataService;
+        @{
+            string[] stockList = {"GME", "AAPL", "AMZN", "MSFT"};
+            var stockTypesList = _stockDataService.GetAllTypes();
+            var selectedStock = stockTypesList[0].name;
+            //var bigBoxStock = _stockDataService.GetCurrentPrice(selectedStock);
+            var bigBoxCurr = _stockDataService.GetCurrentPrice(selectedStock);
+            var bigBoxCloseYesterday = _stockDataService.GetAllClosePriceYesterday(selectedStock);
+            var bigAfkastOneD = Math.Round(double.Parse(bigBoxCurr.price) / double.Parse(bigBoxCloseYesterday) * 100 - 100, 2);
+        }
+        <main class="content">
+        <div class="row justify-content-md-center">
+            <div class="col-12 mb-4">
+                <div class="card bg-secondary-alt shadow-sm">
+                    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                        <div class="d-block mb-3 mb-sm-0">
+                            <a id="frontpageStock" class="h5 fw-normal mb-2" asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stockTypesList[0].name">@stockTypesList[0].name</a>
+                            <h2 class="h3">@bigBoxCurr.price $</h2>
+                            <div class="small mt-2">
+                                <span class="fw-bold me-2">Afkast siden i går: </span>
+                                @{
+                                    if (bigAfkastOneD > 0)
+                                    {
+                                        <span class="text-success">
+                                            <span class="fas fa-angle-up"></span>
+                                            @bigAfkastOneD
+                                            <span class="fw fa-bold">%</span>
                                         </span>
-                                        <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="topbar-addon">
-                                    </div>
-                                </form>
+                                    }
+                                    else
+                                    {
+                                        {
+                                            <span class="text-danger">
+                                                <span class="fas fa-angle-down"></span>
+                                                @bigAfkastOneD
+                                                <span class="fw-bold">%</span>
+                                            </span>
+                                        }
+                                    }
+                                }
                             </div>
-                            <ul class="navbar-nav align-items-center">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link text-dark me-lg-3 icon-notifications dropdown-toggle" data-unread-notifications="true" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="icon icon-sm">
-                                            <span class="fas fa-bell bell-shake"></span> <span class="icon-badge rounded-circle unread-notifications" style="display: block;"></span>
-                                        </span>
-                                    </a>
-                                    <div class="dropdown-menu dashboard-dropdown dropdown-menu-lg dropdown-menu-center mt-2 py-0">
-                                        <div class="list-group list-group-flush">
-                                            <a href="#" class="text-center text-primary fw-bold border-bottom border-light py-3">Notifications</a>
-                                            <a href="../../pages/calendar.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                                <div class="row align-items-center">
-                                                    <div class="col-auto">
-                                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-1.jpg" class="user-avatar lg-avatar rounded-circle">
-                                                    </div>
-                                                    <div class="col ps-0 ms-2">
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <div>
-                                                                <h4 class="h6 mb-0 text-small">Jose Leos</h4>
-                                                            </div>
-                                                            <div class="text-end">
-                                                                <small class="text-danger">a few moments ago</small>
-                                                            </div>
-                                                        </div>
-                                                        <p class="font-small mt-1 mb-0">Added you to an event "Project stand-up" tomorrow at 12:30 AM.</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="../../pages/tasks.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                                <div class="row align-items-center">
-                                                    <div class="col-auto">
-                                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-2.jpg" class="user-avatar lg-avatar rounded-circle">
-                                                    </div>
-                                                    <div class="col ps-0 ms-2">
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <div>
-                                                                <h4 class="h6 mb-0 text-small">Neil Sims</h4>
-                                                            </div>
-                                                            <div class="text-end">
-                                                                <small class="text-danger">2 hrs ago</small>
-                                                            </div>
-                                                        </div>
-                                                        <p class="font-small mt-1 mb-0">You've been assigned a task for "Awesome new project".</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="../../pages/tasks.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                                <div class="row align-items-center">
-                                                    <div class="col-auto">
-                                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-3.jpg" class="user-avatar lg-avatar rounded-circle">
-                                                    </div>
-                                                    <div class="col ps-0 m-2">
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <div>
-                                                                <h4 class="h6 mb-0 text-small">Roberta Casas</h4>
-                                                            </div>
-                                                            <div class="text-end">
-                                                                <small>5 hrs ago</small>
-                                                            </div>
-                                                        </div>
-                                                        <p class="font-small mt-1 mb-0">Tagged you in a document called "First quarter financial plans",</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="../../pages/single-message.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                                <div class="row align-items-center">
-                                                    <div class="col-auto">
-                                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-4.jpg" class="user-avatar lg-avatar rounded-circle">
-                                                    </div>
-                                                    <div class="col ps-0 ms-2">
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <div>
-                                                                <h4 class="h6 mb-0 text-small">Joseph Garth</h4>
-                                                            </div>
-                                                            <div class="text-end">
-                                                                <small>1 d ago</small>
-                                                            </div>
-                                                        </div>
-                                                        <p class="font-small mt-1 mb-0">New message: "Hey, what's up? All set for the presentation?"</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="../../pages/single-message.html" class="list-group-item list-group-item-action border-bottom border-light">
-                                                <div class="row align-items-center">
-                                                    <div class="col-auto">
-                                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-5.jpg" class="user-avatar lg-avatar rounded-circle">
-                                                    </div>
-                                                    <div class="col ps-0 ms-2">
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <div>
-                                                                <h4 class="h6 mb-0 text-small">Bonnie Green</h4>
-                                                            </div>
-                                                            <div class="text-end">
-                                                                <small>2 hrs ago</small>
-                                                            </div>
-                                                        </div>
-                                                        <p class="font-small mt-1 mb-0">New message: "We need to improve the UI/UX for the landing page."</p>
-                                                    </div>
-                                                </div>
-                                            </a><a href="#" class="dropdown-item text-center text-primary fw-bold rounded-bottom py-3">View all</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <div class="media d-flex align-items-center">
-                                            <img class="user-avatar md-avatar rounded-circle" alt="Image placeholder" src="../../assets/img/team/profile-picture-3.jpg">
-                                            <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                                <span class="mb-0 font-small fw-bold">Bonnie Green</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-0">
-                                        <a class="dropdown-item rounded-top fw-bold" href="#"><span class="far fa-user-circle"></span>My Profile</a> <a class="dropdown-item fw-bold" href="#"><span class="fas fa-cog"></span>Settings</a> <a class="dropdown-item fw-bold" href="#"><span class="fas fa-envelope-open-text"></span>Messages</a> <a class="dropdown-item fw-bold" href="#"><span class="fas fa-user-shield"></span>Support</a>
-                                        <div role="separator" class="dropdown-divider my-0"></div><a class="dropdown-item rounded-bottom fw-bold" href="#"><span class="fas fa-sign-out-alt text-danger"></span>Logout</a>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
                     </div>
-                </nav>
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-                    <div class="btn-toolbar">
-                        <button class="btn btn-dark btn-sm me-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categories
-                            <span class="icon icon-small ms-2">
-                                <span class="fas fa-chevron-down"></span>
-                            </span>
-                        </button>
-                        <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-0">
-                            <a class="dropdown-item fw-normal rounded-top" href="#"><span class="fas fa-tablet-alt me-1"></span>My App</a> <a class="dropdown-item fw-normal" href="#"><span class="fas fa-window-maximize me-1"></span>My Website</a> <a class="dropdown-item fw-normal" href="#"><span class="fas fa-chart-pie me-1"></span>Worldwide Traffic</a> <a class="dropdown-item fw-normal rounded-bottom" href="#"><span class="fas fa-bullseye me-1"></span>Niche Traffic</a>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-primary">Share</button> <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
+                    <div class="card-body p-2">
+                        <div id="chart_div"></div>
+                        <canvas id="frontpageChart" style="height: 400px"></canvas>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-xl-4 mb-4">
-                        <div class="card border-light shadow-sm">
-                            <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
-                                <div class="d-block">
-                                    <div class="h6 fw-normal text-gray mb-2">Traffic Share</div>
-                                    <h2 class="h4">Direct</h2>
+            </div>
+            <!--
+            @{/*
+                foreach (var stock in _stockDataService.GetAllTypes().Skip(0))
+                {
+                    var thisCur = stock.price;
+                    var thisYesterday = stock.closeYesterday;
+                    var thisOneMonth = stock.closeOneMonth;
+                    var thisOneYear = stock.closeOneYear;
+
+                    var stockAfkastOneDay = Math.Round(double.Parse(thisCur) / double.Parse(thisYesterday) * 100 - 100, 2);
+
+                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                        <div class="card bg-secondary-alt shadow-sm">
+                            <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                                <div class="d-block mb-3 mb-sm-0">
+                                    <a class="h5 fw-normal mb-2" asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stock.name">@stock.name</a>
+                                    <h2 class="h3">@thisCur</h2>
                                     <div class="small mt-2">
-                                        <span class="fas fa-angle-up text-success"></span> <span class="text-success fw-bold">51.5%</span>
-                                    </div>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="d-flex align-items-center mb-2">
-                                        <span class="shape-xs rounded-circle bg-dark me-2"></span> <span class="fw-normal small me-3">Direct</span> <span class="small fw-bold text-dark ms-auto">51.50%</span>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <span class="shape-xs rounded-circle bg-secondary me-2"></span> <span class="fw-normal small me-3">Referrals</span> <span class="small fw-bold text-dark ms-auto">29.40%</span>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <span class="shape-xs rounded-circle bg-tertiary me-2"></span> <span class="fw-normal small me-3">Organic</span> <span class="small fw-bold text-dark ms-auto">9.10%</span>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <span class="shape-xs rounded-circle bg-indigo me-2"></span> <span class="fw-normal small me-3">Social</span> <span class="small fw-bold text-dark ms-auto">6.50%</span>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <span class="shape-xs rounded-circle bg-pink me-2"></span> <span class="fw-normal small me-3">Mail</span> <span class="small fw-bold text-dark ms-auto">3.50%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-2 py-5">
-                                <div class="ct-chart-traffic-share-2 ct-golden-section ct-series-a">
-                                    <div class="chartist-tooltip"></div>
-                                    <svg>
-                                        <span>
-                  </span>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xl-8 mb-4">
-                        <div class="card border-light shadow-sm">
-                            <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
-                                <div class="w-100 d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <div class="h6 fw-normal text-gray mb-2">Traffic Volumes by Source</div>
-                                        <h2 class="h4">Direct</h2>
-                                        <div class="small mt-2">
-                                            <span class="fas fa-angle-up text-success"></span> <span class="text-success fw-bold">18 B</span>
-                                            <span class="fw-bold ms-2">
-                                                <span class="icon icon-small me-1">
-                                                    <span class="fas fa-globe-europe"></span>
-                                                </span>WorldWide
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="d-xl-flex flex-wrap justify-content-end">
-                                        <div class="d-flex align-items-center mb-2 me-3 lh-130">
-                                            <span class="shape-xs rounded-circle bg-warning me-2"></span> <span class="fw-normal small">Direct</span> <span class="small fw-bold text-dark ms-1">18M</span>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-2 me-3 lh-130">
-                                            <span class="shape-xs rounded-circle bg-info me-2"></span> <span class="fw-normal small">Refferals</span> <span class="small fw-bold text-dark ms-1">15M</span>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-2 me-3 lh-130">
-                                            <span class="shape-xs rounded-circle bg-tertiary me-2"></span> <span class="fw-normal small">Organic</span> <span class="small fw-bold text-dark ms-1">12M</span>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-2 me-3 lh-130">
-                                            <span class="shape-xs rounded-circle bg-indigo me-2"></span> <span class="fw-normal small">Social</span> <span class="small fw-bold text-dark ms-1">6M</span>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-2 me-3 lh-130">
-                                            <span class="shape-xs rounded-circle bg-pink me-2"></span> <span class="fw-normal small">Mail</span> <span class="small fw-bold text-dark ms-1">5M</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-2 pb-4">
-                                <div class="ct-chart-volumes ct-major-tenth ct-series-a">
-                                    <div class="chartist-tooltip"></div>
-                                    <svg>
-                                        <g class="ct-grids">
-                                        </g>
-                                        <g>
-                                            <span>
-                                                GRAPHS GOES HERE
-                                            </span>
-                                        </g>
-                                        <g class="ct-labels">
-                                        </g>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <div class="card border-light shadow-sm">
-                            <div class="card-body pb-0">
-                                <div class="table-responsive">
-                                    <table class="table table-centered table-nowrap mb-0 rounded">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th class="border-0">#</th>
-                                                <th class="border-0">Traffic Source</th>
-                                                <th class="border-0">Source Type</th>
-                                                <th class="border-0">Category</th>
-                                                <th class="border-0">Global Rank</th>
-                                                <th class="border-0">Traffic Share</th>
-                                                <th class="border-0">Change</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">1</a>
-                                                </td>
-                                                <td class="fw-bold">
-                                                    <span class="icon icon-xs icon-gray w-30">
-                                                        <span class="fas fa-globe-europe"></span>
-                                                    </span>Direct
-                                                </td>
-                                                <td>Direct</td>
-                                                <td>-</td>
-                                                <td>--</td>
-                                                <td>
-                                                    <div class="row d-flex align-items-center">
-                                                        <div class="col-12 col-xl-2 px-0">
-                                                            <div class="small fw-bold">51%</div>
-                                                        </div>
-                                                        <div class="col-12 col-xl-10 px-0 px-xl-1">
-                                                            <div class="progress progress-lg mb-0">
-                                                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="51" aria-valuemin="0" aria-valuemax="100" style="width: 51%;"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-success">
-                                                    <span class="fas fa-angle-up"></span> <span class="fw-bold">2.45%</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">2</a>
-                                                </td>
-                                                <td class="fw-bold">
-                                                    <span class="icon icon-xs icon-info w-30">
-                                                        <span class="fab fa-google"></span>
-                                                    </span>Google Search
-                                                </td>
-                                                <td>Search / Organic</td>
-                                                <td>-</td>
-                                                <td>--</td>
-                                                <td>
-                                                    <div class="row d-flex align-items-center">
-                                                        <div class="col-12 col-xl-2 px-0">
-                                                            <div class="small fw-bold">18%</div>
-                                                        </div>
-                                                        <div class="col-12 col-xl-10 px-0 px-xl-1">
-                                                            <div class="progress progress-lg mb-0">
-                                                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" style="width: 18%;"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-success">
-                                                    <span class="fas fa-angle-up"></span> <span class="fw-bold">17.67%</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">3</a>
-                                                </td>
-                                                <td class="fw-bold">
-                                                    <span class="icon icon-xs icon-danger w-30">
-                                                        <span class="fab fa-youtube"></span>
-                                                    </span> youtube.com
-                                                </td>
-                                                <td>Social</td>
-                                                <td>
-                                                    <a class="small fw-bold" href="#">Arts and Entertainment</a>
-                                                </td>
-                                                <td>#2</td>
-                                                <td>
-                                                    <div class="row d-flex align-items-center">
-                                                        <div class="col-12 col-xl-2 px-0">
-                                                            <div class="small fw-bold">18%</div>
-                                                        </div>
-                                                        <div class="col-12 col-xl-10 px-0 px-xl-1">
-                                                            <div class="progress progress-lg mb-0">
-                                                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" style="width: 18%;"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>-</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">4</a>
-                                                </td>
-                                                <td class="fw-bold">
-                                                    <span class="icon icon-xs icon-purple w-30">
-                                                        <span class="fab fa-yahoo"></span>
-                                                    </span> yahoo.com
-                                                </td>
-                                                <td>Referral</td>
-                                                <td>
-                                                    <a class="small fw-bold" href="#">News and Media</a>
-                                                </td>
-                                                <td>#11</td>
-                                                <td>
-                                                    <div class="row d-flex align-items-center">
-                                                        <div class="col-12 col-xl-2 px-0">
-                                                            <div class="small fw-bold">8%</div>
-                                                        </div>
-                                                        <div class="col-12 col-xl-10 px-0 px-xl-1">
-                                                            <div class="progress progress-lg mb-0">
-                                                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" style="width: 8%;"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-danger">
-                                                    <span class="fas fa-angle-down"></span> <span class="fw-bold">9.30%</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-0">
-                                                    <a href="#" class="text-primary fw-bold">5</a>
-                                                </td>
-                                                <td class="bborder-0 fw-bold">
-                                                    <span class="icon icon-xs icon-info w-30">
-                                                        <span class="fab fa-twitter"></span>
-                                                    </span> twitter.com
-                                                </td>
-                                                <td class="border-0">Social</td>
-                                                <td class="border-0">
-                                                    <a class="small fw-bold" href="#">Social Networks</a>
-                                                </td>
-                                                <td class="border-0">#4</td>
-                                                <td class="border-0">
-                                                    <div class="row d-flex align-items-center">
-                                                        <div class="col-12 col-xl-2 px-0">
-                                                            <div class="small fw-bold">4%</div>
-                                                        </div>
-                                                        <div class="col-12 col-xl-10 px-0 px-xl-1">
-                                                            <div class="progress progress-lg mb-0">
-                                                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%;"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="border-0">-</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-
-        </body>
-
-
+                                        <span class="fw-bold me-2">Afkast siden i går: </span>
+                                        @{
+                                            if (stockAfkastOneDay > 0)
+                                            {
+                                                <span class="text-success">
+                                                    <span class="fas fa-angle-up"></span>
+                                                    @stockAfkastOneDay
+                                                    <span class="fw fa-bold">%</span>
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                {
+                                                    <span class="text-danger">
+                                                        <span class="fas fa-angle-down"></span>
+                                                        @stockAfkastOneDay
+                                                        <span class="fw-bold">%</span>
+                                                    </span>
                                                 }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-2">
+                                <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
+                                <span>
+                                    graph tool here
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            */}
+            -->
+        </div>
 
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+            <div class="col col-md-6 col-lg-3 col-xl-4">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon2">
+                        <span class="fas fa-search"></span>
+                    </span>
+                    <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card border-light shadow-sm">
+                    <div class="card-body pb-0">
+                        <div class="table-responsive">
+                            <table class="table table-centered table-nowrap mb-0 rounded">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th class="border-0">Navn</th>
+                                    <th class="border-0">Pris</th>
+                                    <th class="border-0">Valuta</th>
+                                    <th class="border-0">Afkast 1 dag</th>
+                                    <th class="border-0">Afkast 1 måned</th>
+                                    <th class="border-0">Afkast 1 år</th>
+                                </tr>
+                                </thead>
+
+                                @{
+                                    foreach (var stock in _stockDataService.GetAllTypes())
+                                    {
+                                        var thisCur = stock.price;
+                                        var thisYesterday = stock.closeYesterday;
+                                        var thisOneMonth = stock.closeOneMonth;
+                                        var thisOneYear = stock.closeOneYear;
+
+                                        var stockAfkastOneDay = Math.Round(double.Parse(thisCur) / double.Parse(thisYesterday) * 100 - 100, 2);
+                                        var stockAfkastOneMonth = Math.Round(double.Parse(thisCur) / double.Parse(thisOneMonth) * 100 - 100, 2);
+                                        var stockAfkastOneYear = Math.Round(double.Parse(thisCur) / double.Parse(thisOneYear) * 100 - 100, 2);
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <a asp-controller="Yourpages" asp-action="StockPage" asp-route-id="@stock.name">@stock.name</a>
+                                            </td>
+                                            <td class="fw-bold">
+                                                @thisCur
+                                            </td>
+                                            <td>
+                                                USD
+                                            </td>
+                                            <td>
+                                                @{
+                                                    if (stockAfkastOneDay > 0)
+                                                    {
+                                                        <span class="text-success">
+                                                            <span class="fas fa-angle-up"></span>
+                                                            @stockAfkastOneDay
+                                                            <span class="fw-bold">%</span>
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger">
+                                                            <span class="fas fa-angle-down"></span>
+                                                            @stockAfkastOneDay
+                                                            <span class="fw-bold">%</span>
+                                                        </span>
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @{
+                                                    if (stockAfkastOneMonth > 0)
+                                                    {
+                                                        <span class="text-success">
+                                                            <span class="fas fa-angle-up"></span>
+                                                            @stockAfkastOneMonth
+                                                            <span class="fw-bold">%</span>
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger">
+                                                            <span class="fas fa-angle-down"></span>
+                                                            @stockAfkastOneMonth
+                                                            <span class="fw-bold">%</span>
+                                                        </span>
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @{
+                                                    if (stockAfkastOneYear > 0)
+                                                    {
+                                                        <span class="text-success">
+                                                            <span class="fas fa-angle-up"></span>
+                                                            @stockAfkastOneYear
+                                                            <span class="fw-bold">%</span>
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger">
+                                                            <span class="fas fa-angle-down"></span>
+                                                            @stockAfkastOneYear
+                                                            <span class="fw-bold">%</span>
+                                                        </span>
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    </body>
+    <script src="~/js/stockpage/frontpageChart.js" type="module"></script>
+    }
 }
