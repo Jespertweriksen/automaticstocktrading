@@ -3,6 +3,9 @@
 var currentAmount = document.getElementById("currentBuyingAmount");
 var incrementButton = document.getElementById("increment");
 var decreaseButton = document.getElementById("decrease");
+var buyButton = document.getElementById("buyStock");
+
+var selectedBuyAmount = 0;
 
 var count = 0;
 
@@ -11,6 +14,10 @@ currentAmount.innerHTML = count;
 function incrementAmount() {  
     count++;
     console.log(count)
+
+    // testing
+
+    updateTotalBuyingAmount();
 }
 
 function decreaseAmount() {
@@ -18,11 +25,41 @@ function decreaseAmount() {
         count--;
         console.log(count);
     }
-    
+    updateTotalBuyingAmount();
 }
 
 function updateDisplay() {
     currentAmount.innerHTML = count;
+}
+
+function updateTotalBuyingAmount() {
+
+    var currentPrice = document.getElementById("currentPrice").textContent;
+    currentPrice = currentPrice.trim();
+    currentPrice = currentPrice.replace("$", "");
+    currentPrice = parseFloat(currentPrice);
+
+    var selectedAmount = count;
+    
+    var totalPrice = (selectedAmount * currentPrice);
+    console.log(totalPrice)
+
+    var totalAmount = document.getElementById("totalPrice");
+
+    selectedBuyAmount = totalPrice;
+    console.log("hi" + selectedBuyAmount)
+
+    // set global variable to totalamount for buy function
+
+    totalAmount.innerHTML = totalPrice.toFixed(2);
+}
+
+const buy = () => {
+    console.log(selectedBuyAmount)
+}
+
+buyButton.onclick = () => {
+    buy()
 }
 
 decreaseButton.onclick = () => {
