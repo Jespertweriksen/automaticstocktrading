@@ -1,13 +1,13 @@
 ﻿import {GetPortfolioStocks} from "../store.js"
-var getUserID = document.getElementById('userid');
+let getUserID = document.getElementById('userid');
 console.log(getUserID);
-var ctx = document.getElementById('portfolioPie');
+let ctx = document.getElementById('portfolioPie');
 
-var pieColors = [];
-var dynamicColors = function() {
-    var r = Math.floor(Math.random() * 255);
-    var g = Math.floor(Math.random() * 255);
-    var b = Math.floor(Math.random() * 255);
+let pieColors = [];
+let dynamicColors = function() {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
     return "rgb(" + r + "," + g + "," + b + ")";
 };
 
@@ -18,21 +18,21 @@ const myIterator = (alist) => {
     alist.forEach(function (item) {
         name.push(item.name)
         amount.push(item.amount);
-    });
+    });    
     
     return [name, amount]
 }
 
 async function updateChart() {
-    var currentName = getUserID.innerHTML;
+    let currentName = getUserID.innerHTML;
     const sequences = await GetPortfolioStocks(currentName);
-    var [name, amount] = myIterator(sequences);
+    let [name, amount] = myIterator(sequences);
     
-    for (var i in amount) {
+    for (let i in amount) {
         pieColors.push(dynamicColors());
     }
 
-    var name_seq = {
+    let name_seq = {
         label: "Stock",
         data: name,
         backgroundColor: "red",
@@ -40,26 +40,30 @@ async function updateChart() {
         borderWidth: 1
     }
 
-    var amount_seq = {
+    let amount_seq = {
         label: "Amount",
         data: amount,
         backgroundColor: pieColors,
         borderColor: "black",
         borderWidth: 2
     }
-    console.log(amount_seq)
-    console.log(name_seq)
-    console.log(name)
+    const unique = (value, index, self) => {
+        return self.indexOf(value) === index
+    }
     
-    renderChart(name_seq, amount_seq)
+    const u = name_seq.data.filter(unique);
+    
+    console.log(u)
+    console.log(amount_seq)
+    renderChart(name_seq, amount_seq, u)
 }
 
 updateChart();
 
 
 
-const renderChart = (name_seq, amount_seq) => {    
-    var myChart = new Chart(ctx, {
+const renderChart = (name_seq, amount_seq) => {
+    let myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: name_seq.data, 
