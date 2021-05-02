@@ -32,6 +32,8 @@ namespace AutomaticStockTrading.DataContext
         public DbSet<StockDataModel> stockdata { get; set; }
         public DbSet<StockTypeModel> stocktype { get; set; }
 
+        public DbSet<WalletModel> wallet { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
            
@@ -82,8 +84,12 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("stock_name");
 
 
+            modelBuilder.Entity<WalletModel>().ToTable("wallet");
+            modelBuilder.Entity<WalletModel>().Property(x => x.id).HasColumnName("id");
+            modelBuilder.Entity<WalletModel>().Property(x => x.userid).HasColumnName("user_id");
+            modelBuilder.Entity<WalletModel>().Property(x => x.amount).HasColumnName("amount");
+            modelBuilder.Entity<WalletModel>().Property(x => x.paymentDate).HasColumnName("payment_date");
 
-               
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new DBConfig());
