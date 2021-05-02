@@ -58,12 +58,9 @@ updateChart();
 
 
 
-const renderChart = (name_seq, amount_seq) => {
-    console.log("kekw")
-    console.log(name_seq.data);
-    
+const renderChart = (name_seq, amount_seq) => {    
     var myChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
             labels: name_seq.data, 
             datasets: [amount_seq]
