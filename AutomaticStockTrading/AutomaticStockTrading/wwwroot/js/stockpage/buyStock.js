@@ -56,7 +56,7 @@ function updateTotalBuyingAmount() {
 
 const buy = () => {
     console.log(selectedBuyAmount)
-
+    var userId = sessionStorage.getItem("")
     var orderAmount = selectedBuyAmount;
     var stockName = document.getElementById("currentStock").innerHTML;
 

@@ -29,6 +29,7 @@ namespace AutomaticStockTrading.Controllers
         private readonly ISession session;
 
 
+
         public StockController(Context context, UserDataService userDataService, IHttpContextAccessor httpContextAccessor, StockDataService stockDataService)
         {
             Context = context;
@@ -131,8 +132,18 @@ namespace AutomaticStockTrading.Controllers
         [HttpPost("order/buy")]
         public ActionResult postOrder([FromBody] OrderPostDto json)
         {
-            Console.WriteLine(json.name + " " + json.amount.ToString() + " " + json.price.ToString());
+           // Console.WriteLine(json.name + " " + json.amount.ToString() + " " + json.price.ToString());
 
+
+            var stockId = _stockDataService.GetStockId(json.name);
+            DateTime now = DateTime.Now;
+            string strDate = now.ToString("YYYY-MM-dd");
+            var id = session.GetInt32("userID").Value;
+           
+            Console.WriteLine(id);
+            Console.WriteLine(stockId);
+
+            _stockDataService.AddOrder(id, stockId, json.amount, now, json.price);
             return Ok("answer : OK");
         }
     }

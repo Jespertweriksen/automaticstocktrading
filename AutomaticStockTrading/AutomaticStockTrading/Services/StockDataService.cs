@@ -235,6 +235,30 @@ namespace AutomaticStockTrading.Services
             return query;
 
         }
+
+        public int GetStockId(string stockName)
+        {
+            var query = (from data in context.stocktype
+                         where data.name == stockName
+                         select data.id).FirstOrDefault();
+
+            return query;
+        }
+
+        public void AddOrder(int userId, int stockId, int amount, DateTime date, float currentPrice)
+        {
+            OrderModel post = new OrderModel();
+
+            post.userID = userId;
+            post.stockID = stockId;
+            post.amount = amount;
+            post.dateTime = date;
+            post.price = currentPrice;
+
+            context.Add(new OrderModel {userID = userId, dateTime= date, stockID=stockId, amount= amount, price= currentPrice });
+            context.SaveChanges();
+        }
+       
     }
     
 }

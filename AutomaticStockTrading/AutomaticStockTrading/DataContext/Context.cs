@@ -48,7 +48,6 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<UserModel>().Property(x => x.age).HasColumnName("age");
             modelBuilder.Entity<UserModel>().Property(x => x.email).HasColumnName("email");
 
-
             modelBuilder.Entity<ForecastDataModel>().ToTable("forecast_data");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.close).HasColumnName("close");
@@ -62,6 +61,9 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<OrderModel>().Property(x => x.amount).HasColumnName("amount");
             modelBuilder.Entity<OrderModel>().Property(x => x.dateTime).HasColumnName("date");
             modelBuilder.Entity<OrderModel>().Property(x => x.price).HasColumnName("price");
+            modelBuilder.Entity<OrderModel>().HasOne(x => x.stockType).WithMany(x => x.order)
+                .HasForeignKey(x => x.stockID);
+            modelBuilder.Entity<OrderModel>().HasOne(x => x.user).WithMany(x => x.order).HasForeignKey(x => x.userID);
 
 
             modelBuilder.Entity<StockDataModel>().ToTable("stock_data");
