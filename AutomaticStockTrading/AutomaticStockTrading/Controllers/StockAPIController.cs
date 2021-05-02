@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -125,6 +126,14 @@ namespace AutomaticStockTrading.Controllers
         {
             var closeAndDate = _stockDataService.GetCloseAndDate(name);
             return Json(closeAndDate);
+        }
+
+        [HttpPost("order/buy")]
+        public ActionResult postOrder([FromBody] OrderPostDto json)
+        {
+            Console.WriteLine(json.name + " " + json.amount.ToString() + " " + json.price.ToString());
+
+            return Ok("answer : OK");
         }
     }
 }

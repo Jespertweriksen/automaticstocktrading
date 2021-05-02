@@ -12,7 +12,7 @@ namespace AutomaticStockTrading.Models
         public int stockID { get; set; }
         public int amount { get; set; }
         public DateTime dateTime { get; set; }
-        public int price { get; set; }
+        public float price { get; set; }
 
 
         // One order can have one user and stock. One user can have many orders.

@@ -35,10 +35,25 @@ async function getFrontpageStocks(stockName) {
     return data;
 }
 
+async function postOrder(data = {}) {
+    const response = await fetch('/api/order/buy', {
+        method: 'POST',
+        cache: 'no-cache',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    var jsonstring = JSON.stringify(data)
+    console.log(jsonstring);
+    return response;
+}
+
 export {
     getStockData as GetStockData,
     getForecastData as GetForecastData,
     getLastDateOfLog as GetLastDateOfLog,
     getPortfolioStocks as GetPortfolioStocks,
     getFrontpageStocks as GetFrontpageStocks,
+    postOrder as PostOrder,
 }

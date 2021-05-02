@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Compile Remove="Models\Class.cs" />
+    <Compile Remove="Models\Class1.cs" />
     <Compile Remove="Views\Home\SingleStock.cs" />
   </ItemGroup>
   <ItemGroup>
