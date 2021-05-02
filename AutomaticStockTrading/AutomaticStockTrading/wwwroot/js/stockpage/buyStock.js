@@ -56,6 +56,16 @@ function updateTotalBuyingAmount() {
 
 const buy = () => {
     console.log(selectedBuyAmount)
+
+    var orderAmount = selectedBuyAmount;
+
+    if (confirm(`Bekræft køb: ${orderAmount} $`)) {
+        // POST METODE FRA STORE
+
+        alert("Du har nu købt aktien")
+    } else {
+        alert("Du har aflyst handlen")
+    }
 }
 
 buyButton.onclick = () => {
