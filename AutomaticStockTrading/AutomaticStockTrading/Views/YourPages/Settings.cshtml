@@ -123,7 +123,7 @@
                                                 <h2 class="h5">Account balance</h2>
                                                 <h3 class="mb-1">@userDataService.GetWallets(HttpContextAccessor.HttpContext.Session.GetInt32("userID")).amount.-</h3>
                                             </div>
-                                            <small>Transactions: <span class="icon icon-small"></span>X</small>
+                                            <small>Transactions: @userDataService.getOrders(HttpContextAccessor.HttpContext.Session.GetInt32("userID")).Count() <span class="icon icon-small"></span></small>
                                             <div class="small mt-2">
                                                 <span class="fas fa-angle-up text-success"></span>
                                                 <span class="text-success fw-bold">18.2%</span> Since last month

@@ -157,11 +157,19 @@ namespace AutomaticStockTrading.Controllers
 
 
 
-            UserDataService.SubtractBalance(id, json.amount * json.price);
+           
+            var accountBalance = UserDataService.GetWallets(id).amount;
 
-
-            _stockDataService.AddOrder(id, stockId, json.amount, now, json.price);
-            return Ok("answer : OK");
+            if (accountBalance >= json.amount * json.price)
+            {
+                UserDataService.SubtractBalance(id, json.amount * json.price);
+                _stockDataService.AddOrder(id, stockId, json.amount, now, json.price);
+                return Ok("answer : OK");
+            }
+            else
+            {
+                return BadRequest("insufficient Funds");
+            }
         }
     }
 }
