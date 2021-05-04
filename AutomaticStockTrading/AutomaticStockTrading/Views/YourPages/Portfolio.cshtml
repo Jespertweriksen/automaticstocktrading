@@ -69,7 +69,7 @@
                                 <p>Det skyldes, at hvis en sektor får et hit, påvirkes ikke investeringerne i andre sektorer nødvendigvis.</p>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! :)</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! ʕ•ᴥ•ʔ</button>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                     at du har investeret for meget til at vende tilbage.</p>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! :)</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! (づ｡◕‿‿◕｡)づ</button>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                                     men på kort sigt kan du forvente naturlige udsving på markedet.</p>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! :)</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! ( ͡° ͜ʖ ͡°)</button>
                             </div>
                         </div>
                     </div>
@@ -146,6 +146,11 @@
                                     </div>
                                 </div>
                             </div>
+                            @{
+                                var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
+                                var orderList = userDataService.getOrdersWithDetails(userID);
+                            }
+                            
                             <table class="table table-centered table-nowrap mb-0 rounded">
                                 <thead class="thead-light">
                                 <tr>
@@ -156,7 +161,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>wallet</td>
+                                    <td>@userDataService.GetUser(userID).id</td>
                                     <td class="fw-bold">DKK</td>
                                     <td>wallet-værdi</td>
                                 </tr>
@@ -178,10 +183,6 @@
                         <div class="ms-auto">
                             @inject UserDataService userDataService;
                             @inject StockDataService _stockDataService;
-                            @{
-                                var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
-                                var orderList = userDataService.getOrdersWithDetails(userID);
-                            }
                             <div id="userid" style="display: none">@userDataService.GetUser(userID).id</div>
                             @{
                                 var distinctStocks = orderList.GroupBy(s => s.name).Select(grp => grp.First()).ToList();
