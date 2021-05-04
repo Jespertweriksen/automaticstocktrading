@@ -34,29 +34,102 @@
         <main class="content">
 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-                        <div class="d-block mb-4 mb-md-0">
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-                                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                                    <li class="breadcrumb-item">
-                                        <a href="#">
-                                            <span class="fas fa-home"></span>
-                                        </a>
-                                    </li>
-                                    <li class="breadcrumb-item">
-                                        <a href="#">Dine sider</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Portefølje</li>
-                                </ol>
-                            </nav>
-                            <h2 class="h4">Din Portefølje</h2>
-                            <p class="mb-0">Her ser du alle dine aktier.</p>
-                        </div>
-                        <div class="btn-toolbar mb-2 mb-md-0">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-primary">Eksporter</button>
+            <div class="d-block mb-4 mb-md-0">
+                <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                    <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                        <li class="breadcrumb-item">
+                            <a href="#">
+                                <span class="fas fa-home"></span>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#">Dine sider</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Portefølje</li>
+                    </ol>
+                </nav>
+                <h2 class="h4">Din Portefølje</h2>
+                <p class="mb-0">Her ser du alle dine aktier som du har købt der indgår i din portefølje. </p>
+                <ul> <b>FAQ:</b>
+                    <li><a data-bs-toggle="modal" data-bs-target="#modal-1"><b style="color: #0a53be"> Hvad er en portfølje?</b></a></li>
+                    <li><a data-bs-toggle="modal" data-bs-target="#modal-2"><b style="color: #0a53be"> Hvordan bygger jeg en  portfølje?</b></a></li>
+                    <li><a data-bs-toggle="modal" data-bs-target="#modal-3"><b style="color: #0a53be"> Identificering af mål og tidshorisont</b></a></li>
+                </ul>
+                <!-- hvad er en portefølje?-->
+                <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="h4 modal-title">Hvad er en portefølje?</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>En aktieportefølje er en samling af aktier, som du investerer i med håb om at få overskud.</p>
+                                <p>Ved at sammensætte en forskellig portefølje, der spænder over forskellige sektorer, kan du blive en mere modstandsdygtig investor.</p>
+                                <p>Det skyldes, at hvis en sektor får et hit, påvirkes ikke investeringerne i andre sektorer nødvendigvis.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! :)</button>
                             </div>
                         </div>
                     </div>
+                </div>
+                <!-- hvordan bygger man en portefølje?-->
+                <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="h4 modal-title">hvordan bygger man en portefølje?</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Når du sammensætter en aktieportefølje, er det vigtigt at have dine mål i tankerne på forhånd. 
+                                    På den måde styres din beslutningsproces af fornuft i modsætning til følelser.</p>
+                                <p>Alternativt kan du blive tvunget af din følelsesmæssige tilknytning til bestemte mærker til ikke kun at investere, 
+                                    men at holde på investering forbi det punkt, 
+                                    hvor det giver mening at gøre det bare fordi du kan lide virksomheden, 
+                                    eller fordi du har lyst til at have givet for meget af dig selv over til din investering.</p>
+                                <p>Sidstnævnte er kendt som den sænkede omkostningsfejl. Denne fejlslutning beskriver, 
+                                    at investeringer eller projekter er længere, end det giver mening, fordi du føler, 
+                                    at du har investeret for meget til at vende tilbage.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! :)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mål n stuff -->
+                <div class="modal fade" id="modal-3" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="h4 modal-title">Mål og tidslinje</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Din investeringsstrategi skal indeholde aspekter af din personlighed. 
+                                    Hvis du generelt er nervøs og ser nøje på dine aktier, 
+                                    kan det være bedre for dig at foretage investeringer i mindre ustabile virksomheder. 
+                                    Du bør også overveje, hvor længe du agter at holde på dine aktier.</p>
+                                <p>Markedet har en historisk opadgående tendens, hvilket gør det til et godt valg for langsigtede investeringer, 
+                                    men på kort sigt kan du forvente naturlige udsving på markedet.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tak for info! :)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-primary">Eksporter</button>
+                </div>
+            </div>
+        </div>
 
 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
