@@ -126,5 +126,7 @@ namespace AutomaticStockTrading.Controllers
             var closeAndDate = _stockDataService.GetCloseAndDate(name);
             return Json(closeAndDate);
         }
+
+        
     }
 }
