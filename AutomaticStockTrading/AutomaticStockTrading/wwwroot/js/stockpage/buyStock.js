@@ -1,4 +1,4 @@
-﻿
+﻿import { PostOrder} from "../store.js"
 
 var currentAmount = document.getElementById("currentBuyingAmount");
 var incrementButton = document.getElementById("increment");
@@ -56,12 +56,23 @@ function updateTotalBuyingAmount() {
 
 const buy = () => {
     console.log(selectedBuyAmount)
-
+    var userId = sessionStorage.getItem("")
     var orderAmount = selectedBuyAmount;
+    var stockName = document.getElementById("currentStock").innerHTML;
+
+    var currentPrice = document.getElementById("currentPrice").textContent;
+    currentPrice = currentPrice.trim();
+    currentPrice = currentPrice.replace("$", "");
+    currentPrice = parseFloat(currentPrice);
+
+    console.log(currentPrice, orderAmount, stockName)
+
+    
 
     if (confirm(`Bekræft køb: ${orderAmount} $`)) {
         // POST METODE FRA STORE
-
+        PostOrder({ amount: count, name: stockName, price: currentPrice }).
+            then(data => { console.log(data) })
         alert("Du har nu købt aktien")
     } else {
         alert("Du har aflyst handlen")
