@@ -44,6 +44,11 @@ namespace AutomaticStockTrading.Services
             return context.users.Find(id);
         }
 
+        public OrderModel GetOrder(int id)
+        {
+            return context.orders.Find(id);
+        }
+
         //CHECK IF AN EMAIL IS AN EMAIL && DOESNT EXISTS IN THE DB
         public bool IsValidEmail(string email)
         {
@@ -201,7 +206,7 @@ namespace AutomaticStockTrading.Services
             return model;
         }
 
-        public IList<OrderModel> getOrders(int id)
+        public IList<OrderModel> getOrders(int? id)
         {
 
             var query = context.users.Join(
@@ -220,6 +225,8 @@ namespace AutomaticStockTrading.Services
 
             return query;
         }
+
+        
 
         public IList<OrderDtoModel> getOrdersWithDetails(int id)
         {
@@ -312,6 +319,25 @@ namespace AutomaticStockTrading.Services
                 context.SaveChanges();
                 return true;
             }
+            return false;
+        }
+
+        public bool SellStock(int? userID, int orderID)
+        {
+            var getUser = context.users.FirstOrDefault(x => x.id == userID);
+            var getOrder = context.orders.Where(item => item.userID == userID && item.id == orderID);
+
+            var orderToRemove = GetOrder(orderID);
+
+
+
+            if(!orderID.Equals(null) && !userID.Equals(null))
+            {
+                context.orders.Remove(orderToRemove);
+                context.SaveChanges();
+                return true;
+            }
+
             return false;
         }
 

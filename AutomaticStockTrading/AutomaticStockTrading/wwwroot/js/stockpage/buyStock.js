@@ -73,9 +73,9 @@ const buy = () => {
         // POST METODE FRA STORE
         PostOrder({ amount: count, name: stockName, price: currentPrice }).
             then(data => { console.log(data) })
-        alert("Du har nu købt aktien")
+        // alert("Du har nu købt aktien")
     } else {
-        alert("Du har aflyst handlen")
+       // alert("Du har aflyst handlen")
     }
 }
 

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using AutomaticStockTrading.DataContext;
 using AutomaticStockTrading.Models;
 using AutomaticStockTrading.Services;
+using CurrencyDotNet;
+using CurrencyDotNet.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -144,8 +146,31 @@ namespace AutomaticStockTrading.Controllers
             Console.WriteLine(id);
             Console.WriteLine(stockId);
 
-            _stockDataService.AddOrder(id, stockId, json.amount, now, json.price);
-            return Ok("answer : OK");
+
+            /*
+            DataSource dataSource = new DataSource("Fixer");
+            CurrencyConverter currencyConverter = new CurrencyConverter(dataSource, 1,"c462ecaebf659fbc7e0d837e5c9672ba");
+            var decimalConversion = Convert.ToDecimal(json.price);
+
+            var exchange = currencyConverter.Convert(Currency.USD, decimalConversion, Currency.DKK);
+            float floatConversion = (float)exchange;
+            */
+
+
+
+           
+            var accountBalance = UserDataService.GetWallets(id).amount;
+
+            if (accountBalance >= json.amount * json.price)
+            {
+                UserDataService.SubtractBalance(id, json.amount * json.price);
+                _stockDataService.AddOrder(id, stockId, json.amount, now, json.price);
+                return Ok("answer : OK");
+            }
+            else
+            {
+                return BadRequest("insufficient Funds");
+            }
         }
 
     }

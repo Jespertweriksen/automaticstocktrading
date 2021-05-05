@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "kqUx492vYLmm2GkCNzIncnvMqz4ui4sQZVUT0mDWS6Ll/6b/YnoF7YMpuneOjaTIDb5fPQzCrgWJWI1gYolytg==",
+  "dgSpecHash": "FJrxe+zHSj46d3yxieE7wz+FzEbMu6vpgGPkrgNb+Fvj7kuvGODKX1UFzmwmyUuW4GVW1stUspU+ww+eYGAANA==",
   "success": true,
   "projectFilePath": "/Users/niklashjort/Desktop/Projects/stockTrading/automaticstocktrading/AutomaticStockTrading/AutomaticStockTrading/AutomaticStockTrading.csproj",
   "expectedPackageFiles": [
     "/Users/niklashjort/.nuget/packages/bouncycastle.netcore/1.8.5/bouncycastle.netcore.1.8.5.nupkg.sha512",
     "/Users/niklashjort/.nuget/packages/entityframework/6.4.4/entityframework.6.4.4.nupkg.sha512",
     "/Users/niklashjort/.nuget/packages/google.protobuf/3.11.4/google.protobuf.3.11.4.nupkg.sha512",
+    "/Users/niklashjort/.nuget/packages/irensaltali.currency/1.1.1/irensaltali.currency.1.1.1.nupkg.sha512",
     "/Users/niklashjort/.nuget/packages/jwt/8.1.6/jwt.8.1.6.nupkg.sha512",
     "/Users/niklashjort/.nuget/packages/k4os.compression.lz4/1.1.11/k4os.compression.lz4.1.1.11.nupkg.sha512",
     "/Users/niklashjort/.nuget/packages/k4os.compression.lz4.streams/1.1.11/k4os.compression.lz4.streams.1.1.11.nupkg.sha512",

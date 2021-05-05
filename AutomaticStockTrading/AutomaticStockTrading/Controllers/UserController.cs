@@ -205,6 +205,26 @@ namespace AutomaticStockTrading.Controllers
             }
         }
 
+
+
+        [HttpPost]
+        [ActionName("SellStock")]
+        public IActionResult SellStock([FromForm] OrderModel orderModel)
+        {
+            var balanceStatus = UserDataService.SellStock(orderModel.userID, orderModel.id);
+
+            if (balanceStatus)
+            {
+                UserDataService.UpdateBalance(orderModel.userID, orderModel.amount * orderModel.price);
+                return View("/Views/Yourpages/Portfolio.cshtml");
+            }
+            else
+            {
+                return BadRequest("Error updating balance");
+            }
+        }
+
+
         [HttpPost]
         [ActionName("SubtractBalance")]
         public IActionResult SubtractBalance([FromForm] WalletModel wallet)
