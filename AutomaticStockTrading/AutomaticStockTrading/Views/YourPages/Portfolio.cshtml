@@ -69,16 +69,16 @@
                             <table class="table table-centered table-nowrap mb-0 rounded">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th class="border-0">Konto</th>
+                                    <th class="border-0">Konto ID</th>
                                     <th class="border-0">Valuta</th>
                                     <th class="border-0">Værdi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>wallet</td>
-                                    <td class="fw-bold">DKK</td>
-                                    <td>wallet-værdi</td>
+                                    <td>@userDataService.GetWallets(HttpContextAccessor.HttpContext.Session.GetInt32("userID")).id</td>
+                                    <td class="fw-bold">USD</td>
+                                    <td>@userDataService.GetWallets(HttpContextAccessor.HttpContext.Session.GetInt32("userID")).amount</td>
                                 </tr>
                                 </tbody>
                             </table>

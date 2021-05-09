@@ -304,8 +304,11 @@ namespace AutomaticStockTrading.Services
             var walletBalance = context.wallet.Where(item => item.userid == userID)
                                                                               .Sum(item => item.amount);
 
+            var wallet = context.wallet.Where(x => x.userid == userID);
+
             WalletModel WalletModel = new WalletModel()
             {
+                id = wallet.FirstOrDefault().id,
                 amount = walletBalance
             };
             return WalletModel;
