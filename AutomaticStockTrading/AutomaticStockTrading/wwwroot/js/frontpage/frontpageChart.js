@@ -5,7 +5,7 @@ let ctxBar = document.getElementById('frontpageBarChart')
 
 
 
-const myIterator = (alist, glist, mlist) => {
+const myIterator = (alist, glist, mlist, nlist, naslist, tlist) => {
     let datetime = []
     
     let appleClose = []
@@ -16,6 +16,15 @@ const myIterator = (alist, glist, mlist) => {
     
     let microsoftClose = []
     let microsoftVolume = []
+    
+    let nasdaqClose = []
+    let nasdaqVolume = []
+
+    let netflixClose = []
+    let netflixVolume = []
+
+    let twitterClose = []
+    let twitterVolume = []
     
     
     alist.forEach(function (item) {
@@ -34,23 +43,45 @@ const myIterator = (alist, glist, mlist) => {
         microsoftVolume.push(item.volume);
     });
 
+    nlist.forEach(function (item) {
+        netflixClose.push(item.close);
+        netflixVolume.push(item.volume);
+    });
+
+    naslist.forEach(function (item) {
+        nasdaqClose.push(item.close);
+        nasdaqVolume.push(item.volume);
+    });
+
+    tlist.forEach(function (item) {
+        twitterClose.push(item.close);
+        twitterVolume.push(item.volume);
+    });
+
     // We reverse our arrays 
     datetime = datetime.reverse();
     appleClose = appleClose.reverse();
     googleClose = googleClose.reverse();
     microsoftClose = microsoftClose.reverse();
+    netflixClose = netflixClose.reverse()
+    nasdaqClose = nasdaqClose.reverse()
+    twitterClose = twitterClose.reverse()
     
     appleVolume = appleVolume.reverse();
     googleVolume = googleVolume.reverse();
     microsoftVolume = microsoftVolume.reverse();
-    return [datetime, appleClose, googleClose, microsoftClose, appleVolume, googleVolume, microsoftVolume]
+    netflixVolume = netflixVolume.reverse()
+    nasdaqVolume = nasdaqVolume.reverse()
+    twitterVolume = twitterVolume.reverse()
+    return [datetime, appleClose, googleClose, microsoftClose, netflixClose, nasdaqClose, twitterClose, 
+        appleVolume, googleVolume, microsoftVolume, netflixVolume, nasdaqVolume, twitterVolume]
 }
 
 
 async function currentChart() {
-    let appleStock = "apple"
-    let googleStock = "google"
-    let microsoftStock = "microsoft"
+    let appleStock = "Apple"
+    let googleStock = "Google"
+    let microsoftStock = "Microsoft"
     let nasdaqStock = "NASDAQ";
     let netflixStock = "Netflix Inc";
     let twitterStock = "Twitter Inc";
@@ -60,7 +91,8 @@ async function currentChart() {
     const nasdaqSequences = await GetFrontpageStocks(nasdaqStock);
     const netflixSequences = await GetFrontpageStocks(netflixStock);
     const twitterSequences = await GetFrontpageStocks(twitterStock);
-    let [datetime, appleClose, googleClose, microsoftClose, appleVolume, googleVolume, microsoftVolume] = myIterator(appleSequences, googleSequences, microsoftSequences) //myIterator(sequences);
+    let [datetime, appleClose, googleClose, microsoftClose, netflixClose, nasdaqClose, twitterClose,
+        appleVolume, googleVolume, microsoftVolume, netflixVolume, nasdaqVolume, twitterVolume] = myIterator(appleSequences, googleSequences, microsoftSequences, netflixSequences, nasdaqSequences, twitterSequences) //myIterator(sequences);
 
     let apple_seq = {
         label: 'Apple',
@@ -83,6 +115,30 @@ async function currentChart() {
         data: microsoftClose,
         backgroundColor: "red",
         borderColor: "red",
+        borderWidth: 1
+    }
+
+    let netflix_seq = {
+        label: 'Netflix',
+        data: netflixClose,
+        backgroundColor: "orange",
+        borderColor: "orange",
+        borderWidth: 1
+    }
+
+    let nasdaq_seq = {
+        label: 'NASDAQ',
+        data: nasdaqClose,
+        backgroundColor: "black",
+        borderColor: "black",
+        borderWidth: 1
+    }
+
+    let twitter_seq = {
+        label: 'Twitter',
+        data: twitterClose,
+        backgroundColor: "yellow",
+        borderColor: "yellow",
         borderWidth: 1
     }
     
@@ -109,20 +165,46 @@ async function currentChart() {
         borderColor: "red",
         borderWidth: 1
     }
+
+    let netflix_vol = {
+        label: 'Netflix',
+        data: netflixVolume,
+        backgroundColor: "orange",
+        borderColor: "orange",
+        borderWidth: 1
+    }
+
+    let nasdaq_vol = {
+        label: 'NASDAQ',
+        data: nasdaqVolume,
+        backgroundColor: "black",
+        borderColor: "red",
+        borderWidth: 1
+    }
+
+    let twitter_vol = {
+        label: 'Microsoft',
+        data: twitterVolume,
+        backgroundColor: "yellow",
+        borderColor: "yellow",
+        borderWidth: 1
+    }
         
-    renderChart(datetime, apple_seq, google_seq, microsoft_seq, apple_vol, google_vol, microsoft_vol)
+    renderChart(datetime, apple_seq, google_seq, microsoft_seq, netflix_seq, nasdaq_seq, twitter_seq, 
+        apple_vol, google_vol, microsoft_vol, netflix_vol, nasdaq_vol, twitter_vol)
 }
 
 currentChart();
 
 
-const renderChart = (datetime, apple_sequence, google_sequence, microsoft_sequence, apple_volume, google_volume, microsoft_volume) => {
+const renderChart = (datetime, apple_sequence, google_sequence, microsoft_sequence, netflix_sequence, nasdaq_sequence, twitter_sequence,
+                     apple_volume, google_volume, microsoft_volume, netflix_volume, nasdaq_volume, twitter_volume) => {
     let myChart = new Chart(ctx, {
         type: 'line',
 
         data: {
             labels: datetime,
-            datasets: [apple_sequence, google_sequence, microsoft_sequence]
+            datasets: [apple_sequence, google_sequence, microsoft_sequence, netflix_sequence, nasdaq_sequence, twitter_sequence]
         },
         options: {
 
@@ -150,7 +232,7 @@ const renderChart = (datetime, apple_sequence, google_sequence, microsoft_sequen
         type: 'bar',
         data: {
             labels: datetime,
-            datasets: [apple_volume, google_volume, microsoft_volume]
+            datasets: [apple_volume, google_volume, microsoft_volume, netflix_volume, nasdaq_volume, twitter_volume]
         },
         options: {
 

@@ -62,7 +62,7 @@ updateChart();
 
 
 
-const renderChart = (name_seq, amount_seq) => {
+const renderChart = (name_seq, amount_seq, u ) => {
     let myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {

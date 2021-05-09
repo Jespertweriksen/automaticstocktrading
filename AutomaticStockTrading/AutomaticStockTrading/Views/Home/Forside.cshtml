@@ -31,7 +31,7 @@
         @{
             string[] stockList = {"GME", "AAPL", "AMZN", "MSFT"};
             var stockTypesList = _stockDataService.GetAllTypes();
-            var selectedStock = stockTypesList[0].name;
+            var selectedStock = "Apple"; //stockTypesList[0].name
             //var bigBoxStock = _stockDataService.GetCurrentPrice(selectedStock);
             var bigBoxCurr = _stockDataService.GetCurrentPrice(selectedStock);
             var bigBoxCloseYesterday = _stockDataService.GetAllClosePriceYesterday(selectedStock);
