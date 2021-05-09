@@ -62,25 +62,26 @@
                 <div class="row">
                     <div class="col-12 col-xl-8">
                         <div class="card card-body shadow-sm mb-4">
-                            <h2 class="h5 mb-4">General information</h2>
+                            <h2 class="h5 mb-4">Generelle informationer</h2>
+                            <h3 class="h5 mb-4">Her kan du ændre dine personlige oplysninger</h3>
                             <form method="post" asp-action="Update" asp-controller="User">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <div>
-                                            <label for="first_name">First name</label>
+                                            <label for="first_name">Fornavn</label>
                                             <input asp-for="surname" class="form-control" id="first_name" type="text" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("surname")">
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div>
-                                            <label for="last_name">Last name</label>
+                                            <label for="last_name">Efternavn</label>
                                             <input asp-for="last_name" class="form-control" id="last_name" type="text" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("lastname")">
                                         </div>
                                     </div>
 
 
                                     <div class="col-md-6 mb-3">
-                                        <label for="birthday">Birthday</label>
+                                        <label for="birthday">Fødselsdag</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
                                             <input asp-for="age" data-datepicker="" class="form-control" id="birthday" type="text" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("age")">
@@ -95,15 +96,15 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
-                                            <label for="username">Username</label>
+                                            <label for="username">Brugernavn</label>
                                             <input asp-for="username" class="form-control" id="username" type="text" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("username")">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="button-box col-lg-12">
-                                    <button type="submit" class="btn btn-dark">Save All</button>
-                                    <button asp-action="RecoverPage" asp-controller="User" class="btn btn-dark">Change password</button>
+                                    <button type="submit" class="btn btn-dark">Gem</button>
+                                    <button asp-action="RecoverPage" asp-controller="User" class="btn btn-dark">Skift kodeord</button>
 
                                 </div>
                             </form>
@@ -136,6 +137,7 @@
                                 <div class="card card-body shadow-sm mb-4">
 
                                     <div class="col-6 mb-2">
+                                        <h2>Tilføj penge til konto</h2>
                                         <form method="post" asp-action="AddToBalance" asp-controller="User">
 
                                             <div class="col-12 mb-2">
@@ -146,6 +148,7 @@
                                             </div>
                                         </form>
                                         <form method="post" asp-action="SubtractBalance" asp-controller="User">
+                                            <h2>Udbetal penge</h2>
                                             <div class="col-12 mb-2">
                                                 <input name="amount" id="removeamount" class="form-control" required>
                                             </div>
@@ -181,48 +184,7 @@
                             </div>
                         </div>
 
-                        <div class="card card-body shadow-sm mb-4 mb-lg-0 col-12">
-                            <h2 class="h5 mb-4">Alerts & Notifications</h2>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-                                    <div>
-                                        <h3 class="h6 mb-1">Company News</h3>
-                                        <p class="small pe-4">Get Rocket news, announcements, and product updates</p>
-                                    </div>
-                                    <div>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="user-notification-1">
-                                            <label class="form-check-label" for="user-notification-1"></label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-                                    <div>
-                                        <h3 class="h6 mb-1">Account Activity</h3>
-                                        <p class="small pe-4">Get important notifications about you or activity you've missed</p>
-                                    </div>
-                                    <div>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="user-notification-2" checked>
-                                            <label class="form-check-label" for="user-notification-2"></label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex align-items-center justify-content-between px-0">
-                                    <div>
-                                        <h3 class="h6 mb-1">Meetups Near You</h3>
-                                        <p class="small pe-4">Get an email when a Dribbble Meetup is posted close to my location</p>
-                                    </div>
-                                    <div>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="user-notification-3" checked>
-                                            <label class="form-check-label" for="user-notification-3"></label>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                       
 
                 </div>
 

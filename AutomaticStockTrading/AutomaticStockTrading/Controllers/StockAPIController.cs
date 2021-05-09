@@ -131,6 +131,7 @@ namespace AutomaticStockTrading.Controllers
             return Json(closeAndDate);
         }
 
+
         [HttpPost("order/buy")]
         public ActionResult postOrder([FromBody] OrderPostDto json)
         {
@@ -171,5 +172,6 @@ namespace AutomaticStockTrading.Controllers
                 return BadRequest("insufficient Funds");
             }
         }
+
     }
 }
