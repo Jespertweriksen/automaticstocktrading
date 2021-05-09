@@ -102,7 +102,7 @@
                                 var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
                                 var orderList = userDataService.getOrdersWithDetails(userID);
                             }
-                            <div id="userid">@userDataService.GetUser(userID).id</div> <!--  style="display: none" -->
+                            <div id="userid" style="display: none">@userDataService.GetUser(userID).id</div> <!--  style="display: none" -->
                             @{
                                 var distinctStocks = orderList.GroupBy(s => s.name).Select(grp => grp.First()).ToList();
                                 foreach (var stock in distinctStocks)
@@ -262,6 +262,6 @@
 
         </main>
         </body>
-        <script src="~/js/stockpage/portfolioChart.js" type="module"></script>
+        <script src="~/js/portfolioPage/portfolioChart.js" type="module"></script>
     }
 }
