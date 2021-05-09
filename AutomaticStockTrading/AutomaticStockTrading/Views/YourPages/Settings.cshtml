@@ -78,8 +78,6 @@
                                             <input asp-for="last_name" class="form-control" id="last_name" type="text" placeholder="@HttpContextAccessor.HttpContext.Session.GetString("lastname")">
                                         </div>
                                     </div>
-
-
                                     <div class="col-md-6 mb-3">
                                         <label for="birthday">Fødselsdag</label>
                                         <div class="input-group">
@@ -101,11 +99,9 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="button-box col-lg-12">
                                     <button type="submit" class="btn btn-dark">Gem</button>
                                     <button asp-action="RecoverPage" asp-controller="User" class="btn btn-dark">Skift kodeord</button>
-
                                 </div>
                             </form>
                         </div>
@@ -183,13 +179,9 @@
                                 </div>
                             </div>
                         </div>
-
-                       
-
+                    </div>
                 </div>
-
             </main>
-
         </body>
 
     }

@@ -10,7 +10,7 @@
 
 //import { DataTable } from "simple-datatables"
 const dataTable = new DataTable("#table", {
-    searchable: false,
+    searchable: true,
     fixedheight: false,
     perPageSelect: false
 });

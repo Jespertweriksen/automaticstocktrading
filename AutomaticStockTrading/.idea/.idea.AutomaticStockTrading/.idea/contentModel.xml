@@ -287,12 +287,16 @@
           <e p="js" t="Include">
             <e p="chart.js" t="Include" />
             <e p="datatables.js" t="Include" />
+            <e p="frontpage" t="Include">
+              <e p="frontpageChart.js" t="Include" />
+            </e>
+            <e p="portfolioPage" t="Include">
+              <e p="portfolioChart.js" t="Include" />
+            </e>
             <e p="site.js" t="Include" />
             <e p="stockpage" t="Include">
               <e p="forecastChart.js" t="Include" />
-              <e p="frontpageChart.js" t="Include" />
               <e p="percentageChangeChart.js" t="Include" />
-              <e p="portfolioChart.js" t="Include" />
               <e p="stockPageChart.js" t="Include" />
             </e>
             <e p="store.js" t="Include" />
