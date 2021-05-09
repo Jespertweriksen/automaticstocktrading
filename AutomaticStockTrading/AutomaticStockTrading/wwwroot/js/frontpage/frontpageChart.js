@@ -48,12 +48,18 @@ const myIterator = (alist, glist, mlist) => {
 
 
 async function currentChart() {
-    let appleStock = "apple"//currentStockName.innerHTML;
+    let appleStock = "apple"
     let googleStock = "google"
     let microsoftStock = "microsoft"
-    const appleSequences = await GetFrontpageStocks(appleStock); //await GetFrontpageStocks(currentName);
+    let nasdaqStock = "NASDAQ";
+    let netflixStock = "Netflix Inc";
+    let twitterStock = "Twitter Inc";
+    const appleSequences = await GetFrontpageStocks(appleStock);
     const googleSequences = await GetFrontpageStocks(googleStock);
     const microsoftSequences = await GetFrontpageStocks(microsoftStock);
+    const nasdaqSequences = await GetFrontpageStocks(nasdaqStock);
+    const netflixSequences = await GetFrontpageStocks(netflixStock);
+    const twitterSequences = await GetFrontpageStocks(twitterStock);
     let [datetime, appleClose, googleClose, microsoftClose, appleVolume, googleVolume, microsoftVolume] = myIterator(appleSequences, googleSequences, microsoftSequences) //myIterator(sequences);
 
     let apple_seq = {
