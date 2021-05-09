@@ -178,12 +178,12 @@ async function currentChart() {
         label: 'NASDAQ',
         data: nasdaqVolume,
         backgroundColor: "black",
-        borderColor: "red",
+        borderColor: "black",
         borderWidth: 1
     }
 
     let twitter_vol = {
-        label: 'Microsoft',
+        label: 'Twitter',
         data: twitterVolume,
         backgroundColor: "yellow",
         borderColor: "yellow",
