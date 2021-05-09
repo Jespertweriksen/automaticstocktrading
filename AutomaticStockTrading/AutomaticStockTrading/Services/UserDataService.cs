@@ -116,6 +116,22 @@ namespace AutomaticStockTrading.Services
             //return ctx.users.Find(maxId + 1);
         }
 
+        public bool CreateWallet(string username, float amount)
+        {
+            var getUser = context.users.Where(x => x.username == username);
+          
+            if (!string.IsNullOrEmpty(getUser.FirstOrDefault().username))
+            {
+                context.wallet.Add(new WalletModel
+                { userid = getUser.First().id, amount = amount});
+                context.SaveChanges();
+                return true;
+            }
+          
+            return false;
+            //return ctx.users.Find(maxId + 1);
+        }
+
         //UPDATE USER PROFILE
         public bool UpdateUser(int? id, string username, string surname, string lastname, DateTime age, string email)
         {

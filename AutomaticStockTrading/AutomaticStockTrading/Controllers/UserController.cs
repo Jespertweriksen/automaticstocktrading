@@ -80,8 +80,9 @@ namespace AutomaticStockTrading.Controllers
         {
             //string surname, string lastname, int age, string email
             var user = UserDataService.CreateUser(userDto.username, userDto.password, userDto.surname, userDto.last_name, userDto.age, userDto.email);
+            var wallet = UserDataService.CreateWallet(userDto.username, 0);
 
-            if (user)
+            if (user && wallet)
             {
                 return View("/Views/Login/Login.cshtml");
             }
