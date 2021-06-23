@@ -80,6 +80,8 @@ namespace AutomaticStockTrading.Controllers
                              name = os.name,
                              stock_name = os.stock_name
                          }).ToList();
+
+            var bla = query;
             return query as IList;
         }
 

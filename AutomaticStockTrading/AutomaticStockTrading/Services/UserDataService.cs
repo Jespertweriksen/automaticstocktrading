@@ -261,6 +261,11 @@ namespace AutomaticStockTrading.Services
                     name = os.name,
                     stock_name = os.stock_name
                 }).ToList();
+            var bla = query;
+
+            Console.WriteLine(bla);
+
+
             return query;
         }
 
