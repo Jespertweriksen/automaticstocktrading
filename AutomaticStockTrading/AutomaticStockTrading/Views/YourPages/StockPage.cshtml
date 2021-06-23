@@ -1,0 +1,208 @@
+﻿@using AutomaticStockTrading.Services;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject StockDataService stock
+@{
+    ViewData["Title"] = "Forside";
+}
+@using AutomaticStockTrading.Controllers;
+
+
+
+@{
+    var nameOfStock = ViewBag.CaseId;
+    var selectedStock = YourPagesController.userSelection;
+
+
+    var current_price = stock.GetCurrentPrice(selectedStock);
+
+    var close_yesterday = stock.GetAllClosePriceYesterday(selectedStock);
+
+    var percentageChange = Math.Round(double.Parse(close_yesterday) / double.Parse(current_price.price));
+
+    var forecastListObject = stock.GetForeCastByStockName(selectedStock);
+
+    var foreCastTommorow = forecastListObject[0];
+
+    var close_today = stock.GetCloseByStockName(selectedStock);
+
+    var percentagechangeForcastFromToday = Math.Round(foreCastTommorow.close / float.Parse(close_today.close));
+
+    var averageLastYear = Math.Round(stock.GetAvarageStockDataLastYear(selectedStock, 1));
+
+    var averageThisYear = Math.Round(stock.GetAvarageStockDataLastYear(selectedStock, 0));
+
+
+
+}
+
+@{
+
+    <body>
+        <main class="content">
+            <div>
+                <div class="d-block mb-4 mb-md-0">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                            <li class="breadcrumb-item">
+                                <a href="#">
+                                    <span class="fas fa-home"></span>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#">Aktiedata</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">@selectedStock</li>
+                        </ol>
+                    </nav>
+                    <h1 id="currentStock">@selectedStock</h1>
+                    <div class="row">
+                        <p class="mb-0">Her kan du se forskellige informationer vedr. aktien</p>
+                        <p> Nedenstående knapper kan du trykke på for at købe en bestemt mængde af ovenstående aktie</p>
+                    </div>
+                </div>
+            </div>
+
+                
+            <div class="row">
+                <div class="col-12 col-sm-6 col-xl-2 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Køb aktie</div>
+                                <div class="small mt-2">
+                                    <div class="col-sm-15">
+                                        <button class="btn btn-secondary" id="decrease" data-bs-toggle="tooltip" data-bs-placement="right" title="Minus">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn btn-secondary" id="increment" data-bs-toggle="tooltip" data-bs-placement="right" title="Plus">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn btn-secondary" id="buyStock" data-bs-toggle="tooltip" data-bs-placement="right" title="Køb">Køb</button>
+
+                                    </div>
+                                    <div class="col-sm-15">
+                                        <div style="display:inline-block; text-align:center;">
+                                            <span class="h3" id="currentBuyingAmount"> </span> <span class="h3">stk.</span>
+                                        </div>
+                                        <div style="display:inline-block;">
+                                            <span class="h3" id="totalPrice">0</span> <span class="h3">$</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Nuværende Pris</div>
+                                <h2 class="h3" id="currentPrice" value="@current_price.price">
+                                    $@current_price.price
+                                </h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Procent forandring fra igår</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">@percentageChange.ToString()%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Lukkeværdi imorgen</div>
+                                <h2 class="h3">$@foreCastTommorow.close</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Procent forandring fra idag</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">@percentagechangeForcastFromToday%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Average close sidste år</div>
+                                <h2 class="h3">$@averageLastYear</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Average værdi i år</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">@averageThisYear</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 mb-4">
+                    <div class="card bg-secondary-alt shadow-sm">
+                        <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                            <div class="d-block mb-3 mb-sm-0">
+                                <div class="h5 fw-normal mb-2">Tilgængelig for køb</div>
+                                <h2 class="h3">Ja</h2>
+                                <div class="small mt-2">
+                                    <span class="fw-bold me-2">Igår</span>
+                                    <span class="fas fa-angle-up text-success"></span>
+                                    <span class="text-success fw-bold">Ja</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-6 mb-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body pb-0">
+                            <p>Denne graf viser et forecast lavet ved brug af en LSTM model.</p>
+                            <canvas id="forecast_Chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body pb-0">
+                            <p>Denne graf viser procent forandring imellem datoerne på x-aksen.</p>
+                            <canvas id="percentage_Chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 mb-4">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-body pb-0">
+                            <p>Nedenstående graf kan give et godt indblik i om en kommende investering er god.</p>
+                            <p>Du kan klikke på de forskellige farvet labels for at se de enkelte værdier. Hold musen over de enkelte punkter for at se værdi.</p>
+                            <canvas id="historic_Chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </main>
+    </body>
+    <script src="~/js/stockpage/stockPageChart.js" type="module"></script>
+    <script src="~/js/stockpage/forecastChart.js" type="module"></script>
+    <script src="~/js/stockpage/percentageChangeChart.js" type="module"></script>
+    <script src="~/js/stockpage/buyStock.js" type="module"></script>
+}

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,6 +32,8 @@ namespace AutomaticStockTrading.DataContext
         public DbSet<StockDataModel> stockdata { get; set; }
         public DbSet<StockTypeModel> stocktype { get; set; }
 
+        public DbSet<WalletModel> wallet { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
            
@@ -45,11 +48,11 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<UserModel>().Property(x => x.age).HasColumnName("age");
             modelBuilder.Entity<UserModel>().Property(x => x.email).HasColumnName("email");
 
-
             modelBuilder.Entity<ForecastDataModel>().ToTable("forecast_data");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.close).HasColumnName("close");
             modelBuilder.Entity<ForecastDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
+            modelBuilder.Entity<ForecastDataModel>().HasOne(x => x.stockType).WithMany(x => x.forecast).HasForeignKey(x => x.stock_type_id);
 
             modelBuilder.Entity<OrderModel>().ToTable("orders");
             modelBuilder.Entity<OrderModel>().Property(x => x.id).HasColumnName("id");
@@ -58,6 +61,9 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<OrderModel>().Property(x => x.amount).HasColumnName("amount");
             modelBuilder.Entity<OrderModel>().Property(x => x.dateTime).HasColumnName("date");
             modelBuilder.Entity<OrderModel>().Property(x => x.price).HasColumnName("price");
+            modelBuilder.Entity<OrderModel>().HasOne(x => x.stockType).WithMany(x => x.order)
+                .HasForeignKey(x => x.stockID);
+            modelBuilder.Entity<OrderModel>().HasOne(x => x.user).WithMany(x => x.order).HasForeignKey(x => x.userID);
 
 
             modelBuilder.Entity<StockDataModel>().ToTable("stock_data");
@@ -69,16 +75,23 @@ namespace AutomaticStockTrading.DataContext
             modelBuilder.Entity<StockDataModel>().Property(x => x.close).HasColumnName("close");
             modelBuilder.Entity<StockDataModel>().Property(x => x.volume).HasColumnName("volume");
             modelBuilder.Entity<StockDataModel>().Property(x => x.stock_type_id).HasColumnName("stock_type_id");
+            modelBuilder.Entity<StockDataModel>().HasOne(x => x.stockType).WithMany(x => x.stockData)
+                .HasForeignKey(x => x.stock_type_id);
+
 
 
             modelBuilder.Entity<StockTypeModel>().ToTable("stock_type");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.id).HasColumnName("id");
             modelBuilder.Entity<StockTypeModel>().Property(x => x.name).HasColumnName("name");
-            modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("name");
+            modelBuilder.Entity<StockTypeModel>().Property(x => x.stock_name).HasColumnName("stock_name");
 
 
+            modelBuilder.Entity<WalletModel>().ToTable("wallet");
+            modelBuilder.Entity<WalletModel>().Property(x => x.id).HasColumnName("id");
+            modelBuilder.Entity<WalletModel>().Property(x => x.userid).HasColumnName("user_id");
+            modelBuilder.Entity<WalletModel>().Property(x => x.amount).HasColumnName("amount");
+            modelBuilder.Entity<WalletModel>().Property(x => x.paymentDate).HasColumnName("payment_date");
 
-               
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new DBConfig());

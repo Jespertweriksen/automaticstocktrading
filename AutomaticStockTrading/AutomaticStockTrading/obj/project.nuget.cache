@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "CVb6b2XlEqoZ48XQySL9L+x1NK9dabFDOtXh9dAR7vi7yAFEgLtBsBd5eOC6HJm5w9JfESwuuhgtzp7XbejTpg==",
+  "dgSpecHash": "z1Jv6JevDACsPUIVLzHtM7FC+WbpWQYo+p7sRUbJSkzHgrfEUyHfny2FSM3hYcXiDKeBXse69MP2Zab7L3aWvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\45535\\Desktop\\Informatik 3 semester\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\AutomaticStockTrading.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\45535\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\45535\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\45535\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",
+    "C:\\Users\\45535\\.nuget\\packages\\irensaltali.currency\\1.1.1\\irensaltali.currency.1.1.1.nupkg.sha512",
     "C:\\Users\\45535\\.nuget\\packages\\jwt\\8.1.6\\jwt.8.1.6.nupkg.sha512",
     "C:\\Users\\45535\\.nuget\\packages\\k4os.compression.lz4\\1.1.11\\k4os.compression.lz4.1.1.11.nupkg.sha512",
     "C:\\Users\\45535\\.nuget\\packages\\k4os.compression.lz4.streams\\1.1.11\\k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
@@ -177,6 +178,12 @@
     "C:\\Users\\45535\\.nuget\\packages\\unirest-api\\1.0.7.6\\unirest-api.1.0.7.6.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\45535\\Desktop\\Informatik 3 semester\\automaticstocktrading\\AutomaticStockTrading\\AutomaticStockTrading\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

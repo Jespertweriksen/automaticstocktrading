@@ -27,110 +27,113 @@
     else
     {
         <body>
-            <main class="content">
-                <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+        <main class="content">
+            <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-                    <div class="d-block mb-4 mb-md-0">
-                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-                            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                                <li class="breadcrumb-item">
-                                    <a href="#">
-                                        <span class="fas fa-home"></span>
-                                    </a>
-                                </li>
-                                <li class="breadcrumb-item"><a href="#">Dine sider</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Ordre</li>
-                            </ol>
-                        </nav>
-                        <h2 class="h4">Alle Ordre</h2>
-                        <p class="mb-0">Her ser du alle dine ordre.</p>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+                <div class="d-block mb-4 mb-md-0">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                            <li class="breadcrumb-item">
+                                <a href="#">
+                                    <span class="fas fa-home"></span>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="#">Dine sider</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Ordre</li>
+                        </ol>
+                    </nav>
+                    <h2 class="h4">Alle Ordre</h2>
+                    <p class="mb-0">Her ser du alle dine ordre.</p>
+                </div>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-primary">Eksporter</button>
                     </div>
-                    <div class="btn-toolbar mb-2 mb-md-0">
+                </div>
+            </div>
+
+
+            <div class="table-settings mb-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col col-md-6 col-lg-3 col-xl-4 mt-4 ml-4">
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon2">
+                                <span class="fas fa-search"></span>
+                            </span>
+                            <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right mr-4 mt-5">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-primary">Eksporter</button>
+                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="icon icon-sm icon-gray">
+                                    <span class="fas fa-cog"></span>
+                                </span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-xs dropdown-menu-right">
+                                <span class="dropdown-item font-weight-bold text-dark">Show</span>
+                                <a class="dropdown-item d-flex font-weight-bold" id="perPage5">5</a>
+                                <a class="dropdown-item font-weight-bold" id="perPage10">10</a>
+                                <a class="dropdown-item font-weight-bold" id="perPage15">15</a>
+                                <a class="dropdown-item font-weight-bold" id="perPage20">20</a>
+                                <a class="dropdown-item font-weight-bold" id="perPage25">25</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-              
-
-                                <div class="table-settings mb-4">
-                                    <div class="row align-items-center justify-content-between">
-                                        <div class="col col-md-6 col-lg-3 col-xl-4 mt-4 ml-4">
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
-                                                <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right mr-4 mt-5">
-                                            <div class="btn-group">
-                                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span class="icon icon-sm icon-gray">
-                                                        <span class="fas fa-cog"></span>
-                                                    </span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-xs dropdown-menu-right">
-                                                    <span class="dropdown-item font-weight-bold text-dark">Show</span>
-                                                    <a class="dropdown-item d-flex font-weight-bold" id="perPage5">5</a>
-                                                    <a class="dropdown-item font-weight-bold" id="perPage10">10</a>
-                                                    <a class="dropdown-item font-weight-bold" id="perPage15">15</a>
-                                                    <a class="dropdown-item font-weight-bold" id="perPage20">20</a>
-                                                    <a class="dropdown-item font-weight-bold" id="perPage25">25</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                    
+            </div>
 
 
+            <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0  ml-4 mr-4">
 
-                <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0  ml-4 mr-4">
+                <table class="table table-hover" id="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>userID</th>
+                        <th>Name</th>
+                        <th>Stock Alias</th>
+                        <th>amount</th>
+                        <th>dateTime</th>
+                        <th>price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Item -->
+                    @inject UserDataService userDataService
+                    @{
+                        var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
 
-                    <table class="table table-hover" id="table">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>userID</th>
-                                <th>amount</th>
-                                <th>dateTime</th>
-                                <th>price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Item -->
-                            @inject UserDataService userDataService
-                            @{
-                                var userID = HttpContextAccessor.HttpContext.Session.GetInt32("userID").GetValueOrDefault();
-
-                                var orderList = userDataService.getOrders(userID);
+                        var orderList = userDataService.getOrdersWithDetails(userID);
 
 
-                            }
-                            @foreach (var orders in orderList)
-                            {
+                    }
+                    @foreach (var orders in orderList)
+                    {
+                        <tr>
+                            <td>@orders.id</td>
+                            <td>@orders.userID</td>
+                            <td>@orders.name</td>
+                            <td>@orders.stock_name</td>
+                            <td>@orders.amount</td>
+                            <td>@orders.dateTime</td>
+                            <td>@orders.price</td>
+                        </tr>
+                    }
+                    <!-- Item -->
+                    </tbody>
+                </table>
 
-                                <tr>
+            </div>
 
-                                    <td>@orders.id</td>
-                                    <td>@orders.userID</td>
-                                    <td>@orders.amount</td>
-                                    <td>@orders.dateTime</td>
-                                    <td>@orders.price</td>
-                                </tr>
-                            }
-                            <!-- Item -->
-                        </tbody>
-                    </table>
+            <br>
+            <br>
 
-                </div>
-
-                <br>
-                <br>
-
-            </main>
+        </main>
         </body>
     }
 }
-
