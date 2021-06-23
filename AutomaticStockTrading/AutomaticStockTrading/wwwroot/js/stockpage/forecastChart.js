@@ -10,6 +10,7 @@ async function updateForecastChart() {
     const lastDateLogging = await GetLastDateOfLog(currentStock);
     var startDate = lastDateLogging;
     var dateSeries = createFutureDates(startDate);
+    console.log(dateSeries)
 
     var closeSeries = []
     data.forEach(function (item) {
@@ -25,9 +26,13 @@ function createFutureDates(day) {
     var today = new Date(day);
     var thirtyFromToday = new Date();
     thirtyFromToday.setDate(thirtyFromToday.getDate() + 26);
+    console.log("What" + today)
+   // console.log(thirtyFromToday);
+    
 
    
     var sequenceDate = getDateSequence(today, thirtyFromToday)
+   // console.log(sequenceDate)
     return sequenceDate;
 }
 
@@ -44,6 +49,7 @@ function getDateSequence(startDate, endDate) {
         currentDate = addDays.call(currentDate, 1);
     }
     dates.shift();
+   
     return dates;
 }
 
@@ -57,6 +63,7 @@ function dateFormat(dateObject) {
 }
 
 const renderForecastChart = (date_sequence, close_sequence) => {
+    
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {

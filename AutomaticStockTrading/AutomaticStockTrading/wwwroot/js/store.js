@@ -17,7 +17,6 @@ async function getForecastData(stockName) {
 async function getLastDateOfLog(stockName) {
     let response = await fetch(`/api/stockdata/date/${stockName}`);
     let data = await response.json();
-    console.log("SUCCES: DATE LOADED");
     return data;
 }
 
