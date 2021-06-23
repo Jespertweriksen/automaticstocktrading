@@ -80,7 +80,7 @@ const renderPercentageChart = (date_sequence, close_sequence) => {
                 tension: {
                     duration: 1000,
                     easing: 'linear',
-                    from: 1.2,
+                    from: 0,
                     to: 0,
                     loop: true
                 }

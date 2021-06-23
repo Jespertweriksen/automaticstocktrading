@@ -95,7 +95,7 @@ const renderForecastChart = (date_sequence, close_sequence) => {
                 tension: {
                     duration: 1000,
                     easing: 'linear',
-                    from: 0.5,
+                    from: 0,
                     to: 0,
                     loop: true
                 }
